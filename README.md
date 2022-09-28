@@ -1,3 +1,3 @@
 # ProjetSynthese_A2022
-Générateur d'art dynamique
-Membres de l'équipe : Jessica Chan et Sebastian Perez
+## Générateur d'art dynamique
+__Membres de l'équipe__ : Jessica Chan et Sebastian Perez

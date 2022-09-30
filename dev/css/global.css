@@ -1,1 +1,44 @@
+:root {
+    --main-dark-color : #0D0D0D;
+    --main-light-color : white;
+    --main-accent-color : #F8026A;
+}
+
+*, html {
+    font-family: 'Inconsolata', monospace;
+    font-size: 62.5%; /*= 10px, https://www.sitepoint.com/understanding-and-using-rem-units-in-css/*/
+    background-color: var(--main-dark-color);
+    color: var(--main-light-color);
+}
+
+/* header {
+    background-color: green;
+} */
+
+body {
+    margin: 2vw 4vw;
+    font-size: 2.4rem;
+}
+
+h1 {
+    font-family: 'Staatliches', cursive;
+    font-size: 3.5rem; /*= 35px*/
+}
+
+nav {
+    /* background-color: green; */
+    font-size: 2rem;
+    color: var(--main-accent-color);
+    display: flex;
+    justify-content: flex-end;
+}
+
+nav a {
+    text-decoration: none;
+    color: inherit;
+    padding: 0.5vw;
+    margin-left: 2vw;
+}
+
+
 

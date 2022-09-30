@@ -1,5 +1,5 @@
 <?php
-	require_once("action/AnimationAction.php");
+	require_once("action/AboutAction.php");
 	
 	$action = new AboutAction();
 	$data = $action->execute();

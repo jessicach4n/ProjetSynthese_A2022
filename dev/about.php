@@ -8,6 +8,7 @@
 ?>
 
 <body class="about">
+<script src="js/GenerativeAlgorithm.js" defer ></script>
 </body>
     <h1>Page à propos</h1>
 </html>

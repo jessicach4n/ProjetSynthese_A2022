@@ -8,7 +8,8 @@
 ?>
 
 <body class="home">
-	<h1>L'expérience commence </h1>
+	<h1>Générateur d'art météorlogique</h1>
+	<h2>L'expérience commence </h2>
     <a href="animation.php">ici</a>
 </body>
 </html>

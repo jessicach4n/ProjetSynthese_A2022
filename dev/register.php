@@ -1,5 +1,5 @@
 <?php
-	require_once("action/AnimationAction.php");
+	require_once("action/RegisterAction.php");
 	
 	$action = new RegisterAction();
 	$data = $action->execute();

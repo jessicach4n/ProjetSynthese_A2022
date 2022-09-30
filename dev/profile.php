@@ -1,5 +1,5 @@
 <?php
-	require_once("action/AnimationAction.php");
+	require_once("action/ProfileAction.php");
 	
 	$action = new ProfileAction();
 	$data = $action->execute();

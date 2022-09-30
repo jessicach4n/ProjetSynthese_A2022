@@ -1,16 +1,28 @@
+/* 
+GLOBAL.CSS 
+contient les styles communes à toutes les pages 
+dont le style des header et footer 
+*/
+
 :root {
     --main-dark-color : #0D0D0D;
     --main-light-color : white;
     --main-accent-color : #F8026A;
     --font-weight-bold : 700;
     --font-weight-regular : 400;
+    --display-font : 'Staatliches', cursive;
+    --paragraph-font : 'Inconsolata', monospace;
 }
 
 *, html {
-    font-family: 'Inconsolata', monospace;
+    font-family: var(--paragraph-font);
     font-size: 62.5%; /*= 10px, https://www.sitepoint.com/understanding-and-using-rem-units-in-css/*/
+    color: var(--main-light-color);  
+}
+
+body {
     background-color: var(--main-dark-color);
-    color: var(--main-light-color);
+    line-height: 1.15;
 }
 
 /* header {
@@ -19,25 +31,36 @@
 
 body {
     margin: 2vw 4vw;
-    font-size: 2.4rem;
 }
 
 h1 {
-    font-family: 'Staatliches', cursive;
-    font-size: 3.5rem; /*= 35px*/
+    font-family: var(--display-font);
+    font-size: 10rem;
+    line-height: 100px;
+    color: var(--main-accent-color);
 }
 
 nav {
     /* background-color: green; */
     font-size: 2rem;
     color: var(--main-accent-color);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+li {
+    list-style-type: none;
+}
+
+nav.header-menu {
     display: flex;
     justify-content: flex-end;
 }
 
-nav a {
-    text-decoration: none;
-    color: inherit;
+nav.header-menu a {
     padding: 0.5vw;
     margin-left: 2vw;
 }
@@ -50,6 +73,7 @@ nav a {
     width: 4rem;
     height: auto;
 }
+
 
 
 

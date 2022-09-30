@@ -18,8 +18,11 @@
 </head>
 
 <header>
-    <img src="./img/logo-white.svg" alt="Logo du site web" id="logo">
+    <a href="home.php">
+        <img src="./img/logo-white.svg" alt="Logo du site web" id="logo">
+    </a>
     <nav class="header-menu">
+        <a href="animation.php">Animation</a>
         <a href="shares.php">Partages</a>
         <a href="about.php">À propos</a>
         <a href="login.php">Connexion</a>

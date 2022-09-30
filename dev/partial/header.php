@@ -7,19 +7,19 @@
     <title><?= $data["pageName"] ?></title>
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="../images/favicon.png">
+    <link rel="icon" type="image/x-icon" href="./images/favicon.png">
     <!-- Style sheets -->
     <link rel="stylesheet" href="css/global.css">
     <!-- Google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&family=Staatliches&display=swap" rel="stylesheet">
-    
 
 </head>
 
 <header>
-    <nav>
+    <img src="./img/logo-white.svg" alt="Logo du site web" id="logo">
+    <nav class="header-menu">
         <a href="shares.php">Partages</a>
         <a href="about.php">À propos</a>
         <a href="login.php">Connexion</a>

@@ -42,8 +42,13 @@ nav a {
     margin-left: 2vw;
 }
 
-nav a.selected {
+.active-page {
     font-weight: 700;
+}
+
+#logo {
+    width: 4rem;
+    height: auto;
 }
 
 

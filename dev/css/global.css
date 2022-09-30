@@ -2,6 +2,8 @@
     --main-dark-color : #0D0D0D;
     --main-light-color : white;
     --main-accent-color : #F8026A;
+    --font-weight-bold : 700;
+    --font-weight-regular : 400;
 }
 
 *, html {
@@ -38,6 +40,10 @@ nav a {
     color: inherit;
     padding: 0.5vw;
     margin-left: 2vw;
+}
+
+nav a.selected {
+    font-weight: 700;
 }
 
 

@@ -16,18 +16,19 @@ dont le style des header et footer
 
 *, html {
     font-family: var(--paragraph-font);
-    font-size: 62.5%; /*= 10px, https://www.sitepoint.com/understanding-and-using-rem-units-in-css/*/
+    font-size: 1vw;
     color: var(--main-light-color);  
 }
 
 body {
     background-color: var(--main-dark-color);
-    line-height: 1.15;
+    line-height: 0.8;
 }
 
-/* header {
-    background-color: green;
-} */
+header {
+    display: flex;
+    justify-content: space-between;
+}
 
 body {
     margin: 2vw 4vw;
@@ -36,12 +37,10 @@ body {
 h1 {
     font-family: var(--display-font);
     font-size: 10rem;
-    line-height: 100px;
     color: var(--main-accent-color);
 }
 
 nav {
-    /* background-color: green; */
     font-size: 2rem;
     color: var(--main-accent-color);
 }
@@ -70,10 +69,6 @@ nav.header-menu a {
 }
 
 #logo {
-    width: 4rem;
+    width: 2.5rem;
     height: auto;
 }
-
-
-
-

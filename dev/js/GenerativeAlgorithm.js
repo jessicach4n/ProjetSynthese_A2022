@@ -1,4 +1,4 @@
-class GenerativeAlgorithm {
+export default class GenerativeAlgorithm {
     
     constructor( ) {
         if (this.constructor === GenerativeAlgorithm) {
@@ -6,6 +6,17 @@ class GenerativeAlgorithm {
           }
           //this is how to give variables to children 
           this.color = "red"
+          this.feelsLike = "fels like"
+          this.temperature = "temperature"
+          this.unixTime = "unixTime"
+          this.groundAtmosphericPreassure = "groundAtmosphericPreassure"
+          this.seaAtmosphericPreassure = "seaAtmosphericPreassure"
+          this.cloudiness = "cloudiness"
+          this.averageVisibility = "averageVisibility"
+          this.humidity = "humidity"
+
+
+          
     }
 
     setup(){
@@ -23,34 +34,11 @@ class GenerativeAlgorithm {
     assignUserVariables(){
         throw new Error('Method "assignUserVariables()" must be implemented in a sub class.')
     }
-  }
+}
+
 //this will be a different class in a different document. 
-  class algo1 extends GenerativeAlgorithm {
-    constructor() {
-      super()
-      this.color      
-    }
-    setup() {
-        console.log("set up")
-    }
-    
-    draw(){
-        console.log("draw")
-    }
-    
-    callAPI(){
-        console.log("call api")
-    }
-    
-    assignUserVariables(){
-        console.log("assig variables")
-        console.log( "colro "+this.color) 
-    }
-  }
+//export { constructor };
   
-  //testing purposes. 
-  let  alg = new algo1()
-  alg.assignUserVariables()
 
   
 

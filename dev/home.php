@@ -17,7 +17,10 @@
 			<h1 class="nom-site">Générateur d'art météorlogique</h1>
 			<h1>L'expérience<br>commence</h1>
 		</div>
-		<a id="go-to-animation" href="animation.php">ici</a>
+		<div class="go-to-animation">
+			<span id="circle"></span>
+			<a id="go-to-animation" href="animation.php">ici</a>
+		</div>
 	</div>
 </body>
 </html>

@@ -1,6 +1,5 @@
 import { GenerativeAlgorithm } from './GenerativeAlgorithm.js ';
-console.log("donate")
-class LineRotationAlgorithm extends GenerativeAlgorithm {
+class BreathingCircleAlgorithm extends GenerativeAlgorithm {
     constructor() {
     super()
     this.feelsLike
@@ -19,7 +18,6 @@ class LineRotationAlgorithm extends GenerativeAlgorithm {
             let g = 0
             let b = 0
             let filColor = "teal"
-            let colorp = "red"
             let width = window.innerWidth - 250
             let height = window.innerHeight - 250
             let p1 = {x : Math.floor(Math.random() * width), y : Math.floor(Math.random() * width)}
@@ -43,13 +41,13 @@ class LineRotationAlgorithm extends GenerativeAlgorithm {
                 sketch.fill(filColor)
                 sketch.ellipse(pointInital.x, pointInital.y , 25, 25)
                 
-                sketch.fill('red')
+                sketch.fill('white')
                 sketch.ellipse(p1.x, p1.y , 25, 25)
                 
-                sketch.fill('blue')
+                sketch.fill('grey')
                 sketch.ellipse(p2.x, p2.y , 25, 25) 
                 
-                sketch.fill('yellow')
+                sketch.fill('green')
                 sketch.ellipse(p3.x, p3.y , 25, 25) 
                 
                 pointInital.x = Math.pow((1-t),2) * p1.x + 2 * (1-t) * t * p2.x + Math.pow(t,2) * p3.x
@@ -95,13 +93,23 @@ class LineRotationAlgorithm extends GenerativeAlgorithm {
         ) 
     }
 
-    createGradientOnBar(){
-        console.log('createGradientOnBar method')   
+    colorFromSize(){
+        console.log('colorFromSize method')
     }
+
+    createShapeOfCircles(){
+        console.log('createShapeOfCircles method')
+    }
+
+    translateSmallCircles(){
+        console.log('translateSmallCircles method')
+    }
+
+    ChangeColorSmallCircles(){
+        console.log('ChangeColorSmallCircles method')
+    }
+    
 }
 
-let test = new LineRotationAlgorithm()
-test.callAPI()
-
-
-//   REF : https://sandromiguel.com/abstract-class-and-method-in-javascript/
+let test = new BreathingCircleAlgorithm()
+test.assignUserVariables()

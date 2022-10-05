@@ -1,4 +1,4 @@
-export default class GenerativeAlgorithm {
+export class GenerativeAlgorithm {
     
     constructor( ) {
         if (this.constructor === GenerativeAlgorithm) {
@@ -18,11 +18,12 @@ export default class GenerativeAlgorithm {
 
           
     }
-
+    //a revoir si la librairie lel permet 
     setup(){
         throw new Error('Method "setup()" must be implemented in a sub class.')
     }
     
+    //a revoir si la librairie lel permet 
     draw(){
         throw new Error('Method "draw()" must be implemented in a sub class.')
     }
@@ -37,7 +38,7 @@ export default class GenerativeAlgorithm {
 }
 
 //this will be a different class in a different document. 
-//export { constructor };
+
   
 
   

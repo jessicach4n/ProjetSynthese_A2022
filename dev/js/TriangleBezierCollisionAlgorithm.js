@@ -1,6 +1,5 @@
 import { GenerativeAlgorithm } from './GenerativeAlgorithm.js ';
-console.log("donate")
-class LineRotationAlgorithm extends GenerativeAlgorithm {
+class TriangleBezierCollisionAlgorithm extends GenerativeAlgorithm {
     constructor() {
     super()
     this.feelsLike
@@ -11,15 +10,26 @@ class LineRotationAlgorithm extends GenerativeAlgorithm {
     this.cloudiness
     this.averageVisibility      
     this.humidity    
+
         // creation of the p5 sketch
     let myp5 = new p5(( sketch ) => {
+
+        //variables propres a l'animation souhaitée 
+        // DO NOT ERASE
+        p1Triangle ={x:0, y:0}
+        p2Triangle ={x:0, y:0}
+        p3Triangle ={x:0, y:0}
+        bezierCurvePointA ={x:0, y:0}
+        bezierCurvePointB ={x:0, y:0}
+        bezierCurvePointC ={x:0, y:0}
+
+
 
         //variables used by setup and draw 
             let r = 0   
             let g = 0
             let b = 0
             let filColor = "teal"
-            let colorp = "red"
             let width = window.innerWidth - 250
             let height = window.innerHeight - 250
             let p1 = {x : Math.floor(Math.random() * width), y : Math.floor(Math.random() * width)}
@@ -43,10 +53,10 @@ class LineRotationAlgorithm extends GenerativeAlgorithm {
                 sketch.fill(filColor)
                 sketch.ellipse(pointInital.x, pointInital.y , 25, 25)
                 
-                sketch.fill('red')
+                sketch.fill('pink')
                 sketch.ellipse(p1.x, p1.y , 25, 25)
                 
-                sketch.fill('blue')
+                sketch.fill('orange')
                 sketch.ellipse(p2.x, p2.y , 25, 25) 
                 
                 sketch.fill('yellow')
@@ -95,13 +105,14 @@ class LineRotationAlgorithm extends GenerativeAlgorithm {
         ) 
     }
 
-    createGradientOnBar(){
-        console.log('createGradientOnBar method')   
+    findNewBezierTrajectory(){
+        console.log("findNewBezierTrajectory method")
+    }
+
+    checkCollision(){
+     console.log('checkCollision method')   
     }
 }
 
-let test = new LineRotationAlgorithm()
-test.callAPI()
-
-
-//   REF : https://sandromiguel.com/abstract-class-and-method-in-javascript/
+let test = new TriangleBezierCollisionAlgorithm()
+test.assignUserVariables()

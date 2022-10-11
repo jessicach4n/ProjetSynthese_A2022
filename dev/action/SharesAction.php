@@ -11,8 +11,6 @@
 			$pageName = "Shares";
 			$active = "active-page";
 
-			var_dump($_SESSION["visibility"]);
-
 			return compact("pageName", "active");
 		}
 

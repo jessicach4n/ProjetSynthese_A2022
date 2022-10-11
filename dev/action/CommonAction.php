@@ -15,20 +15,11 @@
 
         public function execute() {
             $data = [];
-            
-            if (!empty($_SESSION["key"])) {
-                $data["key"] = $_SESSION["key"];
-            }
 
             if (!empty($_GET["logout"])) {
-                if ('SIGNED_OUT' == $this->callAPI("signout", $data) || 'INVALID_KEY' == $this->callAPI("signout", $data)) {
-                    session_unset();
-                    session_destroy();
-                    session_start();
-                }
-                else {
-                    var_dump($this->callAPI("signout", $data));
-                }
+                session_unset();
+                session_destroy();
+                session_start();
             }
 
             if (empty($_SESSION["visibility"])) {
@@ -36,7 +27,7 @@
             }
 
             if ($_SESSION["visibility"] < $this->pageVisibility) {
-				header("location:home.php");
+				header("location:login.php");
 				exit;
             }
 

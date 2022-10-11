@@ -25,6 +25,18 @@
         <a href="animation.php" class=<?= ($data["pageName"] == "Animation") ? $data["active"] : ''?>>Animation</a>
         <a href="shares.php" class=<?= ($data["pageName"] == "Shares") ? $data["active"] : ''?>>Partages</a>
         <a href="about.php" class=<?= ($data["pageName"] == "About") ? $data["active"] : ''?>>À propos</a>
-        <a href="login.php" class=<?= ($data["pageName"] == "Login") ? $data["active"] : ''?>>Connexion</a>
+    <?php 
+        if ($data["isLoggedIn"]) {
+            ?>
+                <a href="?logout=true"?>Déconnexion</a>
+            <?php
+        }
+        else {
+            ?>
+                <a href="login.php" class=<?= ($data["pageName"] == "Login") ? $data["active"] : ''?>>Connexion</a>
+            <?php
+        }         
+        
+        ?>
     </nav>
 </header>

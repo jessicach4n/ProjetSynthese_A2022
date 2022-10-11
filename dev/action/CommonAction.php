@@ -36,7 +36,7 @@
             }
 
             if ($_SESSION["visibility"] < $this->pageVisibility) {
-				header("location:index.php");
+				header("location:home.php");
 				exit;
             }
 

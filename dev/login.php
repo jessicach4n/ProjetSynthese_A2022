@@ -15,8 +15,8 @@
 	<section>
 		<h1>Bien<br>venue</h1>
 		<form action="" method="post">
-			<input type="text" name="input-field" placeholder="Nom d'usager / Email" id="log-username" >
-			<input type="text" name="input-field" placeholder="Mot de passe" id="log-password">
+			<input type="text" name="username" placeholder="Nom d'usager / Email" id="log-username" >
+			<input type="text" name="passwd" placeholder="Mot de passe" id="log-password">
 			<button type="submit">Se connecter</button>
 			<li id="mdp-oublie">
 				<a href="motdepasseoublie.php">Mot de passe oublié ?</a>

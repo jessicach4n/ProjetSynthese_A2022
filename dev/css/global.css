@@ -23,6 +23,7 @@ dont le style des header et footer
 body {
     background-color: var(--main-dark-color);
     line-height: 0.8;
+    margin: 4vw 8vw;
 }
 
 header {
@@ -30,13 +31,9 @@ header {
     justify-content: space-between;
 }
 
-body {
-    margin: 2vw 4vw;
-}
-
 h1 {
     font-family: var(--display-font);
-    font-size: 12rem;
+    font-size: 8rem;
     color: var(--main-accent-color);
 }
 

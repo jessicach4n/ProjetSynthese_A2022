@@ -1,0 +1,40 @@
+section.stats {
+    font-family: var(--display-font);
+    border: 1px solid var(--main-light-color);
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 2vw;
+}
+
+section.stats div {
+    height: fit-content;
+    text-align: center;
+}
+
+section.stats div span{
+    font-size: 6rem;
+    height: 2vw;
+    width: auto;
+    margin-bottom: 3vw;
+    
+}
+
+section.stats div p{
+    font-family: var(--display-font);
+    color: var(--main-accent-color);
+    font-size: inherit;
+    
+}
+
+img {
+    width: 6vw;
+    height: auto;
+}
+
+#stats-username {
+    color: var(--main-light-color);
+    margin-top: 1vw;
+}
+

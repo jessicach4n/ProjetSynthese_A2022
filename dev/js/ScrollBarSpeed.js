@@ -1,5 +1,5 @@
 import { ScrollBar } from './ScrollBar';
-class ScrollBarColor extends ScrollBar {
+class ScrollBarSpeed extends ScrollBar {
     constructor() {
     super()      
     }
@@ -41,11 +41,3 @@ class ScrollBarColor extends ScrollBar {
     }
 
 }
-
-//HOW TO USE SETTERS AND GETTERS 
-// this.position = getter 
-// this.position = 25 = setter 
-//look for how to use a setter and getter 
-// REF : https://www.w3schools.com/Js/js_object_accessors.asp#:~:text=JavaScript%20Accessors%20(Getters%20and%20Setters,Object%20Accessors%20(Computed%20Properties).
-
-

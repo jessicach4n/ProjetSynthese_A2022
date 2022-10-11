@@ -9,7 +9,7 @@ class BreathingCircleAlgorithm extends GenerativeAlgorithm {
     this.seaAtmosphericPreassure      
     this.cloudiness
     this.averageVisibility      
-    this.humidity    
+    // this.humidity    
         // creation of the p5 sketch
     let myp5 = new p5(( sketch ) => {
 
@@ -80,17 +80,7 @@ class BreathingCircleAlgorithm extends GenerativeAlgorithm {
     assignUserVariables(){
         //testing heritage
         console.log("assig variables")
-        console.log( 
-            "fells like  "+ this.feelsLike +  "\n" +
-            'temperature         ' + this.temperature+ "\n" +
-            'unixtime         ' + this.unixTime + "\n" +
-            'groundAtmosphericPreassure         ' + this.groundAtmosphericPreassure+ "\n" +
-            'seaAtmosphericPreassure         ' + this.seaAtmosphericPreassure+ "\n" +
-            'cloudiness         ' + this.cloudiness+ "\n" +
-            'ave           ' + this.averageVisibility+ "\n" +
-            'humidity          ' + this.humidity
-            
-        ) 
+        
     }
 
     colorFromSize(){
@@ -111,5 +101,5 @@ class BreathingCircleAlgorithm extends GenerativeAlgorithm {
     
 }
 
-let test = new BreathingCircleAlgorithm()
-test.assignUserVariables()
+// let test = new BreathingCircleAlgorithm()
+// console.log(test.humidity) 

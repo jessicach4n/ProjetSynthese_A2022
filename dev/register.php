@@ -12,7 +12,6 @@
 </head>
 
 <body class="register">
-</body>
 	<section>
 		<form action="" method="post">
 			<input type="text" name="input-field" placeholder="Nom d'usager" id="reg-username">
@@ -23,13 +22,7 @@
 			<input type="text" name="input-field" placeholder="Date de naissance" id="reg-datenaissance">
 			<button type="submit">Joindre la communauté</button>
 		</form>
-		<div>
-			<h1>Inscrip<br>tion</h1>
-			<p>
-				Créer un compte afin de pouvoir partager vos animations avec le reste du monde, 
-				ainsi que de pouvoir les télécharger pour vous-même!
-			</p>
-		</div>
+		<h1>Inscrip<br>tion</h1>
 	</section>
-    
+</body>
 </html>

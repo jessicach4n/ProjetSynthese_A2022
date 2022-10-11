@@ -13,9 +13,11 @@ div.headings-content {
 
 h1.nom-site {
     color: var(--main-light-color);
-    font-size: 2.4rem;
+    font-size: 3.4rem;
     align-self: middle;
-    line-height: 0;
+    height: auto;
+    margin-bottom: -4vw;
+
 }
 
 .go-to-animation {

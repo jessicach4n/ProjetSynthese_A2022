@@ -22,8 +22,8 @@
 				<a href="motdepasseoublie.php">Mot de passe oublié ?</a>
 			</li>
 
-			<li id="register">
-				<a href="register.php" id="lien-register">Pas membre? <br> Créer un compte aujourd'hui</a>
+			<li id="log-register">
+				<a href="register.php">Pas membre? <br> Créer un compte aujourd'hui</a>
 			</li>
 		</form>
 	</section>

@@ -8,6 +8,7 @@
 ?>
 
 <body class="profile">
-</body>
+
     <h1>Page profil</h1>
+	</body>
 </html>

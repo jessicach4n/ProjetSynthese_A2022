@@ -8,6 +8,7 @@
 ?>
 
 <body class="animation">
-</body>
+
     <h1>Page animation</h1>
+</body>
 </html>

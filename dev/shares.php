@@ -8,6 +8,7 @@
 ?>
 
 <body class="shares">
-</body>
+
     <h1>Page partage</h1>
+	</body>
 </html>

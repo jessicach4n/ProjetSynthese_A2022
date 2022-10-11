@@ -1,13 +1,11 @@
 section {
     display: flex;
     height: 100%;
-    margin: 3vw 5vw 5vw 5vw;
 }
 
 .login section h1 {
     flex-basis: 50%;
     width: fit-content;
-    align-self: flex-end;
 }
 
 .register section {
@@ -34,6 +32,8 @@ form {
     align-self: center;
     flex-basis: 50%;
     width: 40vw;
+    margin-right: 5vw;
+    margin-top: 6vw;
 }
 
 input {

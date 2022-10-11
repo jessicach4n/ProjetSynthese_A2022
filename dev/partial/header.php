@@ -28,6 +28,7 @@
     <?php 
         if ($data["isLoggedIn"]) {
             ?>
+                <a href="profile.php" class=<?= ($data["pageName"] == "Profile") ? $data["active"] : ''?>>Profil</a>
                 <a href="?logout=true"?>Déconnexion</a>
             <?php
         }

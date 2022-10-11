@@ -1,0 +1,11 @@
+p {
+    columns: 2;
+    column-gap: 5vw;
+    line-height: 20px;
+}
+
+span {
+    color: var(--main-accent-color);
+    font-family: var(--display-font);
+    float: right;
+}

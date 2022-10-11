@@ -85,8 +85,14 @@ nav.header-menu a:hover::after{
     left: 0;
 }
 
+nav.header-menu a:hover {
+    color: var(--main-light-color);
+    transition: color ease-in-out .2s;
+}
+
 .active-page {
     font-weight: 700;
+    color: var(--main-light-color);
 }
 
 #logo {

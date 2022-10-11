@@ -22,21 +22,9 @@
         <img src="./img/logo-white.svg" alt="Logo du site web" id="logo">
     </a>
     <nav class="header-menu">
-        <a href="animation.php">Animation</a>
-        <a href="shares.php">Partages</a>
-        <a href="about.php">À propos</a>
-        <a href="login.php">Connexion</a>
+        <a href="animation.php" class=<?= ($data["pageName"] == "Animation") ? $data["active"] : ''?>>Animation</a>
+        <a href="shares.php" class=<?= ($data["pageName"] == "Shares") ? $data["active"] : ''?>>Partages</a>
+        <a href="about.php" class=<?= ($data["pageName"] == "About") ? $data["active"] : ''?>>À propos</a>
+        <a href="login.php" class=<?= ($data["pageName"] == "Login") ? $data["active"] : ''?>>Connexion</a>
     </nav>
-    <?php
-        // if ($data["isLoggedIn"]) {
-             ?>
-                <!-- <p>Magix - The Card Game</p> -->
-             <?php
-        // }
-        // else {
-             ?>
-             <!-- <p>The Card Game</p> -->
-             <?php
-        // }
-    ?>
 </header>

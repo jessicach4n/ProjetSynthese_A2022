@@ -10,8 +10,9 @@
 
 		protected function executeAction() {
 			$pageName = "Home";
+			$active = "active-page";
 
-			return compact("pageName");
+			return compact("pageName", "active");
 		}
 
 	}

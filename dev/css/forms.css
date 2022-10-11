@@ -1,0 +1,83 @@
+section {
+    display: flex;
+    vertical-align: bottom;
+    height: 100%;
+    margin: 5vw;
+}
+
+.login section h1 {
+    flex-basis: 50%;
+    width: fit-content;
+    align-self: flex-end;
+}
+
+.register section div h1 {
+    flex-basis: 20%;
+    margin-bottom: 0;
+}
+
+form {
+    text-align: center;
+    height: fit-content;
+    align-self: center;
+}
+
+.login section form {
+    flex-basis: 50%;
+    width: 40vw;
+}
+
+.register section form {
+    flex-basis: 80%;
+    width: 60vw;
+}
+
+input {
+    box-sizing: border-box;
+    width: 40vw;
+    height: 50px;
+    margin-top: 20px;
+    background-color: var(--main-dark-color);
+    border: 1px solid white;
+    border-radius: 20px;
+    font-size: 12px;
+    padding: 0 1.5vw;
+}
+
+/*focus : targeted by the keyboard, or 
+activated by the mouse, usually used for 
+input and textarea*/
+input:focus {
+    outline: none;
+    border-color: var(--main-accent-color);
+    color: var(--main-accent-color);
+}
+
+button {
+    font-family: var(--display-font);
+    width: 30%;
+    border-radius: 20px;
+    background-color: var(--main-light-color);
+    color: var(--main-dark-color);
+    margin-top: 2vw;
+    padding: 1vw;
+    border: none;
+}
+
+::placeholder {
+    color: var(--main-accent-color);
+    opacity: 0.5;
+}
+
+li {
+    margin-top: 1vw;
+    color: var(--main-accent-color);
+}
+
+#register {
+    color: var(--main-light-color);
+    margin-top: 4vw;
+    text-align: right;
+    line-height: 15px;
+    opacity: 0.8;
+}

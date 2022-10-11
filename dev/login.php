@@ -8,17 +8,26 @@
 ?>
 
 <head>
-	<link rel="stylesheet" href="css/login.css">
+	<link rel="stylesheet" href="css/forms.css">
 </head>
 
 <body class="login">
-</body>
-    <h1>Page Login</h1>
-	<form action="" method="post">
-		<input type="text" name="input-field" placeholder="Username" id="username" >
-		<input type="text" name="input-field" placeholder="Password" id="password">
-		<button type="submit">Se connecter</button>
-    </form>
+	<section>
+		<h1>Bien<br>venue</h1>
+		<form action="" method="post">
+			<input type="text" name="input-field" placeholder="Nom d'usager / Email" id="log-username" >
+			<input type="text" name="input-field" placeholder="Mot de passe" id="log-password">
+			<button type="submit">Se connecter</button>
+			<li id="mdp-oublie">
+				<a href="motdepasseoublie.php">Mot de passe oublié ?</a>
+			</li>
 
-	<a href="register.php" id="lien-register">Pas membre? <br> Créer un compte aujourd'hui</a>
+			<li id="register">
+				<a href="register.php" id="lien-register">Pas membre? <br> Créer un compte aujourd'hui</a>
+			</li>
+		</form>
+	</section>
+    
+	
+</body>
 </html>

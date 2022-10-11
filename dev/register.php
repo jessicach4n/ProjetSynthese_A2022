@@ -14,12 +14,12 @@
 <body class="register">
 	<section>
 		<form action="" method="post">
-			<input type="text" name="input-field" placeholder="Nom d'usager" id="reg-username">
-			<input type="text" name="input-field" placeholder="Nom" id="reg-nom">
-			<input type="text" name="input-field" placeholder="Prenom" id="reg-prenom">
-			<input type="text" name="input-field" placeholder="Email" id="reg-email">
-			<input type="text" name="input-field" placeholder="Mot de passe" id="reg-password">
-			<input type="text" name="input-field" placeholder="Date de naissance" id="reg-datenaissance">
+			<input type="text" name="input-field" placeholder="Nom d'usager" id="reg-username" required>
+			<input type="text" name="input-field" placeholder="Nom" id="reg-nom" required>
+			<input type="text" name="input-field" placeholder="Prenom" id="reg-prenom" required>
+			<input type="email" name="input-field" placeholder="Email" id="reg-email" required>
+			<input type="text" name="input-field" placeholder="Mot de passe" id="reg-password" required>
+			<input type="date" min="1900-01-01" name="input-field" placeholder="Date de naissance" id="reg-datenaissance" required>
 			<button type="submit">Joindre la communauté</button>
 		</form>
 		<h1>Inscrip<br>tion</h1>

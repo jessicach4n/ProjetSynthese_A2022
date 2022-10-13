@@ -351,3 +351,7 @@ MigrationBackup/
 
 # Apple MacOS
 .DS_Store
+
+# Docker ++ stuff
+*.tar
+*.gz

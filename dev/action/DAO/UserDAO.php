@@ -15,7 +15,5 @@
             $answer = $statement->fetchAll();
 
             return $answer;
-
-
         }
     }

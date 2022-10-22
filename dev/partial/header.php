@@ -7,7 +7,7 @@
     <title><?= $data["pageName"] ?></title>
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="./images/favicon.png">
+    <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
     <!-- Style sheets -->
     <link rel="stylesheet" href="css/global.css">
     <!-- Google fonts -->
@@ -23,8 +23,8 @@
     </a>
     <nav class="header-menu">
         <a href="animation.php" class=<?= ($data["pageName"] == "Animation") ? $data["active"] : ''?>>Animation</a>
-        <a href="shares.php" class=<?= ($data["pageName"] == "Shares") ? $data["active"] : ''?>>Partages</a>
         <a href="about.php" class=<?= ($data["pageName"] == "About") ? $data["active"] : ''?>>À propos</a>
+        <a href="shares.php" class=<?= ($data["pageName"] == "Shares") ? $data["active"] : ''?>>Partages</a>
     <?php 
         if ($data["isLoggedIn"]) {
             ?>

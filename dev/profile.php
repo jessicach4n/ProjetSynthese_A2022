@@ -9,6 +9,7 @@
 
 <head>
 	<link rel="stylesheet" href="css/stats.css">
+	<link rel="stylesheet" href="css/profile.css">
 </head>
 
 <body class="profile">
@@ -32,7 +33,7 @@
 			<p>Coups de coeur</p>
 		</div>
 	</section>
-	<div>
+	<div class ="onglets">
 		<li><a href=""></a>Mes animations</li>
 		<li><a href=""></a>Mes vidéos aimées</li>
 	</div>

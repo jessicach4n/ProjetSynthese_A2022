@@ -1,0 +1,42 @@
+#button {
+    width: fit-content;
+    height: auto;
+    transform: rotate(270deg);
+    position: fixed;
+    top: 50%;
+    left: 0;
+    margin-left: 2vw;
+    border: none;
+    background: none;
+    font-family: var(--display-font);
+    color: var(--main-accent-color);
+    font-size: 25px;
+}
+
+#menu {
+    width: 30vw;
+    height: 100vh;
+    background-color: var(--main-accent-color);
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: transform .3s
+                cubic-bezier(0, .52, 0, 1);
+    overflow: scroll;
+    z-index: 1000;
+}
+  
+#menu.hide {
+  transform: translate3d(-100vw, 0, 0);
+}
+  
+#menu.show {
+  transform: translate3d(0vw, 0, 0);
+  overflow: hidden;
+}
+  
+#menu h1{
+  color: var(--main-light-color);
+  margin-left: 15px;
+}
+

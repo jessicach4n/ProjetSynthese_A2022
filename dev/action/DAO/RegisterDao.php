@@ -18,7 +18,7 @@
             
             //$statement->setFetchMode(PDO::FETCH_ASSOC);
             $answer = $statement->execute();
-
+            
             
 
             return $answer;

@@ -34,12 +34,12 @@
 				//possible besoin d'ajouter le email number a la db
 				$emailNumber = EmailNumberGenerator:: generateEmailNumber($email, $unixTime);;
 				var_dump(" ENB : " .$emailNumber);
-				// if(RegisterDAO::setNewUSer($lastName, $firstName, $username, $password, $DoB, $email, $emailNumber)){
-				// 	header(("Location: login.php"));
-				// }				
-				// else {
-				// 	var_dump('Cannont create user ');
-				// }
+				if(RegisterDAO::setNewUSer($lastName, $firstName, $username, $password, $DoB, $email, $emailNumber)){
+					header(("Location: login.php"));
+				}				
+				else {
+					var_dump('Cannont create user ');
+				}
 				
 			}
 

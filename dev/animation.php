@@ -21,16 +21,12 @@
 <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
 <!-- Load our React component. -->
 
+<script>const e = React.createElement;</script>
+
 <script src="./js/react-components/SettingsContainer.js"></script>
 <script src="./js/react-components/SettingsButton.js"></script>
 <script src="./js/react-components/Settings.js"></script>
 
 
-<script>
-	const container = document.querySelector('#settings-container');
-	const root = ReactDOM.createRoot(container);
-	root.render(e(SettingsContainer));
-</script>
-    
 </body>
 </html>

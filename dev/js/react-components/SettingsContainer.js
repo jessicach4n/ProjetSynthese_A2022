@@ -2,8 +2,6 @@
 // REF : https://www.kirupa.com/react/smooth_sliding_menu_react_motion.htm
 'use strict';
 
-const e = React.createElement;
-
 class SettingsContainer extends React.Component {
     constructor(props, context) {
         super(props, context);
@@ -15,12 +13,10 @@ class SettingsContainer extends React.Component {
 
     handleMouseDown = (e) => {
         this.toggleSettings();
-        console.log("clicked")
         e.stopPropagation();
-        
     }
 
-    toggleSettings() {
+    toggleSettings = () => {
         this.setState (
             {
                 opened: !this.state.opened
@@ -28,10 +24,16 @@ class SettingsContainer extends React.Component {
         );
     }
 
+     // Passing a property called handle to SettingsButton
     render() {
-        return [e(SettingsButton, {handleMouseDown : () => this.handleMouseDown, key:1}),
-        e(Settings, {handleMouseDown : () => this.handleMouseDown, menuVisibility: this.state.opened, key:2})
-        ];}
+        return [e(SettingsButton, {handler : this.handleMouseDown, key:1}),
+            e(Settings, {handler : this.handleMouseDown, menuVisibility: this.state.opened, key:2})
+        ]
+    }
 }
+
+const container = document.querySelector('#settings-container');
+const root = ReactDOM.createRoot(container);
+root.render(e(SettingsContainer));
 
 

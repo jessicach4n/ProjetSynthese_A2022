@@ -9,7 +9,7 @@ class Settings extends React.Component {
         }
     
         return (e('div', 
-        {id:"menu", onMouseDown : () => this.props.handleMouseDown, className: visibility}, 
+        {id:"menu", onMouseDown : (e) => this.props.handler(e), className: visibility}, 
         e('h1', null, 'MENU')));
     }
 }

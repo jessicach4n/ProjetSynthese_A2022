@@ -1,0 +1,14 @@
+nav.dots {
+    width: 2vw;
+    height: fit-content;
+    position: fixed;
+    top: 42%;
+    right: 0;
+    margin: 2vw 8vw 0 0;
+}
+
+li.dot {    
+    padding: 1vw;
+    border-radius: 100px;
+    background-color: var(--main-accent-color);
+}

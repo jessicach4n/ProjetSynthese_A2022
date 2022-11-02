@@ -1,0 +1,65 @@
+div.home-content {
+    margin: 2vw 5vw;
+    display: flex;
+    transform: translate(-15%, 10%);
+}
+
+div.headings-content {
+    text-align: right;
+    z-index: 10;
+}
+
+h1.nom-site {
+    color: var(--main-light-color);
+    font-size: 3.4rem;
+    align-self: middle;
+    height: auto;
+}
+
+.go-to-animation {
+    position: relative;
+    padding: 0.6vw;
+    width: 8vw;
+    height: 8vw;
+    align-self: flex-end;
+}
+
+#go-to-animation {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -40%);
+    font-size: 6rem;
+    filter: blur(3px);
+    transition: 0.8s filter;
+    font-family: var(--display-font);
+    letter-spacing: 4px;
+}
+
+#go-to-animation:hover {
+    filter: blur(0);
+}
+
+#circle {
+    --circle-size : 210px;
+    filter: blur(2px);
+    z-index: 1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: var(--circle-size);
+    height: var(--circle-size);
+    border: 4px dotted var(--main-accent-color);
+    border-radius: 100%;
+    
+    /* REF : https://stackoverflow.com/questions/6410730/css-endless-rotation-animation */
+    animation: rotate 40s linear infinite;
+}
+
+/* REF : https://stackoverflow.com/questions/14859322/css3-spin-animation */
+
+@keyframes rotate {
+    from {transform: translate(-50%, -50%) rotate(0deg);}
+    to {transform: translate(-50%, -50%) rotate(360deg);}
+}
+

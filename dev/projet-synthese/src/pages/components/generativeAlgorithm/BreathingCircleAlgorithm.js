@@ -2,7 +2,7 @@ import { Component } from "react";
 import Sketch from "react-p5";
 import { GenerativeAlgorithm } from './GenerativeAlgorithm';
 
-export class BreathingCircleAlgorithm extends GenerativeAlgorithm {
+export default class BreathingCircleAlgorithm extends GenerativeAlgorithm {
     constructor(props) {
     super(props);
     // this.feelsLike 

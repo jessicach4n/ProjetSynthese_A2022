@@ -14,6 +14,8 @@ function Animation() {
         <SettingsContainer/>
         <AnimationTabs/>
         <TriangleBezierCollisionAlgorithm/>
+        {/* <BreathingCircleAlgorithm/> */}
+        {/* <LineRotationAlgorithm/> */}
     </div>
   );
 }

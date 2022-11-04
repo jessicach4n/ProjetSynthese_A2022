@@ -13,8 +13,9 @@ function Animation() {
         {/* REF : https://www.kirupa.com/react/smooth_sliding_menu_react_motion.htm */}
         <SettingsContainer/>
         <AnimationTabs/>
-        {/* <TriangleBezierCollisionAlgorithm/> */}
         <LineRotationAlgorithm/>
+        {/* <TriangleBezierCollisionAlgorithm/> */}
+        {/* <BreathingCircleAlgorithm/> */}
     </div>
   );
 }

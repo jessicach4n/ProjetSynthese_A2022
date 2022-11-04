@@ -1,5 +1,10 @@
 <?php
+    error_log("session_id = " . $_POST['session_id']);
+    session_id($_POST['session_id']);
     session_start();
+    error_log("is_loggedin = " . $_SESSION["visibility"]);
+
+    
     // require_once("action/constants.php");
 
     abstract class CommonAction {
@@ -16,7 +21,7 @@
         public function execute() {
             $data = [];
 
-            if (!empty($_GET["logout"])) {
+            if (!empty($_POST["logout"])) {
                 session_unset();
                 session_destroy();
                 session_start();
@@ -26,14 +31,10 @@
                 $_SESSION["visibility"] = CommonAction::$VISIBILITY_PUBLIC;
             }
 
-            if ($_SESSION["visibility"] < $this->pageVisibility) {
-				header("location:login.php");
-				exit;
-            }
-
             $data = $this->executeAction();
             $data["isLoggedIn"] = $_SESSION["visibility"] > CommonAction::$VISIBILITY_PUBLIC;
             $data["username"] = !empty($_SESSION["username"]) ? $_SESSION["username"] : "Invité";
+            $data["session_id"] = session_id();
             return $data;
         }
 

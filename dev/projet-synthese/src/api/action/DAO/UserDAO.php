@@ -13,7 +13,7 @@
             $statement->execute();
 
             $answer = $statement->fetchAll();
-
-            return $answer;
+            
+            return $answer[0][count];
         }
     }

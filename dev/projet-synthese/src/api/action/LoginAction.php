@@ -9,27 +9,19 @@
 		}
 
 		protected function executeAction() {
-			$pageName = "Login";
-			$active = "active-page";
+			$connectionError = False;
 	
 			if(!empty($_POST["username"]) && !empty($_POST["passwd"])){
 				$username = $_POST["username"];
 				$password = $_POST["passwd"];
-
-				if(UserDAO::authenticate($username, $password)){
+				
+				if(UserDAO::authenticate($username, $password) == 1){
 					$_SESSION["visibility"] = CommonAction::$VISIBILITY_MEMBER;
 					$_SESSION["username"] = $username;
-					header(("Location: profile.php"));
-				}				
-				else {
-					var_dump('WRONG PASSWORD');
 				}
-				
 			}
 			
-				
-
-			return compact("pageName", "active");
+			return compact();
 		}
 
 	}

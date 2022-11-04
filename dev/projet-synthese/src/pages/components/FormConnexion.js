@@ -6,7 +6,7 @@ import * as myConstants from '../constants.js'
 class FormConnexion extends Component {
     constructor(props) {
       super(props);
-      this.state = {value: ''};
+      this.state = {value : ''};
   
       this.handleChange = this.handleChange.bind(this);
       this.handleSubmit = this.handleSubmit.bind(this);
@@ -22,15 +22,18 @@ class FormConnexion extends Component {
       formData.append('username', document.getElementById('log-username').value)
       formData.append('passwd', document.getElementById('log-password').value)
       
-      fetch(myConstants.HOST, {
+      fetch(myConstants.HOST + '/login.php', {
         method : 'POST',
         body: formData
       })
       .then(res => res.json())
       .then(res => {
+        window.sessionStorage.setItem("session_id", res.session_id)
+        console.log(res)
         if (res.isLoggedIn) {
-          window.location = '/profil'
+            window.location = "/Animation"
         }
+
       })
 
     }
@@ -38,7 +41,9 @@ class FormConnexion extends Component {
     render() {
       return (
         <form onSubmit={this.handleSubmit} method="post">
+            <p id="msg-erreur">Mauvais nom d'usager</p>
             <input type="text" name="username" placeholder="Nom d'usager" id="log-username" />
+            <p id="msg-erreur">Mauvais mot de passe</p>
             <input type="text" name="passwd" placeholder="Mot de passe" id="log-password"/>
             <button type="submit">Se connecter</button>
             <li id="log-register">

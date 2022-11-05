@@ -8,10 +8,9 @@
 		}
 
 		protected function executeAction() {
-			$pageName = "Shares";
-			$active = "active-page";
 
-			return compact("pageName", "active");
+
+			return compact();
 		}
 
 	}

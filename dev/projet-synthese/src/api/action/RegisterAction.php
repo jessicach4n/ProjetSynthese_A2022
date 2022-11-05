@@ -10,8 +10,7 @@
 		}
 
 		protected function executeAction() {
-			$pageName = "Register";
-			$active = "active-page";
+			$register_success = false;
 
 			if(!empty($_POST["DoB"])){
 				#REF : https://stackoverflow.com/questions/13392842/using-php-regex-to-validate-username
@@ -35,7 +34,7 @@
 				$emailNumber = EmailNumberGenerator:: generateEmailNumber($email, $unixTime);;
 				var_dump(" ENB : " .$emailNumber);
 				if(RegisterDAO::setNewUSer($lastName, $firstName, $username, $password, $DoB, $email, $emailNumber)){
-					header(("Location: login.php"));
+					$register_success = true;
 				}				
 				else {
 					var_dump('Cannont create user ');
@@ -43,7 +42,7 @@
 				
 			}
 
-			return compact("pageName", "active");
+			return compact("register_success");
 		}
 
 	}

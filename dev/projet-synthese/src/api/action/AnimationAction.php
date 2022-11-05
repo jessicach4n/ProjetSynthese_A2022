@@ -8,10 +8,9 @@
 		}
 
 		protected function executeAction() {
-			$pageName = "Animation";
-			$active = "active-page";
 
-			return compact("pageName", "active");
+
+			return compact();
 		}
 
 	}

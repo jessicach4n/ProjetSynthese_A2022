@@ -1,6 +1,9 @@
-export class ScrollBar {
+import { Component } from "react"
+
+export default class ScrollBar extends Component {
     
-    constructor( ) {
+    constructor(props) {
+        super(props)
         if (this.constructor === ScrollBar) {
             throw new Error('Class "ScrollBar" cannot be instantiated')
           }

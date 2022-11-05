@@ -8,10 +8,9 @@
 		}
 
 		protected function executeAction() {
-			$pageName = "Profile";
-			$active = "active-page";
 
-			return compact("pageName", "active");
+
+			return compact();
 		}
 
 	}

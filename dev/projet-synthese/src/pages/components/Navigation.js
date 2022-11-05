@@ -1,6 +1,5 @@
 import { Outlet, Link } from "react-router-dom";
 import '../../css/index.css';
-import logowhite from '../../logo/logo-white.svg'
 import * as myConstants from '../constants.js'
 
 function handleLogout(event) {
@@ -23,57 +22,55 @@ function handleLogout(event) {
   }
 
 const Navigation = () => {
-    let isLoggedIn = false;
-    if (window.sessionStorage.getItem("session_id") != null)
+    let nav = null
+    if (window.sessionStorage.getItem("session_id") == null)
     {
-        isLoggedIn = true
+        nav = <>
+                <Link to="/">
+                    <img src="/logo-white.svg" alt="Logo du site web" id="logo"/>
+                </Link>
+                <nav className="header-menu">
+                    <ul>
+                        <li><Link to="/animation">Animation</Link></li>
+                    </ul>
+                    <ul>
+                        <li><Link to="/a-propos">À propos</Link></li>
+                    </ul>
+                    <ul>
+                        <li><Link to="/connexion">Connexion</Link></li>
+                    </ul>
+                </nav>
+                <Outlet/>
+            </>
     }
-    
-    let navInvite = <>
-                        <Link to="/">
-                            <img src={logowhite} alt="Logo du site web" id="logo"/>
-                        </Link>
-                        <nav className="header-menu">
-                            <ul>
-                                <li><Link to="/animation">Animation</Link></li>
-                            </ul>
-                            <ul>
-                                <li><Link to="/a-propos">À propos</Link></li>
-                            </ul>
-                            <ul>
-                                <li><Link to="/connexion">Connexion</Link></li>
-                            </ul>
-                        </nav>
-                        <Outlet/>
-                    </>
-    let navMembre = <>
-                        <Link to="/">
-                            <img src={logowhite} alt="Logo du site web" id="logo"/>
-                        </Link>
-                        <nav className="header-menu">
-                            <ul>
-                                <li><Link to="/animation">Animation</Link></li>
-                            </ul>
-                            <ul>
-                                <li><Link to="/a-propos">À propos</Link></li>
-                            </ul>
-                            <ul>
-                                <li><Link to="/partages">Partages</Link></li>
-                            </ul>
-                            <ul>
-                                <li><Link to="/profil">Profil</Link></li>
-                            </ul>
-                            <ul>
-                                <li onClick={handleLogout}>Déconnexion</li>
-                            </ul>
-                        </nav>
-                        <Outlet/>
-                    </>
-    
-    if (isLoggedIn) {
-        return (navMembre)
+    else
+    {
+        nav = <>
+                <Link to="/">
+                    <img src="/logo-white.svg" alt="Logo du site web" id="logo"/>
+                </Link>
+                    <nav className="header-menu">
+                        <ul>
+                            <li><Link to="/animation">Animation</Link></li>
+                        </ul>
+                        <ul>
+                            <li><Link to="/a-propos">À propos</Link></li>
+                        </ul>
+                        <ul>
+                            <li><Link to="/partages">Partages</Link></li>
+                        </ul>
+                        <ul>
+                            <li><Link to="/profil">Profil</Link></li>
+                        </ul>
+                        <ul>
+                            <li onClick={handleLogout}>Déconnexion</li>
+                        </ul>
+                    </nav>
+                <Outlet/>
+            </>
     }
-    return(navInvite)        
-    }
+
+    return nav;
+}
 
 export default Navigation;

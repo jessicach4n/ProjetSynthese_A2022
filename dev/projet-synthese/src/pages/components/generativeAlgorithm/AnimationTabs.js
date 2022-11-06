@@ -2,28 +2,18 @@ import { Outlet, Link } from "react-router-dom";
 import '../../../css/index.css';
 import '../../../css/algorithm.css';
 
-// function handleOnClick(event) {
-
-// }
+function handleOnClick(event) {
+    window.location = "/animation/" + event.target.name
+}
 
 const AnimationTabs = () => {
 
     return(
-        <nav className="dots">
-            <ul>
-                <li className="dot">
-                </li>
-            </ul>
-            <ul>
-                <li className="dot">
-                </li>
-            </ul>
-            <ul>
-                <li className="dot">
-                </li>
-            </ul>
-            <Outlet/>
-        </nav>
+        <div className="animation-tabs">
+            <button className="dot" onClick={handleOnClick} name="LineRotationAlgorithm"></button>
+            <button className="dot" onClick={handleOnClick} name="TriangleBezierCollisionAlgorithm"></button>
+            <button className="dot" onClick={handleOnClick} name="BreathingCircleAlgorithm"></button>
+        </div>
     );
         
     }

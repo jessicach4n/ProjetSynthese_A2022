@@ -26,7 +26,7 @@ export default class LineRotationAlgorithm extends GenerativeAlgorithm {
             let heigth = window.innerWidth - 250
            
             let pointCentral = {x : window.innerWidth/2, y : window.innerHeight/2}
-            let lineCircleRadius = 100 //WHAT?! try 100
+            let lineCircleRadius = 200 //WHAT?! try 100
             let linePoint1 = {x : 350, y :  350}
             let linePoint2 = {x : window.innerWidth/3, y : 250}
             let debugMode = 0
@@ -51,10 +51,12 @@ export default class LineRotationAlgorithm extends GenerativeAlgorithm {
                 for(let i = 0 ;  i < p5.TWO_PI ; i += iterationStep){
                     let rotation =  ( i + p5.frameCount / 300) * p5.TWO_PI
                     let lenghtFromRefencePoint = 100
-                    let rotationSpeed = 150
+                    // let rotationSpeed = 150
+                    let rotationSpeed = (p5.sin(-p5.frameCount / 130 * p5.TWO_PI) + 1 ) /2 * 500
                     let x = p5.cos(-p5.frameCount / rotationSpeed * p5.TWO_PI) * lenghtFromRefencePoint
                     let y = p5.sin(-p5.frameCount / rotationSpeed * p5.TWO_PI) * lenghtFromRefencePoint
                     let h = (p5.sin(-p5.frameCount / 130 * p5.TWO_PI) +1 ) /2 * 360
+                    lineCircleRadius = (p5.sin(-p5.frameCount / 130 * p5.TWO_PI) +1 ) /2 * 360
                     // p5.colorMode(p5.HSB , 360, 100 , 100)
                     // p5.fill(h,100, 100)
                     

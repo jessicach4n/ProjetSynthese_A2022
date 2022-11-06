@@ -55,7 +55,7 @@ export default class LineRotationAlgorithm extends GenerativeAlgorithm {
                     let rotationSpeed = (p5.sin(-p5.frameCount / 130 * p5.TWO_PI) + 1 ) /2 * 500
                     let x = p5.cos(-p5.frameCount / rotationSpeed * p5.TWO_PI) * lenghtFromRefencePoint
                     let y = p5.sin(-p5.frameCount / rotationSpeed * p5.TWO_PI) * lenghtFromRefencePoint
-                    let h = (p5.sin(-p5.frameCount / 130 * p5.TWO_PI) +1 ) /2 * 360
+                    let h = (p5.sin(-p5.frameCount / 130 * p5.TWO_PI) +1 ) /2 * 255
                     lineCircleRadius = (p5.sin(-p5.frameCount / 130 * p5.TWO_PI) +1 ) /2 * 360
                     // p5.colorMode(p5.HSB , 360, 100 , 100)
                     // p5.fill(h,100, 100)
@@ -72,7 +72,7 @@ export default class LineRotationAlgorithm extends GenerativeAlgorithm {
                         p5.ellipse(linePoint1.x, linePoint1.y,25,25)
                     }
                     if(!debugMode){
-                        p5.stroke(h,360, 360)
+                        p5.stroke(h,h,h)
                         // pointCentral.x = p5.cos(-p5.frameCount / rotationSpeed * p5.PI) * lenghtFromRefencePoint
                         // pointCentral.y = p5.sin(-p5.frameCount / rotationSpeed * p5.PI) * lenghtFromRefencePoint
                         p5.line( pointCentral.x + x +lineCircleRadius * p5.cos(rotation), 

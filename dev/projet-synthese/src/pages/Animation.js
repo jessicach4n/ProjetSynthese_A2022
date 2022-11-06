@@ -22,7 +22,6 @@ function Animation() {
     animationPage = <div className="animation">
                       <SettingsContainer/>
                       <AnimationTabs/>
-                      <LineRotationAlgorithm/>
                       <TriangleBezierCollisionAlgorithm/>
                     </div>
   }
@@ -30,7 +29,6 @@ function Animation() {
     animationPage = <div className="animation">
                       <SettingsContainer/>
                       <AnimationTabs/>
-                      <LineRotationAlgorithm/>
                       <BreathingCircleAlgorithm/>
                     </div>
   }

@@ -7,6 +7,9 @@ import Register from "./Register";
 import Shares from "./Shares"
 import About from "./About"
 import Animation from "./Animation"
+import BreathingCircleAlgorithm from './components/generativeAlgorithm/BreathingCircleAlgorithm';
+import LineRotationAlgorithm from './components/generativeAlgorithm/LineRotationAlgorithm';
+import TriangleBezierCollisionAlgorithm from './components/generativeAlgorithm/TriangleBezierCollisionAlgorithm';
 
 
 import Navigation from './components/Navigation';
@@ -18,7 +21,11 @@ function App() {
       <Routes>
         <Route path="/" element={<Navigation />}>
           <Route index element={<Home />} />
-          <Route path="animation" element={<Animation />} />
+          <Route path="animation" element={<Animation/>} >
+            <Route path="LineRotationAlgorithm"/>
+            <Route path="TriangleBezierCollisionAlgorithm"/>
+            <Route path="BreathingCircleAlgorithm" />
+          </Route>
           <Route path="a-propos" element={<About />} />
           <Route path="partages" element={<Shares />} />
           <Route path="profil" element={<Profile />} />
@@ -26,6 +33,8 @@ function App() {
           <Route path="connexion" element={<Login />} />
           <Route path="register" element={<Register/>} />
         </Route>
+          
+
       </Routes>
     </BrowserRouter>
     );

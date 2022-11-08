@@ -11,8 +11,8 @@ export default class Form extends Component {
       this.handleSubmit = this.handleSubmit.bind(this);
     }
   
-    getInputs() {
-      let inputs = document.getElementById('form').getElementsByTagName('input');
+    getInputs(id) {
+      let inputs = document.getElementById(id).getElementsByTagName('input');
       let formData = new FormData()
       inputs.forEach(input => {
         let name = input.getAttribute('name')

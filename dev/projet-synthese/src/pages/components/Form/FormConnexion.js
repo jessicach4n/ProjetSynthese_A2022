@@ -10,8 +10,8 @@ class FormConnexion extends Form {
       this.handleSubmit = this.handleSubmit.bind(this);
     }
   
-    getInputs() {
-      return super.getInputs()
+    getInputs(id) {
+      return super.getInputs(id)
     }
 
     handleSubmit(event) {
@@ -19,14 +19,14 @@ class FormConnexion extends Form {
       
       fetch(myConstants.HOST + '/login.php', {
         method : 'POST',
-        body: this.getInputs()
+        body: this.getInputs("form-con")
       })
       .then(res => res.json())
       .then(res => {
         window.sessionStorage.setItem("session_id", res.session_id)
         console.log(res)
         if (res.isLoggedIn) {
-            window.location = "/Animation"
+            window.location = "/animation"
         }
 
       })
@@ -35,11 +35,11 @@ class FormConnexion extends Form {
   
     render() {
       return (
-        <form onSubmit={this.handleSubmit} method="post" id="form">
+        <form onSubmit={this.handleSubmit} method="post" id="form-con">
             <p id="msg-erreur">Mauvais nom d'usager</p>
             <input type="text" name="username" placeholder="Nom d'usager" id="log-username" />
             <p id="msg-erreur">Mauvais mot de passe</p>
-            <input type="text" name="passwd" placeholder="Mot de passe" id="log-password"/>
+            <input type="password" name="passwd" placeholder="Mot de passe" id="log-password"/>
             <button type="submit">Se connecter</button>
             <li id="log-register">
                 <a href="register">Pas membre? <br/> Créer un compte aujourd'hui</a>

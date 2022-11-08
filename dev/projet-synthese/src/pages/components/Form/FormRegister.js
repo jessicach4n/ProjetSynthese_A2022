@@ -12,8 +12,8 @@ class FormRegister extends Form {
       this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    getInputs() {
-        return super.getInputs()
+    getInputs(id) {
+        return super.getInputs(id)
     }
 
     handleSubmit(event) {
@@ -21,19 +21,19 @@ class FormRegister extends Form {
 
       fetch(myConstants.HOST + '/register.php', {
         method : 'POST',
-        body: this.getInputs()
+        body: this.getInputs("form-reg")
       })
       .then(res => res.json())
       .then(res => {
         if (res.register_success) {
-            window.location = "/Login"
+            window.location = "/profil"
         }
       })
     }
   
     render() {
       return (
-        <form onSubmit={this.handleSubmit} id="form" method="post">
+        <form onSubmit={this.handleSubmit} id="form-reg" method="post">
           <input type="text" name="username" placeholder="Nom d'usager" id="reg-username" required/>
           <input type="text" name="lastName" placeholder="Nom" id="reg-nom" required/>
           <input type="text" name="firstName" placeholder="Prenom" id="reg-prenom" required/>

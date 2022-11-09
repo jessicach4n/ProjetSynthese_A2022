@@ -49,6 +49,7 @@ export default class TriangleBezierCollisionAlgorithm extends GenerativeAlgorith
                 var cnv = p5.createCanvas(window.innerWidth, window.innerHeight );
                 cnv.style("z-index", "-1")
                 cnv.position(0,0)
+                cnv.id("canvas")
                 p5.stroke("black")
             }
             

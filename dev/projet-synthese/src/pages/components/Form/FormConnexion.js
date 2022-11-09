@@ -35,7 +35,7 @@ class FormConnexion extends Form {
   
     render() {
       return (
-        <form onSubmit={this.handleSubmit} method="post" id="form-con">
+        <form onSubmit={this.handleSubmit} id="form-con" method="post">
             <p id="msg-erreur">Mauvais nom d'usager</p>
             <input type="text" name="username" placeholder="Nom d'usager" id="log-username" />
             <p id="msg-erreur">Mauvais mot de passe</p>

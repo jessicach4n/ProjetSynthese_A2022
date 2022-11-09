@@ -26,7 +26,7 @@ class FormRegister extends Form {
       .then(res => res.json())
       .then(res => {
         if (res.register_success) {
-            window.location = "/profil"
+            window.location = "/connexion"
         }
       })
     }

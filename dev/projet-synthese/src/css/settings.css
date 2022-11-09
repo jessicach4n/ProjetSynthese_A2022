@@ -37,9 +37,9 @@
   
 #menu div.buttonContainer{
   position: absolute;
-  width: 85%;
   bottom: 0;
   left: 0;
+  width: 85%;
   margin: 0 2vw 6vw 2vw;
 }
 
@@ -52,5 +52,17 @@
   border: 4px solid var(--main-light-color);
   background-color: transparent;
   color: var(--main-light-color);
+}
+
+#fermer {
+  font-family: var(--display-font);
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: max-content;
+  color: var(--main-light-color);
+  opacity: 0.6;
+  margin-right: 2vw;
+  background-color: transparent;
 }
 

@@ -18,7 +18,6 @@ class SettingsContainer extends Component {
 
     handleMouseDown(e) {
         this.toggleSettings();
-        console.log('clicked')
         e.stopPropagation();
     }
 

@@ -1,13 +1,6 @@
 <?php
 
-// curl http://localhost:8888/api/login.php -H 
-// 'Content-Type: application/x-www-form-urlencoded' -d 'username=cute&passwd=catos' -v
-header("Access-Control-Allow-Origin: *");
-header("Content-Type: application/json; charset=UTF-8");
-header("Access-Control-Allow-Methods: OPTIONS,GET,POST,PUT,DELETE");
-header("Access-Control-Max-Age: 3600");
-header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
-
+require_once("header.php");
 require_once("action/AnimationAction.php");
 	
 $action = new AnimationAction();

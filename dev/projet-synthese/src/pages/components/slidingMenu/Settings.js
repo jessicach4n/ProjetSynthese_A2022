@@ -17,10 +17,11 @@ class Settings extends Component {
             visibility = "show";
         }
     
-        return (<div id="menu" onMouseDown={this.props.handleMouseDown} className={visibility}>
+        return (<div id="menu" className={visibility}>
+                <button id="fermer" onMouseDown={this.props.handleMouseDown}>Fermer</button>
                 <div className="buttonContainer">
-                    <button id="telechargement">TÉLÉCHARGER</button>
-                    <button id="partage">PARTAGER</button>
+                    <button onMouseDown={this.handleTelechargement} id="telechargement">TÉLÉCHARGER</button>
+                    <button onMouseDown={this.handlePartage} id="partage">PARTAGER</button>
                     
                 </div>
                 </div>);

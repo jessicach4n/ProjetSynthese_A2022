@@ -23,24 +23,31 @@ class FormConnexion extends Form {
       })
       .then(res => res.json())
       .then(res => {
-        window.sessionStorage.setItem("session_id", res.session_id)
-        console.log(res)
         if (res.isLoggedIn) {
-            window.location = "/animation"
+          window.sessionStorage.setItem("session_id", res.session_id)
+          window.location = "/animation"
         }
-
+        else {
+          let erreurs = document.getElementsByClassName("msg-erreur")
+          erreurs.forEach(erreur => {
+            erreur.style.display = "block";
+          });
+          document.getElementById("btn-signin").className = "shake";
+          setTimeout(() => {
+            document.getElementById("btn-signin").classList.remove("shake");
+          }, 500);
+        }
       })
-
     }
   
     render() {
       return (
         <form onSubmit={this.handleSubmit} id="form-con" method="post">
-            <p id="msg-erreur">Mauvais nom d'usager</p>
+            <div className="msg-erreur">Nom d'usager est invalide</div>
             <input type="text" name="username" placeholder="Nom d'usager" id="log-username" />
-            <p id="msg-erreur">Mauvais mot de passe</p>
+            <div className="msg-erreur">Mot de passe est invalide</div>
             <input type="password" name="passwd" placeholder="Mot de passe" id="log-password"/>
-            <button type="submit">Se connecter</button>
+            <button type="submit" id="btn-signin">Se connecter</button>
             <li id="log-register">
                 <a href="register">Pas membre? <br/> Créer un compte aujourd'hui</a>
             </li>

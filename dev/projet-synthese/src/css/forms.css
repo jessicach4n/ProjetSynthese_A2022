@@ -1,11 +1,12 @@
-#msg-erreur {
-    color: red;
-    text-align: left;
-    font-size: 12px;
-    background-color: pink;
-    width: 100%;
-    margin: 0;
+.msg-erreur {
     display: none;
+    color: red;
+    font-size: 12px;
+    padding: 1vw;
+    margin-top: 1vw;
+    margin-bottom: -18px;
+    text-transform: uppercase;
+    text-align: left;
 }
 
 section {
@@ -95,4 +96,29 @@ li {
     text-align: right;
     line-height: 15px;
     opacity: 0.8;
+}
+
+#btn-signin.shake {
+    animation: shake 0.4s;
+}
+
+@keyframes shake {
+    0% {
+        transform: translate(0);
+    }
+    20% {
+        transform: translate(5px);
+    }
+    40% {
+        transform: translate(-5px);
+    }
+    60% {
+        transform: translate(5px);
+    }
+    80% {
+        transform: translate(-5px);
+    }
+    100% {
+        transform: translate(0);
+    }
 }

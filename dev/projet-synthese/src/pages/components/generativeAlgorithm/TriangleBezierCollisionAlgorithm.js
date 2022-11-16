@@ -112,14 +112,14 @@ export default class TriangleBezierCollisionAlgorithm extends GenerativeAlgorith
                 p5.fill(filColor)
                 p5.ellipse(ball.x, ball.y , 25, 25)
                 
-                p5.fill('pink')
-                p5.ellipse(p1.x, p1.y , 25, 25)
+                // p5.fill('pink')
+                // p5.ellipse(p1.x, p1.y , 25, 25)
                 
-                p5.fill('orange')
-                p5.ellipse(p2.x, p2.y , 25, 25) 
+                // p5.fill('orange')
+                // p5.ellipse(p2.x, p2.y , 25, 25) 
                 
-                p5.fill('yellow')
-                p5.ellipse(p3.x, p3.y , 25, 25) 
+                // p5.fill('yellow')
+                // p5.ellipse(p3.x, p3.y , 25, 25) 
                 
                 ball.x = Math.pow((1-t),2) * p1.x + 2 * (1-t) * t * p2.x + Math.pow(t,2) * p3.x
                 ball.y = Math.pow((1-t),2) * p1.y + 2 * (1-t) * t * p2.y + Math.pow(t,2) * p3.y
@@ -128,21 +128,14 @@ export default class TriangleBezierCollisionAlgorithm extends GenerativeAlgorith
                     t+=0.01   
                 }
                 else{
-                    t-= 0.01
-                    begin = false
-                    
-                
-                    if (t < -0.01 ){
-                        begin = true 
-                        t+=0.01
-
-                        direction = ballNextPointQueue.getFront()
+                    direction = ballNextPointQueue.getFront()
                         ballNextPointQueue.circulatePoints()
                         let newLastPoint = this.genratePoint(direction)
                         p1 = p3
                         p2 = {x : Math.floor(Math.random() * width), y : Math.floor(Math.random() * height)}
                         p3 = {x : newLastPoint.x, y : newLastPoint.y}
-                    }   
+                        t=0
+
                 }
             p5.background(r,g,b,40);    
             }

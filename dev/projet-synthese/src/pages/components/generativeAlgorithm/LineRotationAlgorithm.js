@@ -16,7 +16,7 @@ export default class LineRotationAlgorithm extends GenerativeAlgorithm {
         // creation of the p5 sketch
     }
     render() {
-
+   
         //variables used by setup and draw 
             let r = 0   
             let g = 0

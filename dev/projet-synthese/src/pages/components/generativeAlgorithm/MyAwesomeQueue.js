@@ -52,5 +52,15 @@ export class MyAwesomeQueue {
     clear() {
         this.data.length = 0
         this.nextElemPos = 0
-     }
+    }
+
+    circulatePoints(numberOfTimes=1){
+        if(this.isEmpty() === false){
+            for(let i =0;i < numberOfTimes; i++) {
+                let tmp= this.getFront()
+                this.dequeue()
+                this.enqueue(tmp)
+            }
+        }
+    }
 }

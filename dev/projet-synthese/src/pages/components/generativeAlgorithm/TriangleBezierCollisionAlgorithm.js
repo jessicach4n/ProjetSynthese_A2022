@@ -16,8 +16,35 @@ export default class TriangleBezierCollisionAlgorithm extends GenerativeAlgorith
     // this.humidity    
 
         // creation of the p5 sketch
+    this.padding = 15
+    this.width = window.innerWidth - this.padding
+    this.height = window.innerHeight - this.padding
     }
-    
+    //*SIDES
+    //*TOP : 1
+    //*RIGHT : 2
+    //*BOTTOM : 3
+    //*LEFT : 4
+    genratePoint(side){
+        let point = {}
+        
+        if (side == 1){
+            point = {x: Math.floor(Math.random() * this.width), y: 0 + this.padding}
+        }
+        
+        if (side == 2){
+            point = {x: this.width, y: Math.floor(Math.random() * this.height)}
+        }
+        
+        if (side == 3){
+            point = {x: Math.floor(Math.random() * this.width) , y: this.height}
+        }
+
+        if (side == 4){
+            point = {x: 0 + this.padding , y: Math.floor(Math.random() * this.height)}
+        }
+        return point
+    }
     render() {
 
         //variables propres a l'animation souhaitée 
@@ -30,35 +57,47 @@ export default class TriangleBezierCollisionAlgorithm extends GenerativeAlgorith
         // bezierCurvePointC ={x:0, y:0}
 
 
-
+        
         //variables used by setup and draw 
             let r = 0   
             let g = 0
-            let b = 0
+            let b = 0      
             let filColor = "teal"
             let width = window.innerWidth - 250
             let height = window.innerHeight - 250
-            let p1 = {x : Math.floor(Math.random() * width), y : Math.floor(Math.random() * width)}
-            let p2 = {x : Math.floor(Math.random() * width), y : Math.floor(Math.random() * width)}
-            let p3 = {x : Math.floor(Math.random() * width), y : Math.floor(Math.random() * width)}
             let t = 0
             let begin = true
-            let pointInital  = {x :150, y : 120}
+            let ball  = {x :150, y : 120} 
+            // let i = i 
+            // *pointsQueue.circulatePoints()
+            // let tmp = pointsQueue.getFront()
+            // pointsQueue.dequeue()
+            // pointsQueue.enqueue(tmp)
+            
+            
+            let ballNextPointQueue = new MyAwesomeQueue(4)
+            ballNextPointQueue.enqueue(1)
+            ballNextPointQueue.enqueue(2)
+            ballNextPointQueue.enqueue(3)
+            ballNextPointQueue.enqueue(4)
+            
+            
+            let direction = ballNextPointQueue.getFront()
+            let newLastPoint = this.genratePoint(direction)
+            let newfirstPoint = this.genratePoint(4)
+            let p1 = {x :newfirstPoint.x, y : newfirstPoint.y}
+            let p2 = {x : Math.floor(Math.random() * width), y : Math.floor(Math.random() * height)}
+            let p3 = {x : newLastPoint.x, y : newLastPoint.y}
+
+            let miChemin = false
+
             let pointsQueue = new MyAwesomeQueue(3)
-            pointsQueue.enqueue(1)
-            pointsQueue.enqueue(2)
-            pointsQueue.enqueue(3)
+            pointsQueue.enqueue(p1)
+            pointsQueue.enqueue(p2)
+            pointsQueue.enqueue(p3)
             pointsQueue.print()
-
-            //TODO trouver 4 possibilités et en faire une queue :
-            //* 1: (0,0)        à       (maxW,0)    top  
-            //* 2: (maxW,0)     à       (maxW,maxH) right
-            //* 3: (maxW,maxH)  à       (0,maxH)    bottom
-            //* 4: (0,maxH)     à       (0,0)       left 
-
-  
             const setup = (p5, canvasParentRef) => {
-
+                
                 var cnv = p5.createCanvas(window.innerWidth, window.innerHeight );
                 cnv.style("z-index", "-1")
                 cnv.position(0,0)
@@ -71,7 +110,7 @@ export default class TriangleBezierCollisionAlgorithm extends GenerativeAlgorith
                 p5.noStroke()
             
                 p5.fill(filColor)
-                p5.ellipse(pointInital.x, pointInital.y , 25, 25)
+                p5.ellipse(ball.x, ball.y , 25, 25)
                 
                 p5.fill('pink')
                 p5.ellipse(p1.x, p1.y , 25, 25)
@@ -82,22 +121,30 @@ export default class TriangleBezierCollisionAlgorithm extends GenerativeAlgorith
                 p5.fill('yellow')
                 p5.ellipse(p3.x, p3.y , 25, 25) 
                 
-                pointInital.x = Math.pow((1-t),2) * p1.x + 2 * (1-t) * t * p2.x + Math.pow(t,2) * p3.x
-                pointInital.y = Math.pow((1-t),2) * p1.y + 2 * (1-t) * t * p2.y + Math.pow(t,2) * p3.y
-                
+                ball.x = Math.pow((1-t),2) * p1.x + 2 * (1-t) * t * p2.x + Math.pow(t,2) * p3.x
+                ball.y = Math.pow((1-t),2) * p1.y + 2 * (1-t) * t * p2.y + Math.pow(t,2) * p3.y
+
                 if (t < 1 && begin){
-                    t+=0.01
+                    t+=0.01   
                 }
                 else{
                     t-= 0.01
                     begin = false
-            
+                    
+                
                     if (t < -0.01 ){
                         begin = true 
                         t+=0.01
-                    }
+
+                        direction = ballNextPointQueue.getFront()
+                        ballNextPointQueue.circulatePoints()
+                        let newLastPoint = this.genratePoint(direction)
+                        p1 = p3
+                        p2 = {x : Math.floor(Math.random() * width), y : Math.floor(Math.random() * height)}
+                        p3 = {x : newLastPoint.x, y : newLastPoint.y}
+                    }   
                 }
-            p5.background(r,g,b,40);
+            p5.background(r,g,b,40);    
             }
             return (<Sketch setup={setup} draw={draw}/>);
         }

@@ -1,4 +1,5 @@
 import { GenerativeAlgorithm } from './GenerativeAlgorithm';
+import { MyAwesomeQueue } from './MyAwesomeQueue';
 import { Component } from "react";
 import Sketch from "react-p5";
 
@@ -43,6 +44,18 @@ export default class TriangleBezierCollisionAlgorithm extends GenerativeAlgorith
             let t = 0
             let begin = true
             let pointInital  = {x :150, y : 120}
+            let pointsQueue = new MyAwesomeQueue(3)
+            pointsQueue.enqueue(1)
+            pointsQueue.enqueue(2)
+            pointsQueue.enqueue(3)
+            pointsQueue.print()
+
+            //TODO trouver 4 possibilités et en faire une queue :
+            //* 1: (0,0)        à       (maxW,0)    top  
+            //* 2: (maxW,0)     à       (maxW,maxH) right
+            //* 3: (maxW,maxH)  à       (0,maxH)    bottom
+            //* 4: (0,maxH)     à       (0,0)       left 
+
   
             const setup = (p5, canvasParentRef) => {
 
@@ -51,6 +64,7 @@ export default class TriangleBezierCollisionAlgorithm extends GenerativeAlgorith
                 cnv.position(0,0)
                 cnv.id("canvas")
                 p5.stroke("black")
+                
             }
             
             const draw = (p5) => {
@@ -87,8 +101,8 @@ export default class TriangleBezierCollisionAlgorithm extends GenerativeAlgorith
             }
             return (<Sketch setup={setup} draw={draw}/>);
         }
-    //     //ENCAPSULATION OF P5
-    //     // REF : https://github.com/processing/p5.js/wiki/Global-and-instance-mode
+        //ENCAPSULATION OF P5
+        // REF : https://github.com/processing/p5.js/wiki/Global-and-instance-mode
     
     
     callAPI(){

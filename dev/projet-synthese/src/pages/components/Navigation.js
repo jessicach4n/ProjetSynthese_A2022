@@ -2,11 +2,18 @@ import { Outlet, Link } from "react-router-dom";
 import '../../css/index.css';
 import * as myConstants from '../constants.js'
 
+function logout(res) {
+    if (!res.isLoggedIn) {
+        window.sessionStorage.removeItem("session_id");
+        window.location = '/';
+      }
+}
+
 function handleLogout(event) {
     event.preventDefault();
-    let formData = new FormData()
-    formData.append('logout', true)
-    formData.append('session_id', window.sessionStorage.getItem("session_id"))
+    let formData = new FormData();
+    formData.append('logout', true);
+    formData.append('session_id', window.sessionStorage.getItem("session_id"));
     
     fetch(myConstants.HOST + '/navigation.php', {
       method : 'POST',
@@ -14,10 +21,7 @@ function handleLogout(event) {
     })
     .then(res => res.json())
     .then(res => {
-      if (!res.isLoggedIn) {
-        window.sessionStorage.removeItem("session_id")
-        window.location = '/'
-      }
+        logout(res);
     })
   }
 

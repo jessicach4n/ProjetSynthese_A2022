@@ -8,10 +8,37 @@ class FormConnexion extends Form {
     constructor(props) {
       super(props);
       this.handleSubmit = this.handleSubmit.bind(this);
+      this.sessionId = null;
+      this.isLoggedIn = false;
     }
   
     getInputs(id) {
-      return super.getInputs(id)
+      return super.getInputs(id);
+    }
+
+    handleLogin() {
+      if (this.isLoggedIn) {
+        this.connexion();
+      }
+      else {
+        this.afficherErreurConnexion();
+      }
+    }
+
+    connexion() {
+      window.sessionStorage.setItem("session_id", this.sessionId)
+      window.location = "/animation"
+    }
+
+    afficherErreurConnexion() {
+      let erreurs = document.getElementsByClassName("msg-erreur")
+      erreurs.forEach(erreur => {
+        erreur.style.display = "block";
+      });
+      document.getElementById("btn-signin").className = "shake";
+      setTimeout(() => {
+        document.getElementById("btn-signin").classList.remove("shake");
+      }, 500);
     }
 
     handleSubmit(event) {
@@ -23,20 +50,9 @@ class FormConnexion extends Form {
       })
       .then(res => res.json())
       .then(res => {
-        if (res.isLoggedIn) {
-          window.sessionStorage.setItem("session_id", res.session_id)
-          window.location = "/animation"
-        }
-        else {
-          let erreurs = document.getElementsByClassName("msg-erreur")
-          erreurs.forEach(erreur => {
-            erreur.style.display = "block";
-          });
-          document.getElementById("btn-signin").className = "shake";
-          setTimeout(() => {
-            document.getElementById("btn-signin").classList.remove("shake");
-          }, 500);
-        }
+        this.isLoggedIn = res.isLoggedIn;
+        this.sessionId = res.session_id;
+        this.handleLogin();
       })
     }
   

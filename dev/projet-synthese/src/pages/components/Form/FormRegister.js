@@ -10,10 +10,17 @@ class FormRegister extends Form {
     constructor(props) {
       super(props);
       this.handleSubmit = this.handleSubmit.bind(this);
+      this.success = false;
     }
 
     getInputs(id) {
-        return super.getInputs(id)
+        return super.getInputs(id);
+    }
+
+    register() {
+      if (this.success) {
+        window.location = "/connexion";
+      }
     }
 
     handleSubmit(event) {
@@ -25,9 +32,8 @@ class FormRegister extends Form {
       })
       .then(res => res.json())
       .then(res => {
-        if (res.register_success) {
-            window.location = "/connexion"
-        }
+        this.success = res.register_success;
+        this.register();
       })
     }
   

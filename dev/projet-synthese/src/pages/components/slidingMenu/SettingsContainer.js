@@ -8,8 +8,8 @@ import SettingsButton from "./SettingsButton";
 import Settings from "./Settings";
 
 class SettingsContainer extends Component {
-    constructor(props, context) {
-        super(props, context);
+    constructor(props) {
+        super(props);
         this.state = { opened: false };
     
         this.handleMouseDown = this.handleMouseDown.bind(this);
@@ -41,9 +41,5 @@ class SettingsContainer extends Component {
 }
 
 export default SettingsContainer;
-
-// const container = document.querySelector('#settings-container');
-// const root = ReactDOM.createRoot(container);
-// root.render(e(SettingsContainer));
 
 

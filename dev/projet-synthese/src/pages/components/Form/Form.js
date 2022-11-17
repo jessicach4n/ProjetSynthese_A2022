@@ -17,29 +17,9 @@ export default class Form extends Component {
       inputs.forEach(input => {
         let name = input.getAttribute('name')
         let value = input.value
-        console.log(name + " " + value)
         formData.append(name, value)
       });
       return formData
-    }
-
-    handleSubmit(event) {
-    //   event.preventDefault();
-      
-    //   fetch(myConstants.HOST + '/login.php', {
-    //     method : 'POST',
-    //     body: this.getInputs()
-    //   })
-    //   .then(res => res.json())
-    //   .then(res => {
-    //     window.sessionStorage.setItem("session_id", res.session_id)
-    //     console.log(res)
-    //     if (res.isLoggedIn) {
-    //         window.location = "/Animation"
-    //     }
-
-    //   })
-
     }
   
     render() {

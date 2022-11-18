@@ -5,7 +5,6 @@ import BreathingCircleAlgorithm from './components/generativeAlgorithm/Breathing
 import LineRotationAlgorithm from './components/generativeAlgorithm/LineRotationAlgorithm';
 import TriangleBezierCollisionAlgorithm from './components/generativeAlgorithm/TriangleBezierCollisionAlgorithm';
 import AnimationTabs from './components/generativeAlgorithm/AnimationTabs';
-import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 /* REF : https://www.kirupa.com/react/smooth_sliding_menu_react_motion.htm */
 
@@ -37,6 +36,10 @@ function Animation() {
                       <SettingsContainer/>
                       <AnimationTabs/>
                       <LineRotationAlgorithm/>
+                      {/* REMOVE LATER */}
+                      <video width="320" height="240px" controls>
+                        <source type='video/mp4'></source>
+                      </video>
                     </div>
   }
   return (

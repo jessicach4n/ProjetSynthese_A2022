@@ -3,11 +3,11 @@ import React, { Component } from "react";
 class Settings extends Component {
 
     handleTelechargement() {
-        console.log('Téléchargement')
+        console.log('Téléchargement');
     }
 
     handlePartage() {
-        console.log('Partage')
+        console.log('Partage');
     }
 
     render() {
@@ -22,7 +22,6 @@ class Settings extends Component {
                 <div className="buttonContainer">
                     <button onMouseDown={this.handleTelechargement} id="telechargement">TÉLÉCHARGER</button>
                     <button onMouseDown={this.handlePartage} id="partage">PARTAGER</button>
-                    
                 </div>
                 </div>);
         

@@ -26,12 +26,12 @@ class FormConnexion extends Form {
     }
 
     connexion() {
-      window.sessionStorage.setItem("session_id", this.sessionId)
-      window.location = "/animation"
+      window.sessionStorage.setItem("session_id", this.sessionId);
+      window.location = "/animation";
     }
 
     afficherErreurConnexion() {
-      let erreurs = document.getElementsByClassName("msg-erreur")
+      let erreurs = document.getElementsByClassName("msg-erreur");
       erreurs.forEach(erreur => {
         erreur.style.display = "block";
       });

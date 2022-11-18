@@ -6,7 +6,7 @@ export default class Form extends Component {
     constructor(props) {
       super(props);
       if (this.constructor === Form) {
-        throw new Error('Class "Form" cannot be instantiated')
+        throw new Error('Class "Form" cannot be instantiated');
       }
       this.handleSubmit = this.handleSubmit.bind(this);
     }
@@ -15,14 +15,14 @@ export default class Form extends Component {
       let inputs = document.getElementById(id).getElementsByTagName('input');
       let formData = new FormData()
       inputs.forEach(input => {
-        let name = input.getAttribute('name')
-        let value = input.value
-        formData.append(name, value)
+        let name = input.getAttribute('name');
+        let value = input.value;
+        formData.append(name, value);
       });
-      return formData
+      return formData;
     }
   
     render() {
-        return <></>
+        return <></>;
     }
   }

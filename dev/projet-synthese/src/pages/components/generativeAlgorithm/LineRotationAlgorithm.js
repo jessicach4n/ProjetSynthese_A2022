@@ -1,10 +1,28 @@
 import { GenerativeAlgorithm } from './GenerativeAlgorithm';
 import { Component } from "react";
 import Sketch from "react-p5";
+import WebMWriter from "webm-writer"; 
+// import CCapture from "ccapture.js-npmfixed/src/CCapture"
+
+// var capturer = new CCapture( {
+//     framerate: 30,
+//     format: 'gif',
+//     workersPath: 'ccapture.js-npmfixed/src/',
+//     verbose: true
+// } );
+var videoWriter = new WebMWriter({
+    quality: 0.95,
+    frameRate: 30
+  });
 
 export default class LineRotationAlgorithm extends GenerativeAlgorithm {
     constructor(props) {
     super(props)
+    this.vidLenght = 100;
+    this.canvas = null;
+    this.downloadComplete = false;
+    this.count = 0;
+    // this.capturer = null;
     // this.feelsLike
     // this.temperature
     // this.unixTime      
@@ -14,7 +32,9 @@ export default class LineRotationAlgorithm extends GenerativeAlgorithm {
     // this.averageVisibility      
     // this.humidity    
         // creation of the p5 sketch
+    // this.capturer = capturer
     }
+
     render() {
    
         //variables used by setup and draw 
@@ -39,6 +59,9 @@ export default class LineRotationAlgorithm extends GenerativeAlgorithm {
                 cnv.position(0,0)
                 cnv.id("canvas")
                 p5.stroke("black")
+                this.canvas = cnv.canvas;
+                // this.capturer.start();
+                
                 
             }
             
@@ -125,10 +148,42 @@ export default class LineRotationAlgorithm extends GenerativeAlgorithm {
                 p5.noStroke()
 
 
-            p5.background(r,g,b,40);
-            }
-            return (<Sketch setup={setup} draw={draw}/>);
+                p5.background(r,g,b,40);
+
+                
+                try {
+                    if (p5.frameCount < this.vidLenght) {
+                        videoWriter.addFrame(this.canvas);
+                        console.log(videoWriter)
+                        // this.capturer.capture(this.canvas);
+                    }
+                    else {
+                        this.downloadComplete = true;
+                    }
+                } catch (error) {
+                    console.log("Abort download")
+                }
+                
+                if (this.downloadComplete) {
+                    if (this.count < 1) {
+                        videoWriter.complete().then((webMBlob) => {
+                            document
+                              .querySelector("video")
+                              .setAttribute("src", URL.createObjectURL(webMBlob));
+                              console.log(webMBlob);
+                          });
+                          
+                          this.downloadComplete = false;
+                          this.count++;
+                    }
+                }
+                // else if (p5.frameCount === this.gifLenght) {
+                //     this.capturer.stop()
+                //     this.capturer.save()
+                // }}
         }
+            return (<Sketch setup={setup} draw={draw}/>);
+    }
     //     //ENCAPSULATION OF P5
     //     // REF : https://github.com/processing/p5.js/wiki/Global-and-instance-mode
     

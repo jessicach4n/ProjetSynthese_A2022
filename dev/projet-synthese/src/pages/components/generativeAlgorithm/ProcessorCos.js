@@ -1,4 +1,4 @@
-export class ProcessorSin{
+export class ProcessorCos{
     constructor() {
       this.amplitude = 1;
       this.frequency = 1;
@@ -8,7 +8,7 @@ export class ProcessorSin{
     }
 
     generatePoint(frameCount){
-      let value = this.amplitude * Math.sin(frameCount*this.frequency / this.frameRate * ((2 * Math.PI) + this.phase/180 * Math.PI) + this.offset);
+      let value = this.amplitude * Math.cos(frameCount*this.frequency / this.frameRate * ((2 * Math.PI) + this.phase/180 * Math.PI) + this.offset);
       return value  
     } 
   }

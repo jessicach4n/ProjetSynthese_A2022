@@ -1,6 +1,7 @@
 import { GenerativeAlgorithm } from './GenerativeAlgorithm';
 import { MyAwesomeQueue } from './MyAwesomeQueue';
 import {ProcessorSin} from './ProcessorSin';
+import {ProcessorCos} from './ProcessorCos';
 import { Component } from "react";
 import Sketch from "react-p5";
 
@@ -77,8 +78,8 @@ export default class TriangleBezierCollisionAlgorithm extends GenerativeAlgorith
             ballNextPointQueue.enqueue(3)
             ballNextPointQueue.enqueue(4)
             
-            let processsor = new ProcessorSin();
-            console.log(Number(processsor.generatePoint(1))) 
+            let processsor = new ProcessorCos();
+            console.log(Number(processsor.generatePoint(1).toPrecision(3))) 
             
             let direction = ballNextPointQueue.getFront()
             let newLastPoint = this.genratePoint(direction)

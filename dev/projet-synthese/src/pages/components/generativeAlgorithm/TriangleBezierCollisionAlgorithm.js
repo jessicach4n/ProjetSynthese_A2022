@@ -1,5 +1,6 @@
 import { GenerativeAlgorithm } from './GenerativeAlgorithm';
 import { MyAwesomeQueue } from './MyAwesomeQueue';
+import {ProcessorSin} from './ProcessorSin';
 import { Component } from "react";
 import Sketch from "react-p5";
 
@@ -68,11 +69,6 @@ export default class TriangleBezierCollisionAlgorithm extends GenerativeAlgorith
             let t = 0
             let begin = true
             let ball  = {x :150, y : 120} 
-            // let i = i 
-            // *pointsQueue.circulatePoints()
-            // let tmp = pointsQueue.getFront()
-            // pointsQueue.dequeue()
-            // pointsQueue.enqueue(tmp)
             
             
             let ballNextPointQueue = new MyAwesomeQueue(4)
@@ -81,6 +77,8 @@ export default class TriangleBezierCollisionAlgorithm extends GenerativeAlgorith
             ballNextPointQueue.enqueue(3)
             ballNextPointQueue.enqueue(4)
             
+            let processsor = new ProcessorSin();
+            console.log(Number(processsor.generatePoint(1))) 
             
             let direction = ballNextPointQueue.getFront()
             let newLastPoint = this.genratePoint(direction)
@@ -89,13 +87,11 @@ export default class TriangleBezierCollisionAlgorithm extends GenerativeAlgorith
             let p2 = {x : Math.floor(Math.random() * width), y : Math.floor(Math.random() * height)}
             let p3 = {x : newLastPoint.x, y : newLastPoint.y}
 
-            let miChemin = false
-
             let pointsQueue = new MyAwesomeQueue(3)
             pointsQueue.enqueue(p1)
             pointsQueue.enqueue(p2)
             pointsQueue.enqueue(p3)
-            pointsQueue.print()
+            // pointsQueue.print()
             const setup = (p5, canvasParentRef) => {
                 
                 var cnv = p5.createCanvas(window.innerWidth, window.innerHeight );

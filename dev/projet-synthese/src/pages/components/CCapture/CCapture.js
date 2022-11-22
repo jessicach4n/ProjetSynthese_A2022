@@ -2,7 +2,7 @@ import WebMWriter from "webm-writer";
 
 
 // DRAFT DO NOT USE YET !!!!!!
-export class VideoRecorder extends (WebMWriter) {
+export class VideoRecorder extends WebMWriter {
     constructor() {
         this.downloadComplete = false;
         this.count = 0;

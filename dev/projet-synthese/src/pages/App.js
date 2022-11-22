@@ -25,6 +25,7 @@ function App() {
             <Route path="LineRotationAlgorithm"/>
             <Route path="TriangleBezierCollisionAlgorithm"/>
             <Route path="BreathingCircleAlgorithm" />
+            <Route path="TestAlgorithm" />
           </Route>
           <Route path="a-propos" element={<About />} />
           <Route path="partages" element={<Shares />} />

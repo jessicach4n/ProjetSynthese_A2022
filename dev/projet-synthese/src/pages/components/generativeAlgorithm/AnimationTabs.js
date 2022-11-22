@@ -13,6 +13,7 @@ const AnimationTabs = () => {
             <button className="dot" onClick={handleOnClick} name="LineRotationAlgorithm"></button>
             <button className="dot" onClick={handleOnClick} name="TriangleBezierCollisionAlgorithm"></button>
             <button className="dot" onClick={handleOnClick} name="BreathingCircleAlgorithm"></button>
+            <button className="dot" onClick={handleOnClick} name="TestAlgorithm"></button>
         </div>
     );
         

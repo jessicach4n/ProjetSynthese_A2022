@@ -4,6 +4,7 @@ import SettingsContainer from './components/slidingMenu/SettingsContainer';
 import BreathingCircleAlgorithm from './components/generativeAlgorithm/BreathingCircleAlgorithm';
 import LineRotationAlgorithm from './components/generativeAlgorithm/LineRotationAlgorithm';
 import TriangleBezierCollisionAlgorithm from './components/generativeAlgorithm/TriangleBezierCollisionAlgorithm';
+import TestAlgorithm from './components/generativeAlgorithm/TestAlgorithm';
 import AnimationTabs from './components/generativeAlgorithm/AnimationTabs';
 
 /* REF : https://www.kirupa.com/react/smooth_sliding_menu_react_motion.htm */
@@ -29,6 +30,13 @@ function Animation() {
                       <SettingsContainer/>
                       <AnimationTabs/>
                       <BreathingCircleAlgorithm/>
+                    </div>
+  }
+  else if (window.location.pathname.includes("TestAlgorithm")) {
+    animationPage = <div className="animation">
+                      <SettingsContainer/>
+                      <AnimationTabs/>
+                      <TestAlgorithm/>
                     </div>
   }
   else {

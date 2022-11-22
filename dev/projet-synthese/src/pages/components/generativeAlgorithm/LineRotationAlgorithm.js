@@ -11,7 +11,7 @@ import WebMWriter from "webm-writer";
 //     verbose: true
 // } );
 var videoWriter = new WebMWriter({
-    quality: 0.95,
+    quality: 0.5,
     frameRate: 30
   });
 

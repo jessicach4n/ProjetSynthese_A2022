@@ -2,14 +2,7 @@ import { GenerativeAlgorithm } from './GenerativeAlgorithm';
 import { Component } from "react";
 import Sketch from "react-p5";
 import WebMWriter from "webm-writer"; 
-// import CCapture from "ccapture.js-npmfixed/src/CCapture"
 
-// var capturer = new CCapture( {
-//     framerate: 30,
-//     format: 'gif',
-//     workersPath: 'ccapture.js-npmfixed/src/',
-//     verbose: true
-// } );
 var videoWriter = new WebMWriter({
     quality: 0.5,
     frameRate: 30
@@ -41,11 +34,8 @@ export default class LineRotationAlgorithm extends GenerativeAlgorithm {
             let r = 0   
             let g = 0
             let b = 0
-         
-            let width = window.innerWidth - 250
-            let heigth = window.innerWidth - 250
            
-            let pointCentral = {x : window.innerWidth/2, y : window.innerHeight/2}
+            let pointCentral = {x : this.width/2, y : this.height/2}
             let lineCircleRadius = 100 //WHAT?! try 100
             let linePoint1 = {x : 350, y :  350}
             let linePoint2 = {x : window.innerWidth/3, y : 250}
@@ -54,10 +44,7 @@ export default class LineRotationAlgorithm extends GenerativeAlgorithm {
 
   
             const setup = (p5, canvasParentRef) => {
-                var cnv = p5.createCanvas(window.innerWidth, window.innerHeight );
-                cnv.style("z-index", "-1")
-                cnv.position(0,0)
-                cnv.id("canvas")
+                var cnv = p5.createCanvas(this.width, this.height);
                 p5.stroke("black")
                 this.canvas = cnv.canvas;
                 // this.capturer.start();
@@ -148,39 +135,34 @@ export default class LineRotationAlgorithm extends GenerativeAlgorithm {
                 p5.noStroke()
 
 
-                p5.background(r,g,b,40);
+                p5.background(360,40);
 
                 
-                try {
-                    if (p5.frameCount < this.vidLenght) {
-                        videoWriter.addFrame(this.canvas);
-                        console.log(videoWriter)
-                        // this.capturer.capture(this.canvas);
-                    }
-                    else {
-                        this.downloadComplete = true;
-                    }
-                } catch (error) {
-                    console.log("Abort download")
-                }
+                // try {
+                //     if (p5.frameCount < this.vidLenght) {
+                //         videoWriter.addFrame(this.canvas);
+                //         console.log(videoWriter)
+                //     }
+                //     else {
+                //         this.downloadComplete = true;
+                //     }
+                // } catch (error) {
+                //     console.log("Abort download")
+                // }
                 
-                if (this.downloadComplete) {
-                    if (this.count < 1) {
-                        videoWriter.complete().then((webMBlob) => {
-                            document
-                              .querySelector("video")
-                              .setAttribute("src", URL.createObjectURL(webMBlob));
-                              console.log(webMBlob);
-                          });
+                // if (this.downloadComplete) {
+                //     if (this.count < 1) {
+                //         videoWriter.complete().then((webMBlob) => {
+                //             document
+                //               .querySelector("video")
+                //               .setAttribute("src", URL.createObjectURL(webMBlob));
+                //               console.log(webMBlob);
+                //           });
                           
-                          this.downloadComplete = false;
-                          this.count++;
-                    }
-                }
-                // else if (p5.frameCount === this.gifLenght) {
-                //     this.capturer.stop()
-                //     this.capturer.save()
-                // }}
+                //           this.downloadComplete = false;
+                //           this.count++;
+                //     }
+                // }
         }
             return (<Sketch setup={setup} draw={draw}/>);
     }

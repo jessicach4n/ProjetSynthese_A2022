@@ -13,6 +13,12 @@ div.animation-tabs {
     background-color: var(--main-accent-color);
 }
 
-#canvas {
+.p5Canvas {
     overflow: hidden;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1000px;
+    z-index: -1;
 }

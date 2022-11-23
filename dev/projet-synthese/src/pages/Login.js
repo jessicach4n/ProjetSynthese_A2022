@@ -1,6 +1,6 @@
 import '../css/index.css'
 import '../css/home.css'
-import FormConnexion from './components/Form/FormConnexion'
+import FormConnexion from './components/form/FormConnexion'
 
 function Login() {
   return (

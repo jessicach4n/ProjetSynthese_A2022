@@ -1,5 +1,5 @@
 import '../css/index.css'
-import FormRegister from './components/Form/FormRegister'
+import FormRegister from './components/form/FormRegister'
 
 function Register() {
   return (

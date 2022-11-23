@@ -14,6 +14,26 @@
 
             $answer = $statement->fetchAll();
             
-            return $answer[0][count];
+            if ($answer[0][count]) {
+                $_SESSION["username"] = $username;
+                return 1;
+            }
+            return 0;
+        }
+
+        public static function addAnimation($createur, $date_creation, $ville, $pays, $video) {
+                $connection = Connection::getConnection();
+                
+                $statement = $connection->prepare("INSERT INTO Animations(createur, date_creation, ville, pays, video) 
+                VALUES (?, ?, ?, ?, ?, ?, ?)");
+                $statement->bindParam(1, $createur);
+                $statement->bindParam(2, $date_creation);
+                $statement->bindParam(3, $ville);
+                $statement->bindParam(4, $pays);
+                $statement->bindParam(5, $video);
+                
+                $answer = $statement->execute();
+                
+                return $answer;
         }
     }

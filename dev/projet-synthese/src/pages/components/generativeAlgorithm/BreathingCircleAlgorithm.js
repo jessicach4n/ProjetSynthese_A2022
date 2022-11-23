@@ -1,6 +1,7 @@
 import { Component } from "react";
 import Sketch from "react-p5";
 import { GenerativeAlgorithm } from './GenerativeAlgorithm';
+import '../../../css/algorithm.css'
 
 export default class BreathingCircleAlgorithm extends GenerativeAlgorithm {
     constructor(props) {
@@ -22,7 +23,6 @@ export default class BreathingCircleAlgorithm extends GenerativeAlgorithm {
             let g = 0
             let b = 0
             let filColor = "teal"
-            let width = window.innerWidth - 250
             let pointCentral = {x : window.innerWidth/2, y : window.innerHeight/2}
             let lineCircleRadius = 10 //WHAT?! try 100
             let linePoint1 = {x : 350, y :  350}
@@ -30,10 +30,7 @@ export default class BreathingCircleAlgorithm extends GenerativeAlgorithm {
             let debugMode = 1
             const setup = (p5, canvasParentRef) => {
 
-                var cnv = p5.createCanvas(window.innerWidth, window.innerHeight );
-                cnv.style("z-index", "-1")
-                cnv.position(0,0)
-                cnv.id("canvas")
+                var cnv = p5.createCanvas(this.width, this.height);
                 p5.stroke("black")
             }
             
@@ -139,7 +136,7 @@ export default class BreathingCircleAlgorithm extends GenerativeAlgorithm {
             //             t+=0.01
             //         }
             //     }
-            p5.background(r,g,b,40);
+            p5.background(255,255,255,40);
             }
         return (<Sketch setup={setup} draw={draw}/>);
     //     //ENCAPSULATION OF P5

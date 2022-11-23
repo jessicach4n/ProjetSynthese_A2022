@@ -1,32 +1,29 @@
 import WebMWriter from "webm-writer"; 
 
-
 // DRAFT DO NOT USE YET !!!!!!
 export class VideoRecorder extends WebMWriter {
-    constructor() {
-        this.downloadComplete = false;
+    constructor(quality, frameRate, p5FrameCount,canvas, vidLenght) {
+        super(quality, frameRate);
+        this.vidLenght = vidLenght
+        this.canvas = canvas
+        this.recordingComplete = false;
         this.count = 0;
-        var videoWriter = new WebMWriter({
-            quality: 0.95,
-            frameRate: 30
-          });
     }
     
     record() {
         try {
-            if (p5.frameCount < this.vidLenght) {
+            if (p5FrameCount < this.vidLenght) {
                 videoWriter.addFrame(this.canvas);
                 console.log(videoWriter)
-                // this.capturer.capture(this.canvas);
             }
             else {
-                this.downloadComplete = true;
+                this.recordingComplete = true;
             }
         } catch (error) {
             console.log("Abort download")
         }
         
-        if (this.downloadComplete) {
+        if (this.recordingComplete) {
             if (this.count < 1) {
                 videoWriter.complete().then((webMBlob) => {
                     document
@@ -35,7 +32,7 @@ export class VideoRecorder extends WebMWriter {
                       console.log(webMBlob);
                   });
                   
-                  this.downloadComplete = false;
+                  this.recordingComplete = false;
                   this.count++;
             }
         }

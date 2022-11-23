@@ -16,11 +16,6 @@ export default class TriangleBezierCollisionAlgorithm extends GenerativeAlgorith
     // this.cloudiness
     // this.averageVisibility      
     // this.humidity    
-
-        // creation of the p5 sketch
-    this.padding = 15
-    this.width = window.innerWidth - this.padding
-    this.height = window.innerHeight - this.padding
     }
     //*SIDES
     //*TOP : 1
@@ -95,10 +90,7 @@ export default class TriangleBezierCollisionAlgorithm extends GenerativeAlgorith
             // pointsQueue.print()
             const setup = (p5, canvasParentRef) => {
                 
-                var cnv = p5.createCanvas(window.innerWidth, window.innerHeight );
-                cnv.style("z-index", "-1")
-                cnv.position(0,0)
-                cnv.id("canvas")
+                var cnv = p5.createCanvas(this.width, this.height);
                 p5.stroke("black")
                 
             }
@@ -134,7 +126,7 @@ export default class TriangleBezierCollisionAlgorithm extends GenerativeAlgorith
                         t=0
 
                 }
-            p5.background(r,g,b,40);    
+            p5.background(255,40);    
             }
             return (<Sketch setup={setup} draw={draw}/>);
         }

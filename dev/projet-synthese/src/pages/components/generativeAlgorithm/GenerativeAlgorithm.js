@@ -17,7 +17,11 @@ export class GenerativeAlgorithm extends Component{
           this.seaAtmosphericPreassure = "seaAtmosphericPreassure"
           this.cloudiness = "cloudiness"
           this.averageVisibility = "averageVisibility"
-          this.humidity = "humidity"    
+          this.humidity = "humidity" 
+          
+          //canvas size
+          this.width = 750
+          this.height = 500 
     }
     //a revoir si la librairie lel permet 
     setup(){

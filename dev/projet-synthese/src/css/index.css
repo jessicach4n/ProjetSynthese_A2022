@@ -5,7 +5,7 @@ dont le style des header et footer
 */
 
 :root {
-    --main-dark-color : #0D0D0D;
+    --main-dark-color : #000000;
     --main-light-color : white;
     --main-accent-color : #F8026A;
     --font-weight-bold : 700;

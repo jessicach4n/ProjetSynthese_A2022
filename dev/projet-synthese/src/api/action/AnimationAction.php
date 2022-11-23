@@ -8,7 +8,7 @@
 		}
 
 		protected function executeAction() {
-
+			# If animation share button is clicked -> add animation to BD
 
 			return compact();
 		}

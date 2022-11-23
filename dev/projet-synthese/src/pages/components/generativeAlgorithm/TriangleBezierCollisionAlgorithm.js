@@ -49,27 +49,14 @@ export default class TriangleBezierCollisionAlgorithm extends GenerativeAlgorith
     }
     render() {
 
-        //variables propres a l'animation souhaitée 
-        // DO NOT ERASE
-        // p1Triangle ={x:0, y:0}
-        // p2Triangle ={x:0, y:0}
-        // p3Triangle ={x:0, y:0}
-        // bezierCurvePointA ={x:0, y:0}
-        // bezierCurvePointB ={x:0, y:0}
-        // bezierCurvePointC ={x:0, y:0}
-
-
-        
-        //variables used by setup and draw 
-            let r = 0   
-            let g = 0
-            let b = 0      
-            let filColor = "teal"
             let width = window.innerWidth - 250
             let height = window.innerHeight - 250
             let t = 0
             let begin = true
-            let ball  = {x :150, y : 120} 
+            let ball   = {x : 0, y: 0, p2x : 150, p2y : 120} 
+            let ball2  = {x : 0, y: 0, p2x : 150, p2y : 120} 
+            let ball3  = {x : 0, y: 0, p2x : 150, p2y : 120} 
+            let balls = [ball,ball2, ball3]
             
             
             let ballNextPointQueue = new MyAwesomeQueue(4)
@@ -78,22 +65,15 @@ export default class TriangleBezierCollisionAlgorithm extends GenerativeAlgorith
             ballNextPointQueue.enqueue(3)
             ballNextPointQueue.enqueue(4)
             
-            let processsor = new ProcessorCos();
-            console.log(Number(processsor.generatePoint(1).toPrecision(3))) 
-            
             let direction = ballNextPointQueue.getFront()
             let newLastPoint = this.genratePoint(direction)
             let newfirstPoint = this.genratePoint(4)
             let p1 = {x :newfirstPoint.x, y : newfirstPoint.y}
-            let p2 = {x : Math.floor(Math.random() * width), y : Math.floor(Math.random() * height)}
+            // let p2 = {x : Math.floor(Math.random() * width), y : Math.floor(Math.random() * height)}
             let p3 = {x : newLastPoint.x, y : newLastPoint.y}
 
-            let pointsQueue = new MyAwesomeQueue(3)
-            pointsQueue.enqueue(p1)
-            pointsQueue.enqueue(p2)
-            pointsQueue.enqueue(p3)
             // pointsQueue.print()
-            const setup = (p5, canvasParentRef) => {
+            const setup = (p5) => {
                 
                 var cnv = p5.createCanvas(window.innerWidth, window.innerHeight );
                 cnv.style("z-index", "-1")
@@ -106,35 +86,47 @@ export default class TriangleBezierCollisionAlgorithm extends GenerativeAlgorith
             const draw = (p5) => {
                 p5.noStroke()
             
-                p5.fill(filColor)
-                p5.ellipse(ball.x, ball.y , 25, 25)
+                for(let member of balls){
+                p5.fill('teal')
+                p5.ellipse(member.x, member.y , 25, 25)
+            }
                 
                 p5.fill('pink')
                 p5.ellipse(p1.x, p1.y , 25, 25)
                 
-                p5.fill('orange')
-                p5.ellipse(p2.x, p2.y , 25, 25) 
+                for(let member of balls){
+                    
+                    p5.fill('orange')
+                    p5.ellipse(member.p2x, member.p2y , 25, 25) 
+                } 
                 
                 p5.fill('yellow')
                 p5.ellipse(p3.x, p3.y , 25, 25) 
                 
-                ball.x = Math.pow((1-t),2) * p1.x + 2 * (1-t) * t * p2.x + Math.pow(t,2) * p3.x
-                ball.y = Math.pow((1-t),2) * p1.y + 2 * (1-t) * t * p2.y + Math.pow(t,2) * p3.y
+                for (let member of balls){
+                    member.x = Math.pow((1-t),2) * p1.x + 2 * (1-t) * t * member.p2x + Math.pow(t,2) * p3.x
+                    member.y = Math.pow((1-t),2) * p1.y + 2 * (1-t) * t * member.p2y + Math.pow(t,2) * p3.y
+                }
 
                 if (t < 1 && begin){
                     t+=0.01   
                 }
                 else{
                     direction = ballNextPointQueue.getFront()
-                        ballNextPointQueue.circulatePoints()
-                        let newLastPoint = this.genratePoint(direction)
-                        p1 = p3
-                        p2 = {x : Math.floor(Math.random() * width), y : Math.floor(Math.random() * height)}
-                        p3 = {x : newLastPoint.x, y : newLastPoint.y}
-                        t=0
+                    ballNextPointQueue.circulatePoints()
+                    let newLastPoint = this.genratePoint(direction)
+                    p1 = p3
+                    // p2 = {x : Math.floor(Math.random() * width), y : Math.floor(Math.random() * height)}
+                    for (let member of balls){
+                        member.p2x = Math.floor(Math.random() * width)
+                        member.p2y = Math.floor(Math.random() * height)
+
+                    }
+                    p3 = {x : newLastPoint.x, y : newLastPoint.y}
+                    t=0
 
                 }
-            p5.background(r,g,b,40);    
+            p5.background(0,40);    
             }
             return (<Sketch setup={setup} draw={draw}/>);
         }

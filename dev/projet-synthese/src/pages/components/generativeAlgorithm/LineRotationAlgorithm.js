@@ -2,57 +2,45 @@ import { GenerativeAlgorithm } from './GenerativeAlgorithm';
 import { Component } from "react";
 import Sketch from "react-p5";
 import WebMWriter from "webm-writer"; 
-
-var videoWriter = new WebMWriter({
-    quality: 0.5,
-    frameRate: 30
-  });
+import { VideoRecorder } from '../videoRecorder/VideoRecorder';
 
 export default class LineRotationAlgorithm extends GenerativeAlgorithm {
     constructor(props) {
     super(props)
     this.vidLenght = 100;
+    this.quality = 0.1
+    this.frameRate = 30
     this.canvas = null;
-    this.downloadComplete = false;
-    this.count = 0;
-    // this.capturer = null;
-    // this.feelsLike
-    // this.temperature
-    // this.unixTime      
-    // this.groundAtmosphericPreassure      
-    // this.seaAtmosphericPreassure      
-    // this.cloudiness
-    // this.averageVisibility      
-    // this.humidity    
-        // creation of the p5 sketch
-    // this.capturer = capturer
+    this.state = {isRecording: false};
+    // console.log('line')
+    }
+
+    componentDidMount() {
+        // console.log('componentMount')
+        
+        document.addEventListener('startRecording', () => {
+            this.videoRecorder.reset();
+            this.setState({isRecording: true});
+        });
     }
 
     render() {
-   
-        //variables used by setup and draw 
-            let r = 0   
-            let g = 0
-            let b = 0
-           
             let pointCentral = {x : this.width/2, y : this.height/2}
             let lineCircleRadius = 100 //WHAT?! try 100
             let linePoint1 = {x : 350, y :  350}
             let linePoint2 = {x : window.innerWidth/3, y : 250}
             let debugMode = 0
-            
-
   
             const setup = (p5, canvasParentRef) => {
                 var cnv = p5.createCanvas(this.width, this.height);
                 p5.stroke("black")
                 this.canvas = cnv.canvas;
-                // this.capturer.start();
-                
-                
+                this.videoRecorder = new VideoRecorder(this.quality, this.frameRate, this.canvas, this.vidLenght)
+                // this.setState({isRecording: true});
             }
             
             const draw = (p5) => {
+                // console.log(p5.frameCount)
                 p5.stroke(100)
                 p5.strokeWeight(5)
                 // p5.noStroke()
@@ -108,9 +96,7 @@ export default class LineRotationAlgorithm extends GenerativeAlgorithm {
                     }
                       
                     //TEST---------------------------------------------
-
-
-                //     DO NOT ERASE SHOW JEAN-CRISTOPHE
+                    //     DO NOT ERASE SHOW JEAN-CRISTOPHE
                     // p5.ellipse(pointCentral.x + x + lineCircleRadius * p5.cos(rotation), 
                     //             pointCentral.y + y +  lineCircleRadius * p5.sin(rotation), 
                     //             25, 25)
@@ -119,50 +105,17 @@ export default class LineRotationAlgorithm extends GenerativeAlgorithm {
                     // pointCentral.y + y +(radius)* p5.sin(rotation) ,25,25) 
                 }
                 p5.fill('green')
+                
                 if (debugMode)
                     p5.ellipse(pointCentral.x, pointCentral.y,  25, 25)
-
-
-                
-
-
-                
-
-                // p5.line(p5.cos(p5.frameCount /100 * p5.TWO_PI) * lineCircleRadius, p5.sin(p5.frameCount /100 * p5.TWO_PI) * lineCircleRadius, pointCentral.x, pointCentral.y)
-                
-                
-                
+                // p5.line(p5.cos(p5.frameCount /100 * p5.TWO_PI) * lineCircleRadius, p5.sin(p5.frameCount /100 * p5.TWO_PI) * lineCircleRadius, pointCentral.x, pointCentral.y)                
                 p5.noStroke()
-
-
                 p5.background(360,40);
 
+                if (this.state.isRecording) {
+                    this.videoRecorder.record();
+                }
                 
-                // try {
-                //     if (p5.frameCount < this.vidLenght) {
-                //         videoWriter.addFrame(this.canvas);
-                //         console.log(videoWriter)
-                //     }
-                //     else {
-                //         this.downloadComplete = true;
-                //     }
-                // } catch (error) {
-                //     console.log("Abort download")
-                // }
-                
-                // if (this.downloadComplete) {
-                //     if (this.count < 1) {
-                //         videoWriter.complete().then((webMBlob) => {
-                //             document
-                //               .querySelector("video")
-                //               .setAttribute("src", URL.createObjectURL(webMBlob));
-                //               console.log(webMBlob);
-                //           });
-                          
-                //           this.downloadComplete = false;
-                //           this.count++;
-                //     }
-                // }
         }
             return (<Sketch setup={setup} draw={draw}/>);
     }
@@ -190,7 +143,7 @@ export default class LineRotationAlgorithm extends GenerativeAlgorithm {
     }
 
     createGradientOnBar(){
-        console.log('createGradientOnBar method')   
+        console.log('createGradientOnBar method');
     }
 }
 

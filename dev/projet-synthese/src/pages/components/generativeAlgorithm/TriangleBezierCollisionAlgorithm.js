@@ -5,10 +5,17 @@ import {ProcessorCos} from './ProcessorCos';
 import { Component } from "react";
 import { ProcessorBezier } from './ProcessorBezier';
 import Sketch from "react-p5";
+import { VideoRecorder } from '../videoRecorder/VideoRecorder';
+
 
 export default class TriangleBezierCollisionAlgorithm extends GenerativeAlgorithm {
     constructor(props) {
     super(props)
+    this.vidLenght = 100;
+    this.quality = 0.1
+    this.frameRate = 30
+    this.canvas = null;
+    this.state = {isRecording: false};
     // this.feelsLike
     // this.temperature
     // this.unixTime      
@@ -56,6 +63,9 @@ export default class TriangleBezierCollisionAlgorithm extends GenerativeAlgorith
                 
                 var cnv = p5.createCanvas(this.width, this.height);
                 p5.stroke("black")
+                this.canvas = cnv.canvas;
+                this.videoRecorder = new VideoRecorder(this.quality, this.frameRate, this.canvas, this.vidLenght)
+
                 
             }
             
@@ -97,7 +107,10 @@ export default class TriangleBezierCollisionAlgorithm extends GenerativeAlgorith
 
                 }
 
-            p5.background(255,40);    
+            p5.background(255,40);  
+            if (this.state.isRecording) {
+                this.videoRecorder.record();
+            }  
 
             }
             return (<Sketch setup={setup} draw={draw}/>);

@@ -22,9 +22,9 @@ function App() {
         <Route path="/" element={<Navigation />}>
           <Route index element={<Home />} />
           <Route path="animation" element={<Animation/>} >
-            <Route path="LineRotationAlgorithm"/>
-            <Route path="TriangleBezierCollisionAlgorithm"/>
-            <Route path="BreathingCircleAlgorithm" />
+            <Route path="LineRotationAlgorithm" element={<div/>}/>
+            <Route path="TriangleBezierCollisionAlgorithm" element={<div/>}/>
+            <Route path="BreathingCircleAlgorithm"  element={<div/>}/>
             <Route path="TestAlgorithm" />
           </Route>
           <Route path="a-propos" element={<About />} />
@@ -34,8 +34,6 @@ function App() {
           <Route path="connexion" element={<Login />} />
           <Route path="register" element={<Register/>} />
         </Route>
-          
-
       </Routes>
     </BrowserRouter>
     );

@@ -25,8 +25,14 @@ export class ProcessorBezier  extends GenerativeAlgorithm{
     }
 
     setOrderMarginPoints(tab){
+      for (let chose of tab){
+        this.queue.enqueue(chose)
+      }
+    }
+
+    deleteOrderMargin(tab){
       for (let element in tab){
-        this.queue.enqueue(element)
+        this.queue.dequeue(element)
       }
     }
 
@@ -34,6 +40,7 @@ export class ProcessorBezier  extends GenerativeAlgorithm{
       let direction = this.queue.getFront()
       let point = this.setNexMargintPoint(direction)
       this.queue.circulatePoints()
+      console.log('direction' + direction)
       return point
     }
 
@@ -59,6 +66,5 @@ export class ProcessorBezier  extends GenerativeAlgorithm{
       return point
     }
 
-   
 
   }

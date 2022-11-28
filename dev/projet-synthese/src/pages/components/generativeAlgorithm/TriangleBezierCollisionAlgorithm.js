@@ -25,33 +25,24 @@ export default class TriangleBezierCollisionAlgorithm extends GenerativeAlgorith
             let begin = true
             //*SIDES TOP:1 RIGHT:2 BOTTOM:3 LEFT:4 
             let marginOrder = [1,2,3,4]
-
+            console.log(marginOrder)
             let processorBezier = new ProcessorBezier()
             processorBezier.createMembers(3)
             processorBezier.setMiddlePoint()
             let balls = processorBezier.getMembers()
+            processorBezier.deleteOrderMargin(marginOrder)
             processorBezier.setOrderMarginPoints(marginOrder)    
 
+            
+            let direction = processorBezier.queue.getFront()
             processorBezier.goToNextPoint()
-                        
-            
-            let ballNextPointQueue = new MyAwesomeQueue(4)
-            ballNextPointQueue.enqueue(1)
-            ballNextPointQueue.enqueue(2)
-            ballNextPointQueue.enqueue(3)
-            ballNextPointQueue.enqueue(4)
-            
-            let direction = ballNextPointQueue.getFront()
            
             let newLastPoint = processorBezier.setNexMargintPoint(direction)
             let newfirstPoint = processorBezier.setNexMargintPoint(4)
 
-            // console.log("new last point " + newLastPoint.x)
             let p1 = {x :newfirstPoint.x, y : newfirstPoint.y}
-            // let p2 = {x : Math.floor(Math.random() * width), y : Math.floor(Math.random() * height)}
             let p3 = {x : newLastPoint.x, y : newLastPoint.y}
 
-            // pointsQueue.print()
             const setup = (p5) => {
                 
                 var cnv = p5.createCanvas(this.width, this.height);
@@ -82,10 +73,8 @@ export default class TriangleBezierCollisionAlgorithm extends GenerativeAlgorith
                     t+=0.01   
                 }
                 else{
-                    direction = ballNextPointQueue.getFront()
-                    ballNextPointQueue.circulatePoints()
-                    // let newLastPoint = processorBezier.goToNextPoint
-                    let newLastPoint = processorBezier.setNexMargintPoint(direction)
+
+                    let newLastPoint = processorBezier.goToNextPoint()
                     p1 = p3
                     for (let member of balls){
                         member.p2x = Math.floor(Math.random() * this.width)

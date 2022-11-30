@@ -28,10 +28,12 @@ export default class BreathingCircleAlgorithm extends GenerativeAlgorithm {
             let linePoint1 = {x : 350, y :  350}
             let linePoint2 = {x : window.innerWidth/3, y : 250}
             let debugMode = 1
+            
             const setup = (p5, canvasParentRef) => {
-
                 var cnv = p5.createCanvas(this.width, this.height);
                 p5.stroke("black")
+                this.canvas = cnv.canvas;
+                super.setup();
             }
             
             const draw = (p5) => {
@@ -137,6 +139,7 @@ export default class BreathingCircleAlgorithm extends GenerativeAlgorithm {
             //         }
             //     }
             p5.background(255,255,255,40);
+            super.draw();
             }
         return (<Sketch setup={setup} draw={draw}/>);
     //     //ENCAPSULATION OF P5

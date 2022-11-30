@@ -40,6 +40,7 @@ function Animation() {
                     </div>
   }
   else {
+    // console.log(navigator.geolocation.getCurrentPosition(successCallback, errorCallback))
     animationPage = <div className="animation">
                       <SettingsContainer/>
                       <AnimationTabs/>
@@ -54,5 +55,13 @@ function Animation() {
     animationPage
   );
 }
+
+// const successCallback = (position) => {
+//   console.log(position);
+// };
+
+// const errorCallback = (error) => {
+//   console.log(error);
+// };
 
 export default Animation;

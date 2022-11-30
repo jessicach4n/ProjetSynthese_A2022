@@ -32,7 +32,7 @@ class FormRegister extends Form {
       })
       .then(res => res.json())
       .then(res => {
-        this.success = res.register_success;
+        this.success = res.registerSuccess;
         this.register();
       })
     }

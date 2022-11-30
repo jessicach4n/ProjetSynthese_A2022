@@ -7,21 +7,7 @@ import { VideoRecorder } from '../videoRecorder/VideoRecorder';
 export default class LineRotationAlgorithm extends GenerativeAlgorithm {
     constructor(props) {
     super(props)
-    this.vidLenght = 100;
-    this.quality = 0.1
-    this.frameRate = 30
     this.canvas = null;
-    this.state = {isRecording: false};
-    // console.log('line')
-    }
-
-    componentDidMount() {
-        // console.log('componentMount')
-        
-        document.addEventListener('startRecording', () => {
-            this.videoRecorder.reset();
-            this.setState({isRecording: true});
-        });
     }
 
     render() {
@@ -35,8 +21,7 @@ export default class LineRotationAlgorithm extends GenerativeAlgorithm {
                 var cnv = p5.createCanvas(this.width, this.height);
                 p5.stroke("black")
                 this.canvas = cnv.canvas;
-                this.videoRecorder = new VideoRecorder(this.quality, this.frameRate, this.canvas, this.vidLenght)
-                // this.setState({isRecording: true});
+                super.setup();
             }
             
             const draw = (p5) => {
@@ -112,9 +97,7 @@ export default class LineRotationAlgorithm extends GenerativeAlgorithm {
                 p5.noStroke()
                 p5.background(360,40);
 
-                if (this.state.isRecording) {
-                    this.videoRecorder.record();
-                }
+                super.draw();
                 
         }
             return (<Sketch setup={setup} draw={draw}/>);

@@ -16,11 +16,8 @@
             $statement->bindParam(6, $email);
             $statement->bindParam(7, $emailNumber);
             
-            //$statement->setFetchMode(PDO::FETCH_ASSOC);
             $answer = $statement->execute();
             
-            
-
             return $answer;
         }
     }

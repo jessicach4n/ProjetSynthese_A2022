@@ -1,4 +1,6 @@
 import { Component } from "react";
+import { VideoRecorder } from '../videoRecorder/VideoRecorder';
+
 
 // REF : https://codesandbox.io/s/k09k8knxz5
 export class GenerativeAlgorithm extends Component{
@@ -18,19 +20,34 @@ export class GenerativeAlgorithm extends Component{
           this.cloudiness = "cloudiness"
           this.averageVisibility = "averageVisibility"
           this.humidity = "humidity" 
-          
+
+          // for recorder
+          this.quality = 0.1
+          this.frameRate = 30
           //canvas size
           this.width = 750
           this.height = 500 
+
+          this.state = {isRecording: false};
+
+    }
+
+    componentDidMount() {
+        document.addEventListener('startRecording', () => {
+            this.videoRecorder.reset();
+            this.setState({isRecording: true});
+        });
     }
     //a revoir si la librairie lel permet 
     setup(){
-        throw new Error('Method "setup()" must be implemented in a sub class.')
+        this.videoRecorder = new VideoRecorder(this.quality, this.frameRate, this.canvas)
     }
     
     //a revoir si la librairie lel permet 
     draw(){
-        throw new Error('Method "draw()" must be implemented in a sub class.')
+        if (this.state.isRecording) {
+            this.videoRecorder.record();
+        }
     }
     
     callAPI(){

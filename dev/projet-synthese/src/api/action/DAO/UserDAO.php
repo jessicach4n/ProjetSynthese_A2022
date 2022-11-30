@@ -21,15 +21,15 @@
             return 0;
         }
 
-        public static function addAnimation($createur, $date_creation, $ville, $pays, $video) {
+        public static function addAnimation($creator, $creationDate, $city, $country, $video) {
                 $connection = Connection::getConnection();
                 
                 $statement = $connection->prepare("INSERT INTO Animations(createur, date_creation, ville, pays, video) 
                 VALUES (?, ?, ?, ?, ?, ?, ?)");
-                $statement->bindParam(1, $createur);
-                $statement->bindParam(2, $date_creation);
-                $statement->bindParam(3, $ville);
-                $statement->bindParam(4, $pays);
+                $statement->bindParam(1, $creator);
+                $statement->bindParam(2, $creationDate);
+                $statement->bindParam(3, $city);
+                $statement->bindParam(4, $country);
                 $statement->bindParam(5, $video);
                 
                 $answer = $statement->execute();

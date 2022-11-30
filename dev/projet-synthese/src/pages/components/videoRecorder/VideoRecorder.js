@@ -36,7 +36,7 @@ export class VideoRecorder extends WebMWriter {
         let video = data;
         console.log(video)
         // formData.append('creator', window.sessionStorage.getItem("username"))
-        formData.append("creator", 'Test');
+        formData.append("creator", 1);
         formData.append("creationDate", creationDate);
         formData.append("city", 'Montreal');
         formData.append("country", 'Canada');
@@ -44,7 +44,10 @@ export class VideoRecorder extends WebMWriter {
 
         fetch(myConstants.HOST + '/animation.php', {
           method : 'POST',
-          body: formData
+          body: formData,
+          cache: "no-store",
+          processData: false,
+          contentType: false
         })
         .then(res => res.json())
         .then(res => {
@@ -66,3 +69,6 @@ export class VideoRecorder extends WebMWriter {
         // Save to local or session storage 
     }
 }  
+
+// First URL getAllAnimations.php -> returns Array of ids
+// Second URL getAnimation.php?id=... -> returns video corresponding to id

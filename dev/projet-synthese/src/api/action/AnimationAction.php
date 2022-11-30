@@ -15,19 +15,22 @@
 			error_log("creationDate = " . $_POST['creationDate']);
 			error_log("city = " . $_POST['city']);
 			error_log("country = " . $_POST['country']);
-			error_log("video = " . $_POST['video']);
+			error_log("video = " . serialize($_FILES['video']));
+			error_log("videoFile = " . $_FILES['video']['tmp_name']);
 
+			UserDAO::getAllAnimations();
 			// if(!empty($_POST['creator']) && !empty($_POST['creationDate']) 
-			// 	&& !empty($_POST['city']) && !empty($_POST['country']) && !empty($_POST['video'])) {
+			// 	&& !empty($_POST['city']) && !empty($_POST['country']) && !empty($_FILES['video'])) {
 			// 	$entered_loop = true;
 			// 	$creator = $_POST["creator"];
 			// 	$creationDate = $_POST["creationDate"];
 			// 	$city = $_POST["city"];
 			// 	$county = $_POST["country"];
-			// 	$video = $_POST["video"];
+			// 	$video = $_FILES["video"]['tmp_name'];
 				
 			// 	if (UserDAO::addAnimation($creator, $creationDate, $city, $county, $video)) {
 			// 		$shareSuccess = true;
+					
 			// 	}
 
 			// }

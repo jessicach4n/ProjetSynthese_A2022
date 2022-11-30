@@ -25,15 +25,30 @@
                 $connection = Connection::getConnection();
                 
                 $statement = $connection->prepare("INSERT INTO Animations(createur, date_creation, ville, pays, video) 
-                VALUES (?, ?, ?, ?, ?, ?, ?)");
+                VALUES (?, ?, ?, ?, ?)");
                 $statement->bindParam(1, $creator);
                 $statement->bindParam(2, $creationDate);
                 $statement->bindParam(3, $city);
                 $statement->bindParam(4, $country);
-                $statement->bindParam(5, $video);
+                $statement->bindParam(5, file_get_contents($video), PDO::PARAM_LOB);
                 
                 $answer = $statement->execute();
                 
                 return $answer;
+        }
+
+        public static function getAllAnimations() {
+            $connection = Connection::getConnection();
+
+            $statement = $connection->prepare("SELECT video FROM animations WHERE id ");
+            
+            $statement->setFetchMode(PDO::FETCH_ASSOC);
+            $statement->execute();
+
+            $answer = $statement->fetchAll();
+            
+            error_log("answer" . $answer);
+
+            return 0;
         }
     }

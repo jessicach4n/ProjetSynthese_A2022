@@ -15,7 +15,6 @@ export default class TriangleBezierCollisionAlgorithm extends GenerativeAlgorith
     this.quality = 0.1
     this.frameRate = 30
     this.canvas = null;
-    this.state = {isRecording: false};
     // this.feelsLike
     // this.temperature
     // this.unixTime      
@@ -25,6 +24,13 @@ export default class TriangleBezierCollisionAlgorithm extends GenerativeAlgorith
     // this.averageVisibility      
     // this.humidity    
     }
+
+    //*SIDES
+    //*TOP : 1
+    //*RIGHT : 2
+    //*BOTTOM : 3
+    //*LEFT : 4
+
 
     render() {
 
@@ -55,8 +61,7 @@ export default class TriangleBezierCollisionAlgorithm extends GenerativeAlgorith
                 var cnv = p5.createCanvas(this.width, this.height);
                 p5.stroke("black")
                 this.canvas = cnv.canvas;
-                this.videoRecorder = new VideoRecorder(this.quality, this.frameRate, this.canvas, this.vidLenght)
-
+                super.setup();
                 
             }
             
@@ -97,9 +102,7 @@ export default class TriangleBezierCollisionAlgorithm extends GenerativeAlgorith
                 }
 
             p5.background(255,40);  
-            if (this.state.isRecording) {
-                this.videoRecorder.record();
-            }  
+            super.draw(); 
 
             }
             return (<Sketch setup={setup} draw={draw}/>);

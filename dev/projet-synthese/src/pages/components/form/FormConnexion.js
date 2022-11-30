@@ -27,6 +27,7 @@ class FormConnexion extends Form {
 
     connexion() {
       window.sessionStorage.setItem("session_id", this.sessionId);
+      window.sessionStorage.setItem("username", this.username);
       window.location = "/animation";
     }
 
@@ -52,6 +53,7 @@ class FormConnexion extends Form {
       .then(res => {
         this.isLoggedIn = res.isLoggedIn;
         this.sessionId = res.session_id;
+        this.username = res.username;
         this.handleLogin();
       })
     }

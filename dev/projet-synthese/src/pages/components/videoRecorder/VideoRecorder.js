@@ -1,9 +1,10 @@
 import WebMWriter from "webm-writer";
+import * as myConstants from '../../constants.js'
 
 export class VideoRecorder extends WebMWriter {
-    constructor(quality, frameRate, canvas, vidLength) {
+    constructor(quality, frameRate, canvas) {
         super({ quality: quality, frameRate: frameRate });
-        this.vidLength = vidLength
+        this.vidLength = 20
         this.canvas = canvas
         this.frameCounter = 0;
     }
@@ -29,12 +30,38 @@ export class VideoRecorder extends WebMWriter {
         }
     }
 
+    handleShare(data) {
+        let formData = new FormData();
+        let creationDate = new Date();
+        let video = data;
+        console.log(video)
+        // formData.append('creator', window.sessionStorage.getItem("username"))
+        formData.append("creator", 'Test');
+        formData.append("creationDate", creationDate);
+        formData.append("city", 'Montreal');
+        formData.append("country", 'Canada');
+        formData.append("video", video);
+
+        fetch(myConstants.HOST + '/animation.php', {
+          method : 'POST',
+          body: formData
+        })
+        .then(res => res.json())
+        .then(res => {
+          console.log(res)
+        })
+    }
+
     save() {
         this.complete().then((webMBlob) => {
-            document
-                .querySelector("video")
-                .setAttribute("src", URL.createObjectURL(webMBlob));
-            console.log(webMBlob);
+            if (webMBlob.size < 2000000) {
+                this.handleShare(webMBlob);
+            }
+            // document
+            //     .querySelector("video")
+            //     .setAttribute("src", URL.createObjectURL(webMBlob));
+            
+            
         });
         // Save to local or session storage 
     }

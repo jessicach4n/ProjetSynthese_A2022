@@ -1,6 +1,6 @@
 <?php
 	require_once("action/CommonAction.php");
-	require_once("action/DAO/registerDAO.php");
+	require_once("action/DAO/RegisterDAO.php");
 	require_once("action/emailNumberGenerator.php");
 
 	class RegisterAction extends CommonAction {
@@ -10,7 +10,7 @@
 		}
 
 		protected function executeAction() {
-			$register_success = false;
+			$registerSuccess = false;
 
 			if(!empty($_POST["DoB"])){
 				#REF : https://stackoverflow.com/questions/13392842/using-php-regex-to-validate-username
@@ -34,7 +34,7 @@
 				$emailNumber = EmailNumberGenerator:: generateEmailNumber($email, $unixTime);;
 				// var_dump(" ENB : " .$emailNumber);
 				if(RegisterDAO::setNewUSer($lastName, $firstName, $username, $password, $DoB, $email, $emailNumber)){
-					$register_success = true;
+					$registerSuccess = true;
 				}				
 				// else {
 				// 	var_dump('Cannont create user ');
@@ -42,7 +42,7 @@
 				
 			}
 
-			return compact("register_success");
+			return compact("registerSuccess");
 		}
 
 	}

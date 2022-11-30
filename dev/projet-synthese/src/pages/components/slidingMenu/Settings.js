@@ -14,6 +14,8 @@ class Settings extends Component {
     handlePartage() {
         // const event = new CustomEvent('startRecording0', {detail:{number:123});
         document.dispatchEvent(new Event('startRecording'));
+        // document.getElementById("partage").disabled = true;
+
     }
 
     render() {

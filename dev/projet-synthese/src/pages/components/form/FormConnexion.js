@@ -21,7 +21,7 @@ class FormConnexion extends Form {
         this.connexion();
       }
       else {
-        this.afficherErreurConnexion();
+        this.afficherErreur();
       }
     }
 
@@ -31,7 +31,7 @@ class FormConnexion extends Form {
       window.location = "/animation";
     }
 
-    afficherErreurConnexion() {
+    afficherErreur() {
       let erreurs = document.getElementsByClassName("msg-erreur");
       erreurs.forEach(erreur => {
         erreur.style.display = "block";

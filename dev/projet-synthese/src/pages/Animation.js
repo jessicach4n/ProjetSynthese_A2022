@@ -7,7 +7,7 @@ import TriangleBezierCollisionAlgorithm from './components/generativeAlgorithm/T
 import TestAlgorithm from './components/generativeAlgorithm/TestAlgorithm';
 import AnimationTabs from './components/generativeAlgorithm/AnimationTabs';
 
-/* REF : https://www.kirupa.com/react/smooth_sliding_menu_react_motion.htm */
+//* REF : https://www.kirupa.com/react/smooth_sliding_menu_react_motion.htm 
 
 function Animation() {
   let animationPage = null
@@ -40,21 +40,20 @@ function Animation() {
                     </div>
   }
   else {
-    // console.log(navigator.geolocation.getCurrentPosition(successCallback, errorCallback))
+
     animationPage = <div className="animation">
                       <SettingsContainer/>
                       <AnimationTabs/>
                       <LineRotationAlgorithm/>
-                      {/* REMOVE LATER */}
-                      <video width="320" height="240px" controls>
-                        <source type='video/mp4'></source>
-                      </video>
                     </div>
   }
   return (
     animationPage
   );
 }
+
+// * REF : https://www.freecodecamp.org/news/how-to-get-user-location-with-javascript-geolocation-api/
+// console.log(navigator.geolocation.getCurrentPosition(successCallback, errorCallback))
 
 // const successCallback = (position) => {
 //   console.log(position);

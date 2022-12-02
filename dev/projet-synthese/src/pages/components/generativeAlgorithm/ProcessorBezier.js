@@ -1,13 +1,15 @@
 import { MyAwesomeQueue } from './MyAwesomeQueue';
+import { MyAwesomeStack } from './MyAwesomeStack';
 import { GenerativeAlgorithm } from './GenerativeAlgorithm';
 export class ProcessorBezier  extends GenerativeAlgorithm{
   constructor() {
     super()
     this.members = [];
     this.queue = new MyAwesomeQueue(4)
+    this.stack = new MyAwesomeStack()
     }
 
-    createMembers(memberNumber){
+    addMembers(memberNumber){
       for(let i = 0 ; i < memberNumber ; i++){
         let ball = {x : 0, y: 0, p2x : 0, p2y : 0} 
         this.members.push(ball);
@@ -40,7 +42,6 @@ export class ProcessorBezier  extends GenerativeAlgorithm{
       let direction = this.queue.getFront()
       let point = this.setNexMargintPoint(direction)
       this.queue.circulatePoints()
-      console.log('direction' + direction)
       return point
     }
 

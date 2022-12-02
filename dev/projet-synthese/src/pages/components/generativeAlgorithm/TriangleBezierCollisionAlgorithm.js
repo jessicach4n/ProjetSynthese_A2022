@@ -23,6 +23,7 @@ export default class TriangleBezierCollisionAlgorithm extends GenerativeAlgorith
     // this.cloudiness
     // this.averageVisibility      
     // this.humidity    
+    this.callAPI()
     }
 
     //*SIDES
@@ -38,11 +39,10 @@ export default class TriangleBezierCollisionAlgorithm extends GenerativeAlgorith
             let begin = true
             //*SIDES TOP:1 RIGHT:2 BOTTOM:3 LEFT:4 
             let marginOrder = [1,2,3,4]
-            console.log(marginOrder)
             let processorBezier = new ProcessorBezier()
-            processorBezier.createMembers(3)
+            processorBezier.addMembers(2)
             processorBezier.setMiddlePoint()
-            let balls = processorBezier.getMembers()
+            
             processorBezier.deleteOrderMargin(marginOrder)
             processorBezier.setOrderMarginPoints(marginOrder)    
 
@@ -67,7 +67,7 @@ export default class TriangleBezierCollisionAlgorithm extends GenerativeAlgorith
             
             const draw = (p5) => {
                 p5.noStroke()
-            
+                let balls = processorBezier.getMembers()
                 for(let member of balls){
                 p5.fill('teal')
                 p5.ellipse(member.x, member.y , 25, 25)
@@ -111,8 +111,14 @@ export default class TriangleBezierCollisionAlgorithm extends GenerativeAlgorith
         // REF : https://github.com/processing/p5.js/wiki/Global-and-instance-mode
     
     
-    callAPI(){
-        console.log("call api")
+    async callAPI(){
+        let lat = 45.501690;
+        let lon = -73.567253;
+        let apiKey = '0673a29b3b422714eddcadcdae6e4a12';
+        
+        let response = await fetch('https://api.openweathermap.org/data/2.5/forecast?lat=44.34&lon=10.99&appid={0673a29b3b422714eddcadcdae6e4a12}');
+        let data = await response.json();
+        // console.log(data);
     }
 
     assignUserVariables(){
@@ -129,14 +135,6 @@ export default class TriangleBezierCollisionAlgorithm extends GenerativeAlgorith
             'humidity          ' + this.humidity
             
         ) 
-    }
-
-    findNewBezierTrajectory(){
-        console.log("findNewBezierTrajectory method")
-    }
-
-    checkCollision(){
-     console.log('checkCollision method')   
     }
 }
 

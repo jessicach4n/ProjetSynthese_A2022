@@ -10,6 +10,11 @@ div.animation-tabs {
 .dot {    
     padding: 1vw;
     border-radius: 100px;
+    background-color: var(--main-light-color);
+    transition: 0.5s background-color;
+}
+
+.dot:hover {
     background-color: var(--main-accent-color);
 }
 

@@ -11,39 +11,31 @@ import AnimationTabs from './components/generativeAlgorithm/AnimationTabs';
 
 function Animation() {
   let animationPage = null
-  if (window.location.pathname.includes("LineRotationAlgorithm")) {
+  if (window.location.pathname.includes("TriangleBezierCollisionAlgorithm")) {
     animationPage = <div className="animation">
                       <SettingsContainer/>
-                      <AnimationTabs/>
-                      <LineRotationAlgorithm/>
-                    </div>
-  }
-  else if (window.location.pathname.includes("TriangleBezierCollisionAlgorithm")) {
-    animationPage = <div className="animation">
-                      <SettingsContainer/>
-                      <AnimationTabs/>
+                      <AnimationTabs currentPage="TriangleBezierCollisionAlgorithm"/>
                       <TriangleBezierCollisionAlgorithm/>
                     </div>
   }
   else if (window.location.pathname.includes("BreathingCircleAlgorithm")) {
     animationPage = <div className="animation">
                       <SettingsContainer/>
-                      <AnimationTabs/>
+                      <AnimationTabs currentPage="BreathingCircleAlgorithm"/>
                       <BreathingCircleAlgorithm/>
                     </div>
   }
   else if (window.location.pathname.includes("TestAlgorithm")) {
     animationPage = <div className="animation">
                       <SettingsContainer/>
-                      <AnimationTabs/>
+                      <AnimationTabs currentPage="TestAlgorithm"/>
                       <TestAlgorithm/>
                     </div>
   }
   else {
-
     animationPage = <div className="animation">
                       <SettingsContainer/>
-                      <AnimationTabs/>
+                      <AnimationTabs currentPage="LineRotationAlgorithm"/>
                       <LineRotationAlgorithm/>
                     </div>
   }

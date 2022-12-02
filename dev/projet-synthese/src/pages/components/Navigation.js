@@ -26,12 +26,7 @@ function handleLogout(event) {
 }
 
 const Navigation = () => {
-    let isLoggedIn = false;
-    if (window.sessionStorage.getItem("session_id") != null) {
-        isLoggedIn = true;
-    }
-    
-    return (<> {isLoggedIn ? (<>
+    return (<> {myConstants.IS_LOGGED_IN ? (<>
         <Link to="/">
             <img src="/logo-white.svg" alt="Logo du site web" id="logo" />
         </Link>

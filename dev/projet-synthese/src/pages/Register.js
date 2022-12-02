@@ -1,8 +1,9 @@
 import '../css/index.css'
 import FormRegister from './components/form/FormRegister'
+import * as myConstants from './constants.js'
 
 function Register() {
-  if (window.sessionStorage.getItem("session_id") != null)
+  if (myConstants.IS_LOGGED_IN)
   {
       window.location = "/"
       return

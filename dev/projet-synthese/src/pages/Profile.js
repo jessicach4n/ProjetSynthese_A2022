@@ -1,9 +1,10 @@
 import '../css/index.css';
 import '../css/profile.css';
 import StatsUser from './components/StatsUser';
+import * as myConstants from './constants.js'
 
 function Profile() {  
-    if (window.sessionStorage.getItem("session_id") == null)
+    if (!myConstants.IS_LOGGED_IN)
     {
         window.location = "/"
         return

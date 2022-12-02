@@ -1,9 +1,10 @@
 import '../css/index.css'
 import '../css/home.css'
 import FormConnexion from './components/form/FormConnexion'
+import * as myConstants from './constants.js'
 
 function Login() {
-    if (window.sessionStorage.getItem("session_id") != null)
+    if (myConstants.IS_LOGGED_IN)
     {
         window.location = "/"
         return

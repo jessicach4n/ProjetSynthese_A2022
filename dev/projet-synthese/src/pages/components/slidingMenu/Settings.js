@@ -1,21 +1,18 @@
 import React, { Component } from "react";
 
 class Settings extends Component {
+    constructor(props) {
+        super(props);
+        this.showMessage = this.showMessage.bind(this);
+        this.handlePartage = this.handlePartage.bind(this);
+        this.handleTelechargement = this.handleTelechargement.bind(this);
+    }
 
     handleTelechargement() {
         if (window.sessionStorage.getItem('session_id') != null) {
             console.log('Téléchargement');        }
         else {
-            document.getElementById("telechargement").className = "shake";
-            setTimeout(() => {
-                document.getElementById("telechargement").classList.remove("shake");
-              }, 500);
-            let message = document.getElementById("messageContainer");
-            message.innerText = "Action requires login";
-            message.style.display = 'block';
-            setTimeout(() => {
-                message.style.display = 'none';
-            }, 1800);
+            this.showMessage()
         }
     }
 
@@ -24,23 +21,13 @@ class Settings extends Component {
             document.dispatchEvent(new Event('startRecording'));
         }
         else {
-            document.getElementById("partage").className = "shake";
-            setTimeout(() => {
-                document.getElementById("partage").classList.remove("shake");
-              }, 500);
-            let message = document.getElementById("messageContainer");
-            message.innerText = "Action requires login";
-            message.style.display = 'block';
-            setTimeout(() => {
-                message.style.display = 'none';
-              }, 1800);
+            this.showMessage()
         }
     }
 
-    // ! Use this when possible in else of two previous functions
     showMessage() {
         let message = document.getElementById("messageContainer");
-        message.innerText = "Action requires login";
+        message.innerText = "Cette action requiert un compte";
         message.style.display = 'block';
         setTimeout(() => {
             message.style.display = 'none';

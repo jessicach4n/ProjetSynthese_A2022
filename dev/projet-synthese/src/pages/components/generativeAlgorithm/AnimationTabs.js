@@ -1,4 +1,3 @@
-import { Outlet, Link } from "react-router-dom";
 import '../../../css/index.css';
 import '../../../css/algorithm.css';
 
@@ -6,7 +5,7 @@ function handleOnClick(event) {
     window.location = "/animation/" + event.target.name
 }
 
-const AnimationTabs = () => {
+const AnimationTabs = (props) => {
 
     return(
         <div className="animation-tabs">

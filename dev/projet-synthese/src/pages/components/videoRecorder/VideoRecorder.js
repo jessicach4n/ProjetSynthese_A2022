@@ -41,6 +41,7 @@ export class VideoRecorder extends WebMWriter {
         formData.append("city", 'Montreal');
         formData.append("country", 'Canada');
         formData.append("video", video);
+        formData.append("session_id", window.sessionStorage.getItem("session_id"));
 
         fetch(myConstants.HOST + '/animation.php', {
           method : 'POST',

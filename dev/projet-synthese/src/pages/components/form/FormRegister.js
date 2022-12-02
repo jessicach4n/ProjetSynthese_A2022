@@ -17,10 +17,25 @@ class FormRegister extends Form {
         return super.getInputs(id);
     }
 
-    register() {
+    handleRegister() {
       if (this.success) {
         window.location = "/connexion";
       }
+      else {
+        this.afficherErreur();
+      }
+    }
+
+    afficherErreur() {
+      let erreurs = document.getElementsByClassName("msg-erreur");
+      erreurs.forEach(erreur => {
+        erreur.style.display = "block";
+        erreur.innerText = this.errorMessage;
+      });
+      document.getElementById("btn-register").className = "shake";
+      setTimeout(() => {
+        document.getElementById("btn-register").classList.remove("shake");
+      }, 500);
     }
 
     handleSubmit(event) {
@@ -33,20 +48,23 @@ class FormRegister extends Form {
       .then(res => res.json())
       .then(res => {
         this.success = res.registerSuccess;
-        this.register();
+        this.errorMessage = res.errorMessage;
+        console.log(this.errorMessage)
+        this.handleRegister();
       })
     }
   
     render() {
       return (
         <form onSubmit={this.handleSubmit} id="form-reg" method="post">
+          <div className="msg-erreur"></div>
           <input type="text" name="username" placeholder="Nom d'usager" id="reg-username" required/>
           <input type="text" name="lastName" placeholder="Nom" id="reg-nom" required/>
           <input type="text" name="firstName" placeholder="Prenom" id="reg-prenom" required/>
           <input type="email" name="email" placeholder="Email" id="reg-email" required/>
           <input type="text" name="passwd" placeholder="Mot de passe" id="reg-password" required/>
           <input type="date" min="1900-01-01" name="DoB" placeholder="Date de naissance" id="reg-datenaissance" required/>
-          <button type="submit">Joindre la communauté</button>
+          <button type="submit" id="btn-register">Joindre la communauté</button>
         </form>
       );
     }

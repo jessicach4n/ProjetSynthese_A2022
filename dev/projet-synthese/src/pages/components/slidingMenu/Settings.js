@@ -1,21 +1,37 @@
 import React, { Component } from "react";
-import BreathingCircleAlgorithm from '../generativeAlgorithm/BreathingCircleAlgorithm';
-import LineRotationAlgorithm from '../generativeAlgorithm/LineRotationAlgorithm';
-import TriangleBezierCollisionAlgorithm from '../generativeAlgorithm/TriangleBezierCollisionAlgorithm';
-import { BlockPicker } from "react-color";
 
 class Settings extends Component {
-    
+    constructor(props) {
+        super(props);
+        this.showMessage = this.showMessage.bind(this);
+        this.handlePartage = this.handlePartage.bind(this);
+        this.handleTelechargement = this.handleTelechargement.bind(this);
+    }
 
     handleTelechargement() {
-        console.log('Téléchargement');
+        if (window.sessionStorage.getItem('session_id') != null) {
+            console.log('Téléchargement');        }
+        else {
+            this.showMessage()
+        }
     }
 
     handlePartage() {
-        // const event = new CustomEvent('startRecording0', {detail:{number:123});
-        document.dispatchEvent(new Event('startRecording'));
-        // document.getElementById("partage").disabled = true;
+        if (window.sessionStorage.getItem('session_id') != null) {
+            document.dispatchEvent(new Event('startRecording'));
+        }
+        else {
+            this.showMessage()
+        }
+    }
 
+    showMessage() {
+        let message = document.getElementById("messageContainer");
+        message.innerText = "Cette action requiert un compte";
+        message.style.display = 'block';
+        setTimeout(() => {
+            message.style.display = 'none';
+          }, 1800);
     }
 
     render() {
@@ -27,12 +43,7 @@ class Settings extends Component {
     
         return (<div id="menu" className={visibility}>
                 <button id="fermer" onMouseDown={this.props.handleMouseDown}>Fermer</button>
-                {/* <BlockPicker
-                    color={blockPickerColor}
-                    onChange={(color) => {
-                        setBlockPickerColor(color.hex);
-                    }}
-                /> */}
+                <div id="messageContainer"></div>
                 <div className="buttonContainer">
                     <button onMouseDown={this.handleTelechargement} id="telechargement">TÉLÉCHARGER</button>
                     <button onMouseDown={this.handlePartage} id="partage">PARTAGER</button>

@@ -38,12 +38,11 @@ export class GenerativeAlgorithm extends Component{
             this.setState({isRecording: true});
         });
     }
-    //a revoir si la librairie lel permet 
+    
     setup(){
         this.videoRecorder = new VideoRecorder(this.quality, this.frameRate, this.canvas)
     }
     
-    //a revoir si la librairie lel permet 
     draw(){
         if (this.state.isRecording) {
             this.videoRecorder.record();

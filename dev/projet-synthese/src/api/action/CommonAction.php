@@ -8,6 +8,8 @@
     // require_once("action/constants.php");
 
     abstract class CommonAction {
+        protected static $NOT_SIGNED_IN = "NOT_SIGNED_IN";
+        
         protected static $VISIBILITY_PUBLIC = 0;
         protected static $VISIBILITY_MEMBER = 1;
         protected static $VISIBILITY_MODERATOR = 2;

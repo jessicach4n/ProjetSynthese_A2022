@@ -18,7 +18,7 @@ button {
 }
 
 #menu {
-    width: 30vw;
+    width: 24vw;
     height: 100vh;
     background-color: var(--main-accent-color);
     position: fixed;
@@ -43,7 +43,7 @@ button {
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 85%;
+  width: 80%;
   margin: 0 2vw 6vw 2vw;
 }
 
@@ -70,3 +70,30 @@ button {
   background-color: transparent;
   }
 
+  #messageContainer {
+    display: none;
+    font-size: 50px;
+    font-family: var(--display-font);
+    line-height: 1.2;
+    text-align: center;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    padding: 1vw;
+    transform: translate(-50%, -30%);
+    border: 4px solid var(--main-light-color);
+    border-radius: 20px;
+    animation: fade-out 2.5s;
+}
+
+@keyframes fade-out {
+  0% {
+      opacity: 1;
+  }
+  10% {
+    opacity: 1;
+  }
+  100% {
+      opacity: 0;
+  }
+}

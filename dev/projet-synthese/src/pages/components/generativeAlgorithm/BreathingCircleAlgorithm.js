@@ -6,17 +6,6 @@ import '../../../css/algorithm.css'
 export default class BreathingCircleAlgorithm extends GenerativeAlgorithm {
     constructor(props) {
     super(props);
-    // this.feelsLike 
-    // this.temperature
-    // this.unixTime      
-    // this.groundAtmosphericPreassure      
-    // this.seaAtmosphericPreassure      
-    // this.cloudiness
-    // this.averageVisibility      
-    // this.humidity    
-        // creation of the p5 sketch
-
-        //variables used by setup and draw 
     }
     render() {
             let r = 0   

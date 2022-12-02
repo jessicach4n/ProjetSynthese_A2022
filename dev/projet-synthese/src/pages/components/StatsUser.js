@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import '../../css/index.css'
-import '../../css/stats.css'
+import '../../css/profile.css'
 
 
 class StatsUser extends Component {

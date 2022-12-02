@@ -37,11 +37,11 @@
                 return $answer;
         }
 
-        public static function getAllAnimations() {
+        public static function getAllAnimationIds() {
             $connection = Connection::getConnection();
 
-            $statement = $connection->prepare("SELECT video FROM animations WHERE id ");
-            
+            $statement = $connection->prepare("SELECT id FROM animations");
+
             $statement->setFetchMode(PDO::FETCH_ASSOC);
             $statement->execute();
 
@@ -49,6 +49,6 @@
             
             error_log("answer" . $answer);
 
-            return 0;
+            return $answer;
         }
     }

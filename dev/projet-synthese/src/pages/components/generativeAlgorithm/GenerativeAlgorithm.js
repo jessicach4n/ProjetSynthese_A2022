@@ -1,8 +1,6 @@
 import { Component } from "react";
 import { VideoRecorder } from '../videoRecorder/VideoRecorder';
-
-
-// REF : https://codesandbox.io/s/k09k8knxz5
+//? REF : https://codesandbox.io/s/k09k8knxz5
 export class GenerativeAlgorithm extends Component{
     
     constructor(props) {
@@ -10,7 +8,6 @@ export class GenerativeAlgorithm extends Component{
         if (this.constructor === GenerativeAlgorithm) {
             throw new Error('Class "GenerativeAlgorithm" cannot be instantiated')
           }
-          //this is how to give variables to children 
           this.color = "red"
           this.feelsLike = "fels like"
           this.temperature = "temperature"
@@ -21,10 +18,10 @@ export class GenerativeAlgorithm extends Component{
           this.averageVisibility = "averageVisibility"
           this.humidity = "humidity" 
 
-          // for recorder
+          //* for recorder
           this.quality = 0.1
           this.frameRate = 30
-          //canvas size
+          //*canvas size
           this.width = 750
           this.height = 500 
 
@@ -38,12 +35,12 @@ export class GenerativeAlgorithm extends Component{
             this.setState({isRecording: true});
         });
     }
-    //a revoir si la librairie lel permet 
+    //// a revoir si la librairie lel permet 
     setup(){
         this.videoRecorder = new VideoRecorder(this.quality, this.frameRate, this.canvas)
     }
     
-    //a revoir si la librairie lel permet 
+    ////a revoir si la librairie lel permet 
     draw(){
         if (this.state.isRecording) {
             this.videoRecorder.record();
@@ -62,11 +59,6 @@ export class GenerativeAlgorithm extends Component{
         return false;
     }
 }
-
-
-//this will be a different class in a different document. 
-
-
 
 
 

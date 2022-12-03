@@ -11,12 +11,14 @@
 		protected function executeAction() {
 			$response = null;
 
-			if($_POST["action"] == "GET_IDS") {
-				$response = UserDAO::getAllAnimationIds();
-			}
-			else if ($_POST["action"] == "GET_ANIMATION") {
-				$response = UserDAO::getAnimation($_POST["id"]);
-			}
+			if (CommonAction::$VISIBILITY_MEMBER) {
+				if($_POST["action"] == "GET_IDS") {
+					$response = UserDAO::getAllAnimationIds();
+				}
+				else if ($_POST["action"] == "GET_ANIMATION_INFO") {
+					$response = UserDAO::getAnimationInfo($_POST["id"]);
+				}
+			}	
 
 			return compact("response");
 		}

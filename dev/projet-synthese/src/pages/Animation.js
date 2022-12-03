@@ -6,6 +6,7 @@ import LineRotationAlgorithm from './components/generativeAlgorithm/LineRotation
 import TriangleBezierCollisionAlgorithm from './components/generativeAlgorithm/TriangleBezierCollisionAlgorithm';
 import TestAlgorithm from './components/generativeAlgorithm/TestAlgorithm';
 import AnimationTabs from './components/generativeAlgorithm/AnimationTabs';
+import Message from './components/Message';
 
 //* REF : https://www.kirupa.com/react/smooth_sliding_menu_react_motion.htm 
 
@@ -13,35 +14,24 @@ function Animation() {
   let animationPage = null
 
   if (window.location.pathname.includes("TriangleBezierCollisionAlgorithm")) {
-    animationPage = <div className="animation">
-      <SettingsContainer />
-      <AnimationTabs currentPage="TriangleBezierCollisionAlgorithm" />
-      <TriangleBezierCollisionAlgorithm />
-    </div>
+    animationPage = <TriangleBezierCollisionAlgorithm />
   }
   else if (window.location.pathname.includes("BreathingCircleAlgorithm")) {
-    animationPage = <div className="animation">
-      <SettingsContainer />
-      <AnimationTabs currentPage="BreathingCircleAlgorithm" />
-      <BreathingCircleAlgorithm />
-    </div>
+    animationPage = <BreathingCircleAlgorithm />
   }
   else if (window.location.pathname.includes("TestAlgorithm")) {
-    animationPage = <div className="animation">
-      <SettingsContainer />
-      <AnimationTabs currentPage="TestAlgorithm" />
-      <TestAlgorithm />
-    </div>
+    animationPage = <TestAlgorithm />
   }
   else {
-    animationPage = <div className="animation">
-      <SettingsContainer />
-      <AnimationTabs currentPage="LineRotationAlgorithm" />
-      <LineRotationAlgorithm />
-    </div>
+    animationPage = <LineRotationAlgorithm />
   }
   return (
-    animationPage
+    <div className="animation">
+    <Message />
+    <SettingsContainer />
+    <AnimationTabs currentPage="LineRotationAlgorithm" />
+    {animationPage}
+    </div>
   );
 }
 

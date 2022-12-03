@@ -37,9 +37,8 @@
 
         public static function addAnimation($creator, $creationDate, $city, $country, $video) {
                 $connection = Connection::getConnection();
-                
                 $statement = $connection->prepare("INSERT INTO Animations(createur, date_creation, ville, pays, video) 
-                VALUES (?, ?, ?, ?, ?)");
+                VALUES ((SELECT id FROM usagers WHERE nom_utilisateur = ?), ?, ?, ?, ?)");
                 $statement->bindParam(1, $creator);
                 $statement->bindParam(2, $creationDate);
                 $statement->bindParam(3, $city);
@@ -66,18 +65,20 @@
             return $answer;
         }
 
-        // public static function getAnimationInfo($id) {
-        //     $connection = Connection::getConnection();
+        public static function getAnimationInfo($id) {
+            $connection = Connection::getConnection();
 
-        //     $statement = $connection->prepare("SELECT id FROM animations");
+            $statement = $connection->prepare(" SELECT usagers.nom_utilisateur, ville, pays, date_creation 
+                                                FROM animations
+                                                JOIN usagers
+                                                ON usagers.id = animations.createur
+                                                WHERE animations.id = ?;");
+            $statement->bindParam(1, $id);
+            $statement->setFetchMode(PDO::FETCH_ASSOC);
+            $statement->execute();
 
-        //     $statement->setFetchMode(PDO::FETCH_ASSOC);
-        //     $statement->execute();
-
-        //     $answer = $statement->fetchAll();
-            
-        //     error_log("answer" . $answer);
-
-        //     return $answer;
-        // }
+            $answer = $statement->fetchAll();
+        
+            return $answer;
+        }
     }

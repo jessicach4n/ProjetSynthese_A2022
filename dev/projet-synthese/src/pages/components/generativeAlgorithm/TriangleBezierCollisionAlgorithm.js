@@ -97,7 +97,7 @@ export default class TriangleBezierCollisionAlgorithm extends GenerativeAlgorith
         // let response = await fetch('https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&mode=JSO&appid={49a356b49aac954413c95572fdd8c235}');
         let response = await fetch('https://api.openweathermap.org/data/2.5/forecast?lat=45.501690&lon=-73.567253&units=metric&cnt=3&mode=JSON&appid=49a356b49aac954413c95572fdd8c235');
         let data = await response.json();
-        // myConstants.USERNAME
+       
         
         console.log(data);
         
@@ -110,7 +110,8 @@ export default class TriangleBezierCollisionAlgorithm extends GenerativeAlgorith
               })
               .then(res => res.json())
               .then(res => {
-                console.log(res.emailNumber)
+                console.log(res.emailNumber);
+                console.log(res.APIresponse);
               })
         }
     }

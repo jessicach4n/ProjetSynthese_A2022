@@ -6,7 +6,12 @@ import { Component } from "react";
 import { ProcessorBezier } from './ProcessorBezier';
 import Sketch from "react-p5";
 import { VideoRecorder } from '../videoRecorder/VideoRecorder';
+import * as myConstants from '../../constants'
 
+//TODO: create call api class 
+//TODO: create dao request for gettin eamil nunmber 
+//TODO: create choice picker for the choice 
+//TODO: find get positio laitutde and longitude from code. animaiton.js
 
 export default class TriangleBezierCollisionAlgorithm extends GenerativeAlgorithm {
     constructor(props) {
@@ -92,6 +97,8 @@ export default class TriangleBezierCollisionAlgorithm extends GenerativeAlgorith
         // let response = await fetch('https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&mode=JSO&appid={49a356b49aac954413c95572fdd8c235}');
         let response = await fetch('https://api.openweathermap.org/data/2.5/forecast?lat=45.501690&lon=-73.567253&units=metric&cnt=3&mode=JSON&appid=49a356b49aac954413c95572fdd8c235');
         let data = await response.json();
+        // myConstants.USERNAME
+
         console.log(data);
     }
 

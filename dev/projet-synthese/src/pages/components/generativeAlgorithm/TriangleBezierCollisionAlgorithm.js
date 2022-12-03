@@ -6,6 +6,7 @@ import { Component } from "react";
 import { ProcessorBezier } from './ProcessorBezier';
 import Sketch from "react-p5";
 import { VideoRecorder } from '../videoRecorder/VideoRecorder';
+import * as myConstants from '../../constants'
 
 
 export default class TriangleBezierCollisionAlgorithm extends GenerativeAlgorithm {
@@ -93,6 +94,19 @@ export default class TriangleBezierCollisionAlgorithm extends GenerativeAlgorith
         let response = await fetch('https://api.openweathermap.org/data/2.5/forecast?lat=45.501690&lon=-73.567253&units=metric&cnt=3&mode=JSON&appid=49a356b49aac954413c95572fdd8c235');
         let data = await response.json();
         console.log(data);
+        
+        if (myConstants.IS_LOGGED_IN) {
+            let formData = new FormData();
+            formData.append("session_id", window.sessionStorage.getItem("session_id"));
+            fetch(myConstants.HOST + '/animation.php', {
+                method : 'POST',
+                body : formData
+              })
+              .then(res => res.json())
+              .then(res => {
+                console.log(res.emailNumber)
+              })
+        }
     }
 
     assignUserVariables(){

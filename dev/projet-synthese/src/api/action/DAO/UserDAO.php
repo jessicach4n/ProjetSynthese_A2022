@@ -32,7 +32,7 @@
     
                 $answer = $statement->fetchAll();
                 
-                return $answer;
+                return $answer[0]["chiffre_email"];
         }
 
         public static function addAnimation($creator, $creationDate, $city, $country, $video) {
@@ -65,4 +65,19 @@
 
             return $answer;
         }
+
+        // public static function getAnimationInfo($id) {
+        //     $connection = Connection::getConnection();
+
+        //     $statement = $connection->prepare("SELECT id FROM animations");
+
+        //     $statement->setFetchMode(PDO::FETCH_ASSOC);
+        //     $statement->execute();
+
+        //     $answer = $statement->fetchAll();
+            
+        //     error_log("answer" . $answer);
+
+        //     return $answer;
+        // }
     }

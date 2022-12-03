@@ -36,7 +36,7 @@ export class VideoRecorder extends WebMWriter {
         let video = data;
         console.log(video)
         // formData.append('creator', window.sessionStorage.getItem("username"))
-        formData.append("creator", 1);
+        formData.append("creator", myConstants.USERNAME);
         formData.append("creationDate", creationDate);
         formData.append("city", 'Montreal');
         formData.append("country", 'Canada');

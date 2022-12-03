@@ -100,6 +100,19 @@ export default class TriangleBezierCollisionAlgorithm extends GenerativeAlgorith
         // myConstants.USERNAME
 
         console.log(data);
+        
+        if (myConstants.IS_LOGGED_IN) {
+            let formData = new FormData();
+            formData.append("session_id", window.sessionStorage.getItem("session_id"));
+            fetch(myConstants.HOST + '/animation.php', {
+                method : 'POST',
+                body : formData
+              })
+              .then(res => res.json())
+              .then(res => {
+                console.log(res.emailNumber)
+              })
+        }
     }
 
     assignUserVariables(){

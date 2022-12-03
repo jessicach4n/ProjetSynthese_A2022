@@ -21,6 +21,20 @@
             return 0;
         }
 
+        public static function getEmailNumber($username) {
+                $connection = Connection::getConnection();
+                
+                $statement = $connection->prepare("SELECT chiffre_email FROM usagers WHERE nom_utilisateur = ?");
+                $statement->bindParam(1, $username);
+                
+                $statement->setFetchMode(PDO::FETCH_ASSOC);
+                $statement->execute();
+    
+                $answer = $statement->fetchAll();
+                
+                return $answer;
+        }
+
         public static function addAnimation($creator, $creationDate, $city, $country, $video) {
                 $connection = Connection::getConnection();
                 

@@ -11,38 +11,40 @@ import AnimationTabs from './components/generativeAlgorithm/AnimationTabs';
 
 function Animation() {
   let animationPage = null
+
   if (window.location.pathname.includes("TriangleBezierCollisionAlgorithm")) {
     animationPage = <div className="animation">
-                      <SettingsContainer/>
-                      <AnimationTabs currentPage="TriangleBezierCollisionAlgorithm"/>
-                      <TriangleBezierCollisionAlgorithm/>
-                    </div>
+      <SettingsContainer />
+      <AnimationTabs currentPage="TriangleBezierCollisionAlgorithm" />
+      <TriangleBezierCollisionAlgorithm />
+    </div>
   }
   else if (window.location.pathname.includes("BreathingCircleAlgorithm")) {
     animationPage = <div className="animation">
-                      <SettingsContainer/>
-                      <AnimationTabs currentPage="BreathingCircleAlgorithm"/>
-                      <BreathingCircleAlgorithm/>
-                    </div>
+      <SettingsContainer />
+      <AnimationTabs currentPage="BreathingCircleAlgorithm" />
+      <BreathingCircleAlgorithm />
+    </div>
   }
   else if (window.location.pathname.includes("TestAlgorithm")) {
     animationPage = <div className="animation">
-                      <SettingsContainer/>
-                      <AnimationTabs currentPage="TestAlgorithm"/>
-                      <TestAlgorithm/>
-                    </div>
+      <SettingsContainer />
+      <AnimationTabs currentPage="TestAlgorithm" />
+      <TestAlgorithm />
+    </div>
   }
   else {
     animationPage = <div className="animation">
-                      <SettingsContainer/>
-                      <AnimationTabs currentPage="LineRotationAlgorithm"/>
-                      <LineRotationAlgorithm/>
-                    </div>
+      <SettingsContainer />
+      <AnimationTabs currentPage="LineRotationAlgorithm" />
+      <LineRotationAlgorithm />
+    </div>
   }
   return (
     animationPage
   );
 }
+
 
 // * REF : https://www.freecodecamp.org/news/how-to-get-user-location-with-javascript-geolocation-api/
 // console.log(navigator.geolocation.getCurrentPosition(successCallback, errorCallback))

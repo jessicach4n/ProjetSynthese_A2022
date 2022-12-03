@@ -11,15 +11,19 @@ class CardHolder extends Component {
 
         let formData = new FormData();
         formData.append("action", myConstants.GET_IDS);
-
+        formData.append("session_id", window.sessionStorage.getItem("session_id"));
         fetch(myConstants.HOST + '/shares.php', {
             method: 'POST',
             body: formData
         })
         .then(res => res.json())
         .then(res => {
-            this.ids = res.ids;
+            this.ids = res.response;
+            console.log(this.ids)
         })
+
+        // ! HOW TO DO A FOREACH ON THIS.IDS
+        
 
         let items = ["hello", "bye", "cute", "awesome", "yo"];
         this.cards = [];

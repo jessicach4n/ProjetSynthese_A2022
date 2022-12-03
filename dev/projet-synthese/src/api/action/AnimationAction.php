@@ -19,7 +19,6 @@
 			if(!empty($_POST['creator']) && !empty($_POST['creationDate']) 
 			&& !empty($_POST['city']) && !empty($_POST['country']) && !empty($_FILES['video'])) {
 				if (CommonAction::$VISIBILITY_MEMBER) {
-					$entered_loop = true;
 					$creator = $_POST["creator"];
 					$creationDate = $_POST["creationDate"];
 					$city = $_POST["city"];

@@ -2,7 +2,10 @@ import '../../../css/index.css';
 import '../../../css/algorithm.css';
 
 function handleOnClick(event) {
-    window.location = "/animation/" + event.target.name
+    let animName = event.target.name
+    if (!window.location.pathname.includes(animName)) {
+        window.location = "/animation/" + animName
+    }
 }
 
 const AnimationTabs = (props) => {

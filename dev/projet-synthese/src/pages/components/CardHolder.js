@@ -3,12 +3,13 @@ import '../../css/card.css'
 import Card from "./Card";
 import * as myConstants from '../constants.js'
 
-
-
 class CardHolder extends Component {
     constructor(props) {
         super(props);
+        this.state = {cards : []}
+    }
 
+    componentDidMount() {
         let formData = new FormData();
         formData.append("action", myConstants.GET_IDS);
         formData.append("session_id", window.sessionStorage.getItem("session_id"));
@@ -19,36 +20,36 @@ class CardHolder extends Component {
         .then(res => res.json())
         .then(res => {
             this.ids = res.response;
-            console.log(this.ids)
+            let cards = [];
+            this.ids.forEach((id) => {   
+                cards.push(<Card key={id} username={id} video={id}/>)
+                // let formData = new FormData();
+                // formData.append("action", myConstants.GET_ANIMATION_INFO);
+                // formData.append("id", id);
+                // formData.append("session_id", window.sessionStorage.getItem("session_id"));
+                // fetch(myConstants.HOST + '/shares.php', {
+                //     method: 'POST',
+                //     body: formData
+                // })
+                // .then(res => res.json())
+                // .then(res => {
+                //     let response = res.response[0];
+                //     let video = response['id'];
+                //     let username = response['nom_utilisateur'];
+                //     let city = response['ville'];
+                //     let country = response['pays'];
+                //     let timestamp = response['date_creation'];
+                //     cards.push(<Card key={video} username={username} city={city} country={country} timestamp={timestamp} video={video}/>)
+                // })
+            })
+            this.setState({cards:cards});
         })
-
-        // ! HOW TO DO A FOREACH ON THIS.IDS
-        
-
-        let items = ["hello", "bye", "cute", "awesome", "yo"];
-        this.cards = [];
-        items.forEach((item, index) => {
-            // formData = new FormData()
-            // formData.append("action", myConstants.GET_ANIMATION);
-            // formData.append("id", id)
-
-            // fetch(myConstants.HOST + '/shares.php', {
-            //     method: 'POST',
-            //     body: formData
-            // })
-            // .then(res => res.json())
-            // .then(res => {
-            //     console.log(res)
-            // })
-            this.cards.push(<Card key={index} username={item} />)
-        })
-
     }
 
     render() {
         return (
             <div className="cards">
-                {this.cards}
+                {this.state.cards}
             </div>
         );
     }

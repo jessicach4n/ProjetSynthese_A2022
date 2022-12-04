@@ -58,17 +58,19 @@
             $statement->setFetchMode(PDO::FETCH_ASSOC);
             $statement->execute();
 
-            $answer = $statement->fetchAll();
-            
-            error_log("answer" . $answer);
+            $answers = $statement->fetchAll();
+            $arr = [];
+            foreach($answers as $answer) {
+                array_push($arr, $answer["id"]);
+            }
 
-            return $answer;
+            return $arr;
         }
 
         public static function getAnimationInfo($id) {
             $connection = Connection::getConnection();
 
-            $statement = $connection->prepare(" SELECT usagers.nom_utilisateur, ville, pays, date_creation 
+            $statement = $connection->prepare(" SELECT animations.id, usagers.nom_utilisateur, ville, pays, date_creation 
                                                 FROM animations
                                                 JOIN usagers
                                                 ON usagers.id = animations.createur
@@ -80,5 +82,19 @@
             $answer = $statement->fetchAll();
         
             return $answer;
+        }
+
+        public static function getVideo($id) {
+            $connection = Connection::getConnection();
+
+            $statement = $connection->prepare(" SELECT video FROM animations WHERE id = ?");
+            $statement->bindParam(1, $id);
+
+            $statement->setFetchMode(PDO::FETCH_ASSOC);
+            $statement->execute();
+
+            $answer = $statement->fetchAll();
+        
+            return $answer[0][video];
         }
     }

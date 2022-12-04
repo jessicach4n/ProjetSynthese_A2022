@@ -7,13 +7,7 @@ import Register from "./Register";
 import Shares from "./Shares"
 import About from "./About"
 import Animation from "./Animation"
-import BreathingCircleAlgorithm from './components/generativeAlgorithm/BreathingCircleAlgorithm';
-import LineRotationAlgorithm from './components/generativeAlgorithm/LineRotationAlgorithm';
-import TriangleBezierCollisionAlgorithm from './components/generativeAlgorithm/TriangleBezierCollisionAlgorithm';
-
-
 import Navigation from './components/Navigation';
-
 
 function App() {
   return (

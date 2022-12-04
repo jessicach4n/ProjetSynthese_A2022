@@ -6,13 +6,22 @@ class Settings extends Component {
         this.showMessage = this.showMessage.bind(this);
         this.handlePartage = this.handlePartage.bind(this);
         this.handleTelechargement = this.handleTelechargement.bind(this);
+        this.shake = this.shake.bind(this)
+    }
+
+    shake(buttonId) {
+        document.getElementById(buttonId).className = "shake";
+        setTimeout(() => {
+            document.getElementById(buttonId).classList.remove("shake");
+          }, 500);
     }
 
     handleTelechargement() {
         if (window.sessionStorage.getItem('session_id') != null) {
             console.log('Téléchargement');        }
         else {
-            this.showMessage()
+            this.shake('telechargement');
+            this.showMessage();
         }
     }
 
@@ -21,6 +30,7 @@ class Settings extends Component {
             document.dispatchEvent(new Event('startRecording'));
         }
         else {
+            this.shake('partage');
             this.showMessage()
         }
     }

@@ -1,5 +1,6 @@
 import '../css/index.css';
 import '../css/profile.css';
+import CardHolder from './components/CardHolder';
 import StatsUser from './components/StatsUser';
 import * as myConstants from './constants.js'
 
@@ -15,13 +16,9 @@ function Profile() {
             <StatsUser/>
             <div className="onglets">
                 <li><a href=""></a>Mes animations</li>
-                <li><a href=""></a>Mes vidéos aimées</li>
             </div>
             <section className="my-animations">
-                <div></div>
-            </section>
-            <section className="my-likes">
-                <div></div>
+                <CardHolder/>
             </section>
         </div>
     );

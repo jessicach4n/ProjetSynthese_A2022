@@ -53,7 +53,7 @@
         public static function getAllAnimationIds() {
             $connection = Connection::getConnection();
 
-            $statement = $connection->prepare("SELECT id FROM animations");
+            $statement = $connection->prepare("SELECT id FROM animations ORDER BY id DESC");
 
             $statement->setFetchMode(PDO::FETCH_ASSOC);
             $statement->execute();

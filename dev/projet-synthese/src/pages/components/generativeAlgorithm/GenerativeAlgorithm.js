@@ -18,10 +18,9 @@ export class GenerativeAlgorithm extends Component{
           this.averageVisibility = "averageVisibility"
           this.humidity = "humidity" 
 
-          //* for recorder
           this.quality = 0.1
           this.frameRate = 30
-          //*canvas size
+          
           this.width = 750
           this.height = 500 
 

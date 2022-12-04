@@ -4,8 +4,8 @@ import * as myConstants from '../../constants.js'
 export class VideoRecorder extends WebMWriter {
     constructor(quality, frameRate, canvas) {
         super({ quality: quality, frameRate: frameRate });
-        this.vidLength = 20
-        this.canvas = canvas
+        this.vidLength = 100;
+        this.canvas = canvas;
         this.frameCounter = 0;
     }
 

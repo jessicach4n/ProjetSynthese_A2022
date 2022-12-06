@@ -17,6 +17,10 @@ button {
   cursor: pointer;
 }
 
+.icon {
+  margin-right: 5px;
+}
+
 #menu {
     width: 24vw;
     height: 100vh;

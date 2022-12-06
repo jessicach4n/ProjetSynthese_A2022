@@ -7,6 +7,7 @@ import { ProcessorBezier } from './ProcessorBezier';
 import Sketch from "react-p5";
 import { VideoRecorder } from '../videoRecorder/VideoRecorder';
 import * as myConstants from '../../constants'
+import { VariablePicker } from './VariablePicker';
 
 //TODO: create call api class 
 //TODO: create dao request for gettin eamil nunmber 
@@ -20,6 +21,7 @@ export default class TriangleBezierCollisionAlgorithm extends GenerativeAlgorith
     this.quality = 0.1
     this.frameRate = 30
     this.canvas = null;
+    this.assignUserVariables()
     this.callAPI()
     }
     render() {
@@ -117,19 +119,9 @@ export default class TriangleBezierCollisionAlgorithm extends GenerativeAlgorith
     }
 
     assignUserVariables(){
-        //testing heritage
-        console.log("assig variables")
-        console.log( 
-            "fells like  "+ this.feelsLike +  "\n" +
-            'temperature         ' + this.temperature+ "\n" +
-            'unixtime         ' + this.unixTime + "\n" +
-            'groundAtmosphericPreassure         ' + this.groundAtmosphericPreassure+ "\n" +
-            'seaAtmosphericPreassure         ' + this.seaAtmosphericPreassure+ "\n" +
-            'cloudiness         ' + this.cloudiness+ "\n" +
-            'ave           ' + this.averageVisibility+ "\n" +
-            'humidity          ' + this.humidity
+       VariablePicker.pickVariable(['fuck you'])
             
-        ) 
+        
     }
 }
 

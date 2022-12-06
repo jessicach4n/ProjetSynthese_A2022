@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faDownload, faShare } from '@fortawesome/free-solid-svg-icons'
 
 class Settings extends Component {
     constructor(props) {
@@ -55,8 +57,8 @@ class Settings extends Component {
                 <button id="fermer" onMouseDown={this.props.handleMouseDown}>Fermer</button>
                 <div id="messageContainer"></div>
                 <div className="buttonContainer">
-                    <button onMouseDown={this.handleTelechargement} id="telechargement">TÉLÉCHARGER</button>
-                    <button onMouseDown={this.handlePartage} id="partage">PARTAGER</button>
+                    <button onMouseDown={this.handleTelechargement} id="telechargement"><FontAwesomeIcon icon={faDownload} className="icon"/> TÉLÉCHARGER</button>
+                    <button onMouseDown={this.handlePartage} id="partage"><FontAwesomeIcon icon={faShare} className="icon"/> PARTAGER</button>
                 </div>
                 </div>);
         

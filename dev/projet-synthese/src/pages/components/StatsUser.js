@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import '../../css/index.css'
 import '../../css/profile.css'
-
+import * as myConstants from '../constants'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUser } from '@fortawesome/free-regular-svg-icons'
 
 class StatsUser extends Component {
     constructor(props) {
@@ -22,8 +24,8 @@ class StatsUser extends Component {
       return (
         <div className="stats">
           <div className="data" id="icon-profile">
-            <div><img src="https://static.vecteezy.com/system/resources/previews/001/192/291/original/circle-png.png" alt=""/></div>
-            <div className="tag" id="stats-username">Nom utilisateur</div>
+            <div><FontAwesomeIcon icon={faUser} size="5x"/></div>
+            <div className="tag" id="stats-username">{myConstants.USERNAME}</div>
           </div>
           <div className="data" id="gen-anim">
             <div className="nb">01</div>

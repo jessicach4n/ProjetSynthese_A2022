@@ -1,6 +1,8 @@
 import { Outlet, Link } from "react-router-dom";
 import '../../css/index.css';
 import * as myConstants from '../constants.js'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowRightFromBracket, faArrowRightToBracket } from '@fortawesome/free-solid-svg-icons'
 
 function logout(res) {
     if (!res.isLoggedIn) {
@@ -44,7 +46,7 @@ const Navigation = () => {
                 <li><Link to="/profil">Profil</Link></li>
             </ul>
             <ul>
-                <li onClick={handleLogout}>Déconnexion</li>
+                <li onClick={handleLogout}><FontAwesomeIcon icon={faArrowRightFromBracket} size="lg"/></li>
             </ul>
         </nav>
         <Outlet />
@@ -61,7 +63,7 @@ const Navigation = () => {
                 <li><Link to="/a-propos">À propos</Link></li>
             </ul>
             <ul>
-                <li><Link to="/connexion">Connexion</Link></li>
+                <li><Link to="/connexion"><FontAwesomeIcon icon={faArrowRightToBracket} size="lg"/></Link></li>
             </ul>
         </nav>
         <Outlet />

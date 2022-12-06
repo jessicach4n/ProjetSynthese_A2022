@@ -44,14 +44,10 @@ div.tag {
     margin-top: 2vw;
 }
 
-img {
-    width: 8vw;
-    height: auto;
-}
-
 #stats-username {
     color: var(--main-light-color);
-    margin-top: 1vw;
+    margin-top: 1.5vw;
+    font-size: 1.5vw;
 }
 
 

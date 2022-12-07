@@ -27,17 +27,9 @@ class StatsUser extends Component {
             <div><FontAwesomeIcon icon={faUser} size="5x"/></div>
             <div className="tag" id="stats-username">{myConstants.USERNAME}</div>
           </div>
-          <div className="data" id="gen-anim">
-            <div className="nb">01</div>
-            <div className="tag">Animations générées</div>
-          </div>
           <div className="data" id="shared-anim">
             <div className="nb">01</div>
             <div className="tag">Animations partagées</div>
-          </div>
-          <div className="data" id="likes">
-            <div className="nb">01</div>
-            <div className="tag">Coups de coeur</div>
           </div>
         </div>
       );

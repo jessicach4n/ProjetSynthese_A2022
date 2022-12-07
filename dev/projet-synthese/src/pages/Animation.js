@@ -35,16 +35,4 @@ function Animation() {
   );
 }
 
-
-// * REF : https://www.freecodecamp.org/news/how-to-get-user-location-with-javascript-geolocation-api/
-// console.log(navigator.geolocation.getCurrentPosition(successCallback, errorCallback))
-
-// const successCallback = (position) => {
-//   console.log(position);
-// };
-
-// const errorCallback = (error) => {
-//   console.log(error);
-// };
-
 export default Animation;

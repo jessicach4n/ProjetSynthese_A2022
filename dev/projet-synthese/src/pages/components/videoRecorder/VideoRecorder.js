@@ -32,13 +32,13 @@ export class VideoRecorder extends WebMWriter {
 
     handleShare(data) {
         let formData = new FormData();
-        let creationDate = new Date();
+        let creationDate = new Date().toLocaleDateString();
         let video = data;
         
         formData.append("creator", myConstants.USERNAME);
         formData.append("creationDate", creationDate);
-        formData.append("city", 'Montreal');
-        formData.append("country", 'Canada');
+        formData.append("city", myConstants.USER_LOCATION['city']);
+        formData.append("country", myConstants.USER_LOCATION['country']);
         formData.append("video", video);
         formData.append("session_id", window.sessionStorage.getItem("session_id"));
 
@@ -60,15 +60,7 @@ export class VideoRecorder extends WebMWriter {
             if (webMBlob.size < 2000000) {
                 this.handleShare(webMBlob);
             }
-            // document
-            //     .querySelector("video")
-            //     .setAttribute("src", URL.createObjectURL(webMBlob));
-            
-            
         });
-        // Save to local or session storage 
     }
 }  
 
-// First URL getAllAnimations.php -> returns Array of ids
-// Second URL getAnimation.php?id=... -> returns video corresponding to id

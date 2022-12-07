@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import '../../css/card.css'
 import * as myConstants from '../constants'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUser, faMap, faCalendarTimes} from '@fortawesome/free-regular-svg-icons'
 
 class Card extends Component {
     constructor(props) {
@@ -18,9 +20,9 @@ class Card extends Component {
           <div className="cardContainer">
             <video src={source} controls></video>
             <div className="infos">
-              <div id="username">{this.username}</div>
-              <div id="area">{this.city + ', ' + this.country}</div>
-              <div id="timestamp">{this.timestamp}</div>
+              <div id="username"><FontAwesomeIcon icon={faUser} className="statIcon"/> {this.username}</div>
+              <div id="area"><FontAwesomeIcon icon={faMap} className="statIcon"/> {this.city}, {this.country}</div>
+              <div id="timestamp"><FontAwesomeIcon icon={faCalendarTimes} className="statIcon"/> {this.timestamp}</div>
             </div>
           </div>
         );

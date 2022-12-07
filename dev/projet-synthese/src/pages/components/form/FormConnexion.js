@@ -28,8 +28,29 @@ class FormConnexion extends Form {
     connexion() {
       window.sessionStorage.setItem("session_id", this.sessionId);
       window.sessionStorage.setItem("username", this.username);
+
+      // * REF : https://www.freecodecamp.org/news/how-to-get-user-location-with-javascript-geolocation-api/
+      const successCallback = (position) => {
+        let lat = position.coords.latitude
+        let lon = position.coords.longitude
+        let data = this.callAPI(lat, lon)
+        window.sessionStorage.setItem("city", data['name']);
+        window.sessionStorage.setItem("country", data['sys']['country']);
+      };
+      const errorCallback = (error) => {
+        console.log(error);
+      };
+      navigator.geolocation.getCurrentPosition(successCallback, errorCallback)
+      
       window.location = "/animation";
     }
+
+    async callAPI(lat, lon){
+      let apiKey = '49a356b49aac954413c95572fdd8c235';  
+      let response = await fetch('https://api.openweathermap.org/data/2.5/weather?lat=' + lat + '&lon=' + lon + '&mode=JSO&appid=' + apiKey);
+      let data = await response.json();
+      return data
+    } 
 
     afficherErreur() {
       let erreurs = document.getElementsByClassName("msg-erreur");

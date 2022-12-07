@@ -7,7 +7,8 @@ import { ProcessorBezier } from './ProcessorBezier';
 import Sketch from "react-p5";
 import { VideoRecorder } from '../videoRecorder/VideoRecorder';
 import * as myConstants from '../../constants'
-import { VariablePicker } from './VariablePicker';
+import { ProrcessorVariables, VariablePicker } from './ProrcessorVariables';
+import { ProcessorAPI } from './ProcessorAPI';
 
 //TODO: create call api class 
 //TODO: create dao request for gettin eamil nunmber 
@@ -21,21 +22,48 @@ export default class TriangleBezierCollisionAlgorithm extends GenerativeAlgorith
     this.quality = 0.1
     this.frameRate = 30
     this.canvas = null;
-    this.assignUserVariables()
     this.callAPI()
+    this.assignUserVariables()
+    }
+
+    async assignUserVariables(){
+        if(!myConstants.IS_LOGGED_IN){
+            this.marginOrder = [1,2,3,4];
+            this.cycleNumberOfMembers = [1,2,3,4];
+            let data = await this.callAPI()
+            console.log(data)
+            let emailNumber = 156333
+            let choices = []
+            for(let dataset of data){
+                console.log(dataset.main.pressure)
+                choices.push(dataset.main.pressure);
+            }
+            let choice = ProrcessorVariables.pickVariable(choices,emailNumber)
+            console.log(' this is my choice ' + choice)
+
+            console.log("this is test normalize " + ProcessorAPI.normalizeAthmospericPressure(1042))
+            let chance = ProcessorAPI.normalizeAthmospericPressure(1042)
+            let finalList = ProrcessorVariables.createInfluencedList(chance,4,7);
+            console.log("this is final list " + finalList);
+            // this.cycleNumberOfMembers  = Array.from(finalList);
+        }
+        else {
+            ProrcessorVariables.pickVariable(['a','b','c'], 156333);
+        }
     }
     render() {
 
             let t = 0;
             let begin = true;
             //*SIDES TOP:1 RIGHT:2 BOTTOM:3 LEFT:4 
-            let marginOrder = [1,2,3,4];
+            // let marginOrder = [1,2,3,4];
             let processorBezier = new ProcessorBezier();
             processorBezier.setPaddingX(12.5);
             processorBezier.setPaddingY(12.5);
-            processorBezier.setCycleNumberOfMembers([1,2,3])
+            console.log('this is cycle number of memebres ' + this.cycleNumberOfMembers)
+            processorBezier.setCycleNumberOfMembers(this.cycleNumberOfMembers)
             processorBezier.updateBallNumer();
-            processorBezier.setOrderMarginPoints(marginOrder);    
+            processorBezier.setOrderMarginPoints(this.marginOrder);    
 
             let direction = processorBezier.queue.getFront();
             processorBezier.goToNextPoint();
@@ -55,6 +83,7 @@ export default class TriangleBezierCollisionAlgorithm extends GenerativeAlgorith
             }
             
             const draw = (p5) => {
+                // processorBezier.setCycleNumberOfMembers(this.cycleNumberOfMembers)
                 p5.noStroke();
                 for(let member of processorBezier.getMembers()){
                 
@@ -92,16 +121,16 @@ export default class TriangleBezierCollisionAlgorithm extends GenerativeAlgorith
         //? REF : https://github.com/processing/p5.js/wiki/Global-and-instance-mode
     
     async callAPI(){
-        let lat = 45.501690;
-        let lon = -73.567253;
+        // let lat = 45.501690;
+        let lat = 82.180809;
+        // let lon = -73.567253;
+        let lon = -33.233073;
+        let limitDataSets = 9
         let apiKey = '49a356b49aac954413c95572fdd8c235';
         //*Instead of lon & lat you can put &cityname ex: &london   
-        // let response = await fetch('https://api.openweathermap.org/data/2.5/weather?lat=44.34&lon=10.99&mode=JSO&appid={49a356b49aac954413c95572fdd8c235}');
-        let response = await fetch('https://api.openweathermap.org/data/2.5/forecast?lat=45.501690&lon=-73.567253&units=metric&cnt=3&mode=JSON&appid=49a356b49aac954413c95572fdd8c235');
+        let response = await fetch('https://api.openweathermap.org/data/2.5/forecast?lat='+lat+'&lon='+lon+'&units=metric&cnt='+limitDataSets+'&mode=JSON&appid='+apiKey+'');
         let data = await response.json();
-       
-        
-        console.log(data);
+
         
         if (myConstants.IS_LOGGED_IN) {
             let formData = new FormData();
@@ -116,14 +145,11 @@ export default class TriangleBezierCollisionAlgorithm extends GenerativeAlgorith
                 console.log(res.APIresponse);
               })
         }
+        let usefullData = [data.list[0],data.list[4],data.list[8]]
+        return usefullData;
     }
 
-    assignUserVariables(){
-       VariablePicker.pickVariable(['fuck you'])
-            
-        
-    }
+    
 }
 
-// let test = new TriangleBezierCollisionAlgorithm()
-// test.assignUserVariables()
+//* REF : https://dev.to/ramonak/javascript-how-to-access-the-return-value-of-a-promise-object-1bck

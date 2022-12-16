@@ -1,4 +1,5 @@
 import { ProcessorAPI } from './ProcessorAPI';
+import * as myConstants from '../../constants'
 export class ProrcessorVariables{
    
     static pickVariable(options, emailNumber){
@@ -23,8 +24,9 @@ export class ProrcessorVariables{
         return list;
     }
 
-    static createCyclenumberOfMembers(datasets){
-        let emailNumber;
+    static createCycleNumberOfMembers(datasets){
+        // let emailNumber = myConstants.IS_LOGGED_IN ? myConstants.emailNumber : 1554652;  //query here to get the log in user 
+        let emailNumber = 1554652  ;
         let choices = []
         for(let dataset of datasets){
             choices.push(dataset.main.pressure);
@@ -33,7 +35,7 @@ export class ProrcessorVariables{
         let choice = ProrcessorVariables.pickVariable(choices,emailNumber);
         let chance = ProcessorAPI.normalizeAthmospericPressure(choice);
         let finalList = ProrcessorVariables.createInfluencedList(chance,4,7);
-        return [4,3,2,1];
+        return finalList;
         }
 
     

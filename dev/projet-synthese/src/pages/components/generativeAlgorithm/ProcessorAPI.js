@@ -16,7 +16,16 @@ export class ProcessorAPI{
         let data = await response.json();
         let usefullData = [data.list[0],data.list[4],data.list[8]]
         return usefullData;
-
     }
+    
+    static stringCallAPI(laitutde, longitude, nbOfDatasets=9){
+        return 'https://api.openweathermap.org/data/2.5/forecast?lat='+laitutde+'&lon='+longitude+'&units=metric&cnt='+nbOfDatasets+'&mode=JSON&appid='+myConstants.API_KEY;
+    }
+
+    static organiseData(data){
+        let usefullData = [data.list[0],data.list[4],data.list[8]]
+        return usefullData;
+    }
+
 
 }

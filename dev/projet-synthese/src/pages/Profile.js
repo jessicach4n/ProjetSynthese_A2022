@@ -18,7 +18,7 @@ function Profile() {
                 <li><a href=""></a>Mes animations</li>
             </div>
             <section className="my-animations">
-                <CardHolder/>
+                <CardHolder page={"profile"}/>
             </section>
         </div>
     );

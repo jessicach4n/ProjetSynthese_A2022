@@ -11,7 +11,7 @@ import * as myConstants from './constants'
 class Loading extends Component {
     constructor(props) {
       super(props);
-
+        this.dataReceived = false
     }
 
     componentDidMount() {
@@ -40,8 +40,6 @@ class Loading extends Component {
                 // window.location = "/animation"
                })
         }, 1000);
-
-       
     }
 
     render() {

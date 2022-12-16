@@ -7,13 +7,15 @@ class CardHolder extends Component {
     constructor(props) {
         super(props);
         this.state = {cards : []}
+        this.page = this.props.page == "shares" ? "/shares.php" : "/profile.php";
     }
 
     componentDidMount() {
         let formData = new FormData();
         formData.append("action", myConstants.GET_IDS);
         formData.append("session_id", window.sessionStorage.getItem("session_id"));
-        fetch(myConstants.HOST + '/shares.php', {
+        formData.append("username", myConstants.USERNAME);
+        fetch(myConstants.HOST + this.page, {
             method: 'POST',
             body: formData
         })
@@ -27,7 +29,7 @@ class CardHolder extends Component {
                 formData.append("action", myConstants.GET_ANIMATION_INFO);
                 formData.append("id", id);
                 formData.append("session_id", window.sessionStorage.getItem("session_id"));
-                fetch(myConstants.HOST + '/shares.php', {
+                fetch(myConstants.HOST + this.page, {
                     method: 'POST',
                     body: formData
                 })

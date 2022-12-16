@@ -25,16 +25,16 @@ export default class TriangleBezierCollisionAlgorithm extends GenerativeAlgorith
     this.isLoading = true;
     
 
-    this.callAPI()
+    // this.callAPI()
     this.assignUserVariables()
     }
      assignUserVariables(){
-        if(!myConstants.IS_LOGGED_IN){
-            this.marginOrder = [1,2,3,4];
+        this.marginOrder = [1,2,3,4];
+        if(myConstants.IS_LOGGED_IN){
             this.cycleNumberOfMembers  = [1,2,3,4]
-    //     }
-    //     else { appeler le local storge de la variable processé par createCyclenumberOfMembers
-    //         ProrcessorVariables.pickVariable(['1','2','3'], 156333);
+        }
+        else {
+            this.cycleNumberOfMembers = sessionStorage.getItem("cycleNumberOfMembers").split(',')
         }
     }
     render() {
@@ -45,8 +45,9 @@ export default class TriangleBezierCollisionAlgorithm extends GenerativeAlgorith
             let processorBezier = new ProcessorBezier();
             processorBezier.setPaddingX(12.5);
             processorBezier.setPaddingY(12.5);
-            console.log('this is cycle number of memebres ' + this.cycleNumberOfMembers)
-            processorBezier.setCycleNumberOfMembers(this.cycleNumberOfMembers)
+            console.log('this is cycle number of membres ' + this.cycleNumberOfMembers)
+            console.log('chose ' + (this.cycleNumberOfMembers))
+            processorBezier.setCycleNumberOfMembers(Array.from(this.cycleNumberOfMembers))
             processorBezier.updateBallNumer();
             processorBezier.setOrderMarginPoints(this.marginOrder);    
 
@@ -107,41 +108,41 @@ export default class TriangleBezierCollisionAlgorithm extends GenerativeAlgorith
         }
         //? REF : https://github.com/processing/p5.js/wiki/Global-and-instance-mode
     
-    async callAPI(){
-        // let lat = 45.501690;
-        let lat = 82.180809;
-        // let lon = -73.567253;
-        let lon = -33.233073;
-        let limitDataSets = 9
-        let apiKey = 'c1d5c35baa780a099ec8f564203dfc1e';
-        //*Instead of lon & lat you can put &cityname ex: &london   
-        let response = await fetch('https://api.openweathermap.org/data/2.5/forecast?lat='+lat+'&lon='+lon+'&units=metric&cnt='+limitDataSets+'&mode=JSON&appid='+apiKey+'');
-        let data = await response.json();
+    // async callAPI(){
+    //     // let lat = 45.501690;
+    //     let lat = 82.180809;
+    //     // let lon = -73.567253;
+    //     let lon = -33.233073;
+    //     let limitDataSets = 9
+    //     let apiKey = 'c1d5c35baa780a099ec8f564203dfc1e';
+    //     //*Instead of lon & lat you can put &cityname ex: &london   
+    //     let response = await fetch('https://api.openweathermap.org/data/2.5/forecast?lat='+lat+'&lon='+lon+'&units=metric&cnt='+limitDataSets+'&mode=JSON&appid='+apiKey+'');
+    //     let data = await response.json();
 
-        // GET https://newsapi.org/v2/everything?q=keyword&apiKey=408501c8bbd94a8ca7d9cff8085a125f
+    //     // GET https://newsapi.org/v2/everything?q=keyword&apiKey=408501c8bbd94a8ca7d9cff8085a125f
 
         
-        // if (myConstants.IS_LOGGED_IN) {
-        //     let formData = new FormData();
-        //     formData.append("session_id", window.sessionStorage.getItem("session_id"));
-        //     fetch(myConstants.HOST + '/animation.php', {
-        //         method : 'POST',
-        //         body : formData
-        //       })
-        //       .then(res => res.json())
-        //       .then(res => {
-        //         console.log(res.emailNumber);
-        //         console.log(res.APIresponse);
-        //       })
-        // }
-        if (data.lenght !==0){
-            this.isLoading = false 
-            // this.assignUserVariables()
-        }
-        let usefullData = [data.list[0],data.list[4],data.list[8]]
-        console.log(usefullData)
-        return usefullData;
-    }
+    //     // if (myConstants.IS_LOGGED_IN) {
+    //     //     let formData = new FormData();
+    //     //     formData.append("session_id", window.sessionStorage.getItem("session_id"));
+    //     //     fetch(myConstants.HOST + '/animation.php', {
+    //     //         method : 'POST',
+    //     //         body : formData
+    //     //       })
+    //     //       .then(res => res.json())
+    //     //       .then(res => {
+    //     //         console.log(res.emailNumber);
+    //     //         console.log(res.APIresponse);
+    //     //       })
+    //     // }
+    //     if (data.lenght !==0){
+    //         this.isLoading = false 
+    //         // this.assignUserVariables()
+    //     }
+    //     let usefullData = [data.list[0],data.list[4],data.list[8]]
+    //     console.log(usefullData)
+    //     return usefullData;
+    // }
 
     
 }

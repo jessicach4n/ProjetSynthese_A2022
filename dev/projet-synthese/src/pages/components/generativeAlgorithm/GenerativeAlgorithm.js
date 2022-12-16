@@ -5,6 +5,7 @@ export class GenerativeAlgorithm extends Component{
     
     constructor(props) {
         super(props);
+
         if (this.constructor === GenerativeAlgorithm) {
             throw new Error('Class "GenerativeAlgorithm" cannot be instantiated')
           }

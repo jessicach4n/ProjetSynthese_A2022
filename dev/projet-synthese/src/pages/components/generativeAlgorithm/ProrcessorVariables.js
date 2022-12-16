@@ -1,3 +1,4 @@
+import { ProcessorAPI } from './ProcessorAPI';
 export class ProrcessorVariables{
    
     static pickVariable(options, emailNumber){
@@ -20,7 +21,21 @@ export class ProrcessorVariables{
             }
         }
         return list;
-
     }
+
+    static createCyclenumberOfMembers(datasets){
+        let emailNumber;
+        let choices = []
+        for(let dataset of datasets){
+            choices.push(dataset.main.pressure);
+        }
+            
+        let choice = ProrcessorVariables.pickVariable(choices,emailNumber);
+        let chance = ProcessorAPI.normalizeAthmospericPressure(choice);
+        let finalList = ProrcessorVariables.createInfluencedList(chance,4,7);
+        return [4,3,2,1];
+        }
+
+    
 
 }

@@ -22,37 +22,22 @@ export default class TriangleBezierCollisionAlgorithm extends GenerativeAlgorith
     this.quality = 0.1
     this.frameRate = 30
     this.canvas = null;
-    this.callAPI()
+    this.isLoading = true;
+    
+
+    // this.callAPI()
     this.assignUserVariables()
     }
-
-    async assignUserVariables(){
+     assignUserVariables(){
         if(!myConstants.IS_LOGGED_IN){
             this.marginOrder = [1,2,3,4];
-            this.cycleNumberOfMembers = [1,2,3,4];
-            let data = await this.callAPI()
-            console.log(data)
-            let emailNumber = 156333
-            let choices = []
-            for(let dataset of data){
-                console.log(dataset.main.pressure)
-                choices.push(dataset.main.pressure);
-            }
-            let choice = ProrcessorVariables.pickVariable(choices,emailNumber)
-            console.log(' this is my choice ' + choice)
-
-            console.log("this is test normalize " + ProcessorAPI.normalizeAthmospericPressure(1042))
-            let chance = ProcessorAPI.normalizeAthmospericPressure(1042)
-            let finalList = ProrcessorVariables.createInfluencedList(chance,4,7);
-            console.log("this is final list " + finalList);
-            // this.cycleNumberOfMembers  = Array.from(finalList);
-        }
-        else {
-            ProrcessorVariables.pickVariable(['a','b','c'], 156333);
+            this.cycleNumberOfMembers  = [1,2,3,4]
+    //     }
+    //     else { appeler le local storge de la variable processé par createCyclenumberOfMembers
+    //         ProrcessorVariables.pickVariable(['1','2','3'], 156333);
         }
     }
     render() {
-
             let t = 0;
             let begin = true;
             //*SIDES TOP:1 RIGHT:2 BOTTOM:3 LEFT:4 
@@ -80,10 +65,12 @@ export default class TriangleBezierCollisionAlgorithm extends GenerativeAlgorith
                 p5.stroke("black")
                 this.canvas = cnv.canvas;
                 super.setup();
+                console.log("setup");
             }
             
             const draw = (p5) => {
                 // processorBezier.setCycleNumberOfMembers(this.cycleNumberOfMembers)
+                // console.log(" i am loading" + this.isLoading)
                 p5.noStroke();
                 for(let member of processorBezier.getMembers()){
                 
@@ -126,24 +113,30 @@ export default class TriangleBezierCollisionAlgorithm extends GenerativeAlgorith
         // let lon = -73.567253;
         let lon = -33.233073;
         let limitDataSets = 9
-        let apiKey = '49a356b49aac954413c95572fdd8c235';
+        let apiKey = 'c1d5c35baa780a099ec8f564203dfc1e';
         //*Instead of lon & lat you can put &cityname ex: &london   
         let response = await fetch('https://api.openweathermap.org/data/2.5/forecast?lat='+lat+'&lon='+lon+'&units=metric&cnt='+limitDataSets+'&mode=JSON&appid='+apiKey+'');
         let data = await response.json();
 
+        // GET https://newsapi.org/v2/everything?q=keyword&apiKey=408501c8bbd94a8ca7d9cff8085a125f
+
         
-        if (myConstants.IS_LOGGED_IN) {
-            let formData = new FormData();
-            formData.append("session_id", window.sessionStorage.getItem("session_id"));
-            fetch(myConstants.HOST + '/animation.php', {
-                method : 'POST',
-                body : formData
-              })
-              .then(res => res.json())
-              .then(res => {
-                console.log(res.emailNumber);
-                console.log(res.APIresponse);
-              })
+        // if (myConstants.IS_LOGGED_IN) {
+        //     let formData = new FormData();
+        //     formData.append("session_id", window.sessionStorage.getItem("session_id"));
+        //     fetch(myConstants.HOST + '/animation.php', {
+        //         method : 'POST',
+        //         body : formData
+        //       })
+        //       .then(res => res.json())
+        //       .then(res => {
+        //         console.log(res.emailNumber);
+        //         console.log(res.APIresponse);
+        //       })
+        // }
+        if (data.lenght !==0){
+            this.isLoading = false 
+            // this.assignUserVariables()
         }
         let usefullData = [data.list[0],data.list[4],data.list[8]]
         return usefullData;

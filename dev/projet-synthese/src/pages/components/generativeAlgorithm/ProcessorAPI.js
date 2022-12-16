@@ -1,3 +1,4 @@
+import * as myConstants from '../../constants'
 export class ProcessorAPI{
     static normalize(valueToNormalize, min, max ){
         //? REF: https://www.statology.org/normalize-data-between-0-and-1/
@@ -9,4 +10,13 @@ export class ProcessorAPI{
         let max = 1085 //*highest athmospheric pressure on earth
         return this.normalize(valueToNormalize,min,max)
     }
+
+    static async animationAPICall(laitutde, longitude, nbOfDatasets=9){
+        let response = await fetch('https://api.openweathermap.org/data/2.5/forecast?lat='+laitutde+'&lon='+longitude+'&units=metric&cnt='+nbOfDatasets+'&mode=JSON&appid='+myConstants.API_KEY+'');
+        let data = await response.json();
+        let usefullData = [data.list[0],data.list[4],data.list[8]]
+        return usefullData;
+
+    }
+
 }

@@ -25,7 +25,7 @@ export default class TriangleBezierCollisionAlgorithm extends GenerativeAlgorith
     this.isLoading = true;
     
 
-    // this.callAPI()
+    this.callAPI()
     this.assignUserVariables()
     }
      assignUserVariables(){
@@ -139,6 +139,7 @@ export default class TriangleBezierCollisionAlgorithm extends GenerativeAlgorith
             // this.assignUserVariables()
         }
         let usefullData = [data.list[0],data.list[4],data.list[8]]
+        console.log(usefullData)
         return usefullData;
     }
 

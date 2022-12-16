@@ -1,0 +1,47 @@
+.loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--main-accent-color);
+}
+
+.graphics-container {
+    width: fit-content;
+    height: auto;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.loading-icon {
+    width: 16vw;
+    height: 16vw;
+    border: 5px dotted var(--main-light-color);
+    border-radius: 100%;
+    animation: rotate 40s linear infinite;
+}
+
+.loading-icon img {
+    width: 6vw;
+    margin: 5vw;
+}
+
+.graphics-container div.label {
+    margin-top: 3vw;
+    width: fit-content;
+    font-family: var(--display-font);
+    font-size: 2rem;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform:  rotate(360deg);
+    }
+}

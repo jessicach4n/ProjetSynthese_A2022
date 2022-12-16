@@ -8,6 +8,7 @@ import Shares from "./Shares"
 import About from "./About"
 import Animation from "./Animation"
 import Navigation from './components/Navigation';
+import Loading from "./Loading";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Route path="BreathingCircleAlgorithm"  element={<div/>}/>
             <Route path="TestAlgorithm" />
           </Route>
+          <Route path="loading" element={<Loading />}/>
           <Route path="a-propos" element={<About />} />
           <Route path="partages" element={<Shares />} />
           <Route path="profil" element={<Profile />} />

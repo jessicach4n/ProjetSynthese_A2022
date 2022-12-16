@@ -14,7 +14,7 @@
 
             $answer = $statement->fetchAll();
             
-            if ($answer[0][count]) {
+            if ($answer[0]['count']) {
                 $_SESSION["username"] = $username;
                 return 1;
             }
@@ -65,6 +65,40 @@
             }
 
             return $arr;
+        }
+
+        public static function getUserAnimationIds($creator) {
+            $connection = Connection::getConnection();
+            $statement = $connection->prepare("SELECT id FROM animations WHERE createur = (SELECT id FROM usagers 
+            WHERE nom_utilisateur = ?) ORDER BY id DESC");
+            $statement->bindParam(1, $creator);
+            
+            $statement->setFetchMode(PDO::FETCH_ASSOC);
+            $statement->execute();
+            
+            $answers = $statement->fetchAll();
+            $arr = [];
+            
+            foreach($answers as $answer) {
+                array_push($arr, $answer["id"]);
+            }
+
+            return $arr;
+        }
+
+        public static function getUserCount($creator) {
+            $connection = Connection::getConnection();
+
+            $statement = $connection->prepare("SELECT COUNT(*) FROM animations WHERE createur = 
+            (SELECT id FROM usagers WHERE nom_utilisateur = ?)");
+            $statement->bindParam(1, $creator);
+
+            $statement->setFetchMode(PDO::FETCH_ASSOC);
+            $statement->execute();
+
+            $answers = $statement->fetchAll();
+
+            return $answers[0]['count'];
         }
 
         public static function getAnimationInfo($id) {

@@ -37,6 +37,10 @@ div.stats div.data div.nb{
     font-size: 6rem;
 }
 
+.my-animations{
+    justify-content: center;
+}
+
 div.tag {
     font-family: var(--display-font);   
     font-size: inherit;

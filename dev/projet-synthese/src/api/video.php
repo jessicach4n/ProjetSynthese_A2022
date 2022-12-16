@@ -10,7 +10,7 @@ header('HTTP/1.1 200 OK');
 $action = new VideoAction();
 $data = $action->execute();
 error_log("error : " . $data);
-// echo $data;
+
 fpassthru($data['response']);
 
 ?>

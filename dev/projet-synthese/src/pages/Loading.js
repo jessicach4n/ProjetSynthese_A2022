@@ -5,11 +5,11 @@ import '../css/loading.css'
 class Loading extends Component {
     constructor(props) {
       super(props);
-
+        this.dataReceived = false
     }
 
     componentDidMount() {
-        if (this.state.dataReceived) {
+        if (this.dataReceived) {
             window.location = "/animation"
         }
     }

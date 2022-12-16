@@ -22,7 +22,7 @@
     height: 16vw;
     border: 5px dotted var(--main-light-color);
     border-radius: 100%;
-    animation: rotate 40s linear infinite;
+    animation: loading 40s linear infinite;
 }
 
 .loading-icon img {
@@ -37,7 +37,7 @@
     font-size: 2rem;
 }
 
-@keyframes rotate {
+@keyframes loading {
     from {
         transform: rotate(0deg);
     }

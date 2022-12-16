@@ -11,7 +11,7 @@ function Shares() {
   return (
     <div className="Shares">
         <h1>Les partages</h1>
-        <CardHolder/>
+        <CardHolder page={"shares"}/>
     </div>
   );
 }

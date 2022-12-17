@@ -22,6 +22,14 @@ export class ProcessorAPI{
         return 'https://api.openweathermap.org/data/2.5/forecast?lat='+laitutde+'&lon='+longitude+'&units=metric&cnt='+nbOfDatasets+'&mode=JSON&appid='+myConstants.API_KEY;
     }
 
+    static extractCity(data){
+        return data.city.name
+    }
+
+    static extractCountry(data){
+        return data.city.country
+    }
+
     static organiseData(data){
         let usefullData = [data.list[0],data.list[4],data.list[8]]
         return usefullData;

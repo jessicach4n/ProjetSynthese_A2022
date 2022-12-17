@@ -4,16 +4,16 @@ export class ProrcessorVariables{
    
     static pickVariable(options, emailNumber){
         if(!Array.isArray(options)){
-            throw new Error('first argument of this function must be of type Array');
+            throw new Error('options argument of this function must be of type Array');
         }
         let process1 = emailNumber % (emailNumber.toString().length);
         let process2 = process1 % options.length;
-        return (options[Math.abs(process2)])  
+        return (options[Math.abs(process2)]);
     }
 
     static createInfluencedList(chance,nb_elements,max_value){
         //? REF:https://www.w3schools.com/js/js_random.asp
-        let list = []
+        let list = [];
         while (list.length<nb_elements){
             let diceRoll = Math.random();
             let valueToAdd = Math.floor(Math.random() * max_value + 1);
@@ -24,19 +24,45 @@ export class ProrcessorVariables{
         return list;
     }
 
+    static choose(choices){
+        if(!Array.isArray(choices)){
+            throw new Error('choices argument must be of type Array');
+        }
+        let chance = this.initialization(choices)
+        let diceRoll = Math.random();
+        let indexOfChoice = Math.floor(Math.random() * choices.length);
+
+        if(chance >= diceRoll){
+            return choices[indexOfChoice];
+        }
+
+        for(let i = 0; i>choices.length; i++ ){
+            indexOfChoice = Math.floor(Math.random() * choices.length);
+        }     
+        return choices[indexOfChoice];
+    }
+
+    static initialization(choices){
+        if(!Array.isArray(choices)){
+            throw new Error('choices argument must be of type Array');
+        }
+        let emailNumber = myConstants.IS_LOGGED_IN ? myConstants.GET_EMAIL_NUMBER : 1554652;
+        let choice = this.pickVariable(choices,emailNumber);
+        let chance = ProcessorAPI.normalizeAthmospericPressure(choice);
+        return chance;
+    }
+
     static createCycleNumberOfMembers(datasets){
-        // let emailNumber = myConstants.IS_LOGGED_IN ? myConstants.emailNumber : 1554652;  //query here to get the log in user 
-        let emailNumber = 1554652  ;
+       
         let choices = []
         for(let dataset of datasets){
             choices.push(dataset.main.pressure);
         }
-            
-        let choice = ProrcessorVariables.pickVariable(choices,emailNumber);
-        let chance = ProcessorAPI.normalizeAthmospericPressure(choice);
-        let finalList = ProrcessorVariables.createInfluencedList(chance,4,7);
+        
+        let chance = this.initialization(choices);
+        let finalList = this.createInfluencedList(chance,4,6);
         return finalList;
-        }
+    }
 
     
 

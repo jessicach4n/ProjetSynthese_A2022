@@ -53,7 +53,7 @@
         public static function getAllAnimationIds() {
             $connection = Connection::getConnection();
 
-            $statement = $connection->prepare("SELECT id FROM animations ORDER BY id DESC");
+            $statement = $connection->prepare("SELECT id FROM animations ORDER BY id DESC LIMIT 6");
 
             $statement->setFetchMode(PDO::FETCH_ASSOC);
             $statement->execute();
@@ -70,7 +70,7 @@
         public static function getUserAnimationIds($creator) {
             $connection = Connection::getConnection();
             $statement = $connection->prepare("SELECT id FROM animations WHERE createur = (SELECT id FROM usagers 
-            WHERE nom_utilisateur = ?) ORDER BY id DESC");
+            WHERE nom_utilisateur = ?) ORDER BY id DESC LIMIT 6");
             $statement->bindParam(1, $creator);
             
             $statement->setFetchMode(PDO::FETCH_ASSOC);

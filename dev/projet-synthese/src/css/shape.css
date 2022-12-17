@@ -1,0 +1,65 @@
+#square {
+    position: absolute;
+    border : 1px solid var(--main-accent-color);
+    width: 100vw;
+    height: 120vw;
+    border-radius: 1%;
+    animation: movesquare 80s linear infinite;
+    opacity: 1;
+    z-index: -1;
+}
+
+#polygon {
+    position: absolute;
+    border : 1px solid var(--main-light-color);
+    width: 100vw;
+    height: 120vw;
+    border-radius: 1%;
+    animation: movepolygon 120s linear infinite;
+    opacity: 1;
+    z-index: -1;
+}
+
+@keyframes movepolygon {
+    0% {
+        transform: rotate(360deg);
+        top: -100%;
+        left: -30%;
+    }
+    20% {
+        top: 20%;
+        left: 50%;
+    }
+    60% {
+        top: 30%;
+        left: 90%;
+    }
+    100% {
+        transform: rotate(0deg);
+        top: -100%;
+        left: -30%;
+    }
+
+}
+
+@keyframes movesquare {
+    0% {
+        transform: rotate(0deg);
+        bottom: -100%;
+        right: -50%;
+    }
+    20% {
+        bottom: 50%;
+    }
+    60% {
+        bottom: 30%;
+        right: 90%;
+    }
+    100% {
+        transform: rotate(360deg);
+        bottom: -100%;
+        right: -50%;
+    }
+
+}
+

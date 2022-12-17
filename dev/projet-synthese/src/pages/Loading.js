@@ -36,9 +36,9 @@ class Loading extends Component {
                 let country = ProcessorAPI.extractCountry(response);
                 let organisedData = ProcessorAPI.organiseData(response)
                 let cycleNumberOfMembers = ProrcessorVariables.createCycleNumberOfMembers(organisedData)
-                sessionStorage.setItem("cycleNumberOfMembers", cycleNumberOfMembers);
-                sessionStorage.setItem("city", city);
-                sessionStorage.setItem("country", country);
+                window.sessionStorage.setItem("cycleNumberOfMembers", cycleNumberOfMembers);
+                window.sessionStorage.setItem("city", city);
+                window.sessionStorage.setItem("country", country);
                 window.location = "/animation"
                })
         }, 1000);

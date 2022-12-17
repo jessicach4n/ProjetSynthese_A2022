@@ -28,9 +28,7 @@ export default class TriangleBezierCollisionAlgorithm extends GenerativeAlgorith
         //* REF: https://www.w3schools.com/css/css3_variables_javascript.asp
         let rootColor = document.querySelector(':root');
         let rootstyle = getComputedStyle(rootColor);
-        let mainColor = rootstyle.getPropertyValue('--main-accent-color')
-        console.log(mainColor)
-
+        let mainColor = rootstyle.getPropertyValue('--main-accent-color');
         let processorBezier = new ProcessorBezier();
         processorBezier.setPaddingX(12.5);
         processorBezier.setPaddingY(12.5);
@@ -59,6 +57,8 @@ export default class TriangleBezierCollisionAlgorithm extends GenerativeAlgorith
             
             const draw = (p5) => {
                 p5.noStroke();
+                mainColor = rootstyle.getPropertyValue('--main-accent-color');
+                processorBezier.setColorChoices(['white', mainColor])
                 for(let member of processorBezier.getMembers()){
                 p5.fill(member.color);
                 p5.ellipse(member.x, member.y , 25, 25);
@@ -75,7 +75,7 @@ export default class TriangleBezierCollisionAlgorithm extends GenerativeAlgorith
                     p3 = {x : newLastPoint.x, y : newLastPoint.y};
                     t=0;
                 }
-            p5.background(0,0,0,130);  
+            p5.background(0,0,0,50);  
             super.draw(); 
             }
             return (<Sketch setup={setup} draw={draw}/>);

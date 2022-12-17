@@ -1,3 +1,7 @@
+body {
+    overflow: hidden;
+}
+
 #square {
     position: absolute;
     border : 1px solid var(--main-accent-color);

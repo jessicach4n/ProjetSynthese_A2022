@@ -26,16 +26,19 @@ class Loading extends Component {
             })
 
 
-            fetch(ProcessorAPI.stringCallAPI( 82.180809, -33.233073), {   
+            fetch(ProcessorAPI.stringCallAPI(45.501690,-73.567253), {   
                 method : "POST",       
                    })
                .then(response => response.json())
                .then(response => {
+                console.log("this is "+ JSON.stringify(response));
+                let city = ProcessorAPI.extractCity(response);
+                let country = ProcessorAPI.extractCountry(response);
                 let organisedData = ProcessorAPI.organiseData(response)
                 let cycleNumberOfMembers = ProrcessorVariables.createCycleNumberOfMembers(organisedData)
                 sessionStorage.setItem("cycleNumberOfMembers", cycleNumberOfMembers);
-                console.log("this is the value "+cycleNumberOfMembers);
-                console.log("this is the session storage "+sessionStorage.getItem("cycleNumberOfMembers"));
+                sessionStorage.setItem("city", city);
+                sessionStorage.setItem("country", country);
                 window.location = "/animation"
                })
         }, 1000);

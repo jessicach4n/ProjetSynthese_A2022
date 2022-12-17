@@ -9,6 +9,7 @@ import About from "./About"
 import Animation from "./Animation"
 import Navigation from './components/Navigation';
 import Loading from "./Loading";
+import NotFound from "./NotFound";
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
           <Route path="deconnexion" element={<Home />} />
           <Route path="connexion" element={<Login />} />
           <Route path="register" element={<Register/>} />
+          <Route path='*' element={<NotFound />}/>
         </Route>
       </Routes>
     </BrowserRouter>

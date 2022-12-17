@@ -11,14 +11,14 @@
 		protected function executeAction() {
 
 			if($_POST["action"] == "GET_IDS") {
-				$response = UserDAO::getUserAnimationIds($_POST["username"]);
+				$response = UserDAO::getUserAnimationIds($_SESSION["username"]);
 			}
 			else if ($_POST["action"] == "GET_ANIMATION_INFO") {
 				$response = UserDAO::getAnimationInfo($_POST["id"]);
 			}
 			
 			if($_POST["action"] == "GET_COUNT") {
-				$count = UserDAO::getUserCount($_POST["username"]);
+				$count = UserDAO::getUserCount($_SESSION["username"]);
 				error_log("count = " . $count);
 			}
 

@@ -12,7 +12,7 @@
 			$shareSuccess = false;
 			$error_message = "";
 
-			$emailNumber = UserDAO::getEmailNumber($_SESSION["username"]);
+			// $emailNumber = UserDAO::getEmailNumber($_SESSION["username"]);
 			
 			$APIresponse = "";
 			// CommonAction::callAPI();
@@ -31,9 +31,10 @@
 					$error_message = CommonAction::$NOT_SIGNED_IN;
 				}
 			}
-			if(!empty($_POST['GET_EMAIL_NUMBER'])){
-				$emailNumber = UserDAO::getEmailNumber($_POST['username']);
+			if(!empty($_POST['action'] == 'GET_EMAIL_NUMBER')){
+				$emailNumber = UserDAO::getEmailNumber($_SESSION['username']);
 			}
+
 			return compact("shareSuccess", "error_message", "emailNumber", "APIresponse");
 			}
 		}

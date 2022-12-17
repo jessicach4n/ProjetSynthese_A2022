@@ -1,10 +1,6 @@
 <?php
-    error_log("session_id = " . $_POST['session_id']);
     session_id($_POST['session_id']);
     session_start();
-    error_log("is_loggedin = " . $_SESSION["visibility"]);
-
-    
     // require_once("action/constants.php");
 
     abstract class CommonAction {
@@ -41,28 +37,4 @@
         }
 
         protected abstract function executeAction();
-
-        /**
-        * data = array('key1' => 'value1', 'key2' => 'value2');
-        */
-        // public function callAPI() {
-        //     $apiURL = 'https://api.openweathermap.org/data/2.5/forecast?lat=45.501690&lon=-73.567253&units=metric&cnt=3&mode=JSON&appid=49a356b49aac954413c95572fdd8c235';
-
-        //     $options = array(
-        //         'http' => array(
-        //             'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
-        //             'method'  => 'POST',
-        //             // 'content' => http_build_query($data)
-        //         )
-        //     );
-        //     $context  = stream_context_create($options);
-        //     $result = file_get_contents($apiURL, false, $context);
-
-        //     if (strpos($result, "<br") !== false) {
-        //             var_dump($result);
-        //             exit;
-        //         }
-                
-        //     return json_decode($result);
-        // }
     }

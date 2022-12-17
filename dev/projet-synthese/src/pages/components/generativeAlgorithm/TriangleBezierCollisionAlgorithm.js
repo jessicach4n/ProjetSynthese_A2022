@@ -26,17 +26,20 @@ export default class TriangleBezierCollisionAlgorithm extends GenerativeAlgorith
     
 
     // this.callAPI()
+    console.log()
     this.assignUserVariables()
     }
+
      assignUserVariables(){
         this.marginOrder = [1,2,3,4];
-        if(myConstants.IS_LOGGED_IN){
+        if(!myConstants.IS_LOGGED_IN){
             this.cycleNumberOfMembers  = [1,2,3,4]
         }
         else {
             this.cycleNumberOfMembers = sessionStorage.getItem("cycleNumberOfMembers").split(',')
         }
     }
+
     render() {
             let t = 0;
             let begin = true;

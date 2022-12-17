@@ -42,7 +42,7 @@ class FormConnexion extends Form {
       };
       navigator.geolocation.getCurrentPosition(successCallback, errorCallback)
       
-      window.location = "/animation";
+      window.location = "/loading";
     }
 
     async callAPI(lat, lon){

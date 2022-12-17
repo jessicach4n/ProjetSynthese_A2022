@@ -1,9 +1,12 @@
 import '../css/index.css'
 import '../css/home.css'
+import '../css/shape.css'
 
 function Home() {
   return (
     <div className="home-content">
+        <div id="square"></div>
+        <div id="polygon"></div>
         <div className="headings-content">
             <h1 className="nom-site">Générateur d'art météorologique</h1>
             <h1>L'expérience commence</h1>

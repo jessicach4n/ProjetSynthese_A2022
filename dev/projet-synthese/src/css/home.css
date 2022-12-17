@@ -34,7 +34,7 @@ h1.nom-site {
     filter: blur(3px);
     transition: 0.8s filter;
     font-family: var(--display-font);
-    letter-spacing: 4px;
+    letter-spacing: 0.5vw;
 }
 
 #go-to-animation:hover {
@@ -42,7 +42,7 @@ h1.nom-site {
 }
 
 #circle {
-    --circle-size : 210px;
+    --circle-size : 210px;  
     filter: blur(2px);
     z-index: 1;
     position: absolute;

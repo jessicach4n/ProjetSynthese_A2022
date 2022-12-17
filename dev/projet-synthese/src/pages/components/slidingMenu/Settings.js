@@ -1,13 +1,12 @@
 import React, { Component } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faDownload, faShare } from '@fortawesome/free-solid-svg-icons'
+import { faShare, faCandyCane } from '@fortawesome/free-solid-svg-icons'
 
 class Settings extends Component {
     constructor(props) {
         super(props);
         this.showMessage = this.showMessage.bind(this);
         this.handlePartage = this.handlePartage.bind(this);
-        this.handleTelechargement = this.handleTelechargement.bind(this);
         this.shake = this.shake.bind(this)
     }
 
@@ -18,23 +17,24 @@ class Settings extends Component {
           }, 500);
     }
 
-    handleTelechargement() {
-        if (window.sessionStorage.getItem('session_id') != null) {
-            console.log('Téléchargement');        }
-        else {
-            this.shake('telechargement');
-            this.showMessage();
-        }
-    }
-
     handlePartage() {
         if (window.sessionStorage.getItem('session_id') != null) {
             document.dispatchEvent(new Event('startRecording'));
         }
         else {
             this.shake('partage');
-            this.showMessage()
+            this.showMessage();
         }
+    }
+
+    toggleColor() {
+        // REF : https://css-tricks.com/snippets/javascript/random-hex-color/
+        let randomColor = 0;
+        while (randomColor.length != 6) {
+            randomColor = Math.floor(Math.random()*16777215).toString(16);
+        }
+        let root = document.querySelector(":root");
+        root.style.setProperty('--main-accent-color', '#' + randomColor)
     }
 
     showMessage() {
@@ -57,7 +57,7 @@ class Settings extends Component {
                 <button id="fermer" onMouseDown={this.props.handleMouseDown}>Fermer</button>
                 <div id="messageContainer"></div>
                 <div className="buttonContainer">
-                    <button onMouseDown={this.handleTelechargement} id="telechargement"><FontAwesomeIcon icon={faDownload} className="icon"/> TÉLÉCHARGER</button>
+                    <button onMouseDown={this.toggleColor} ><FontAwesomeIcon icon={faCandyCane} className="icon"/> Surprise</button>
                     <button onMouseDown={this.handlePartage} id="partage"><FontAwesomeIcon icon={faShare} className="icon"/> PARTAGER</button>
                 </div>
                 </div>);

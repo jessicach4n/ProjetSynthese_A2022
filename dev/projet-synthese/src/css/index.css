@@ -30,9 +30,11 @@ h1 {
 }
 
 nav {
+    position: relative;
     font-size: 2rem;
     color: var(--main-accent-color);
     align-items: center;
+    z-index: 100;
 }
 
 a {

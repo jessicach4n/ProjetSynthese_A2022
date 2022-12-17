@@ -46,7 +46,7 @@ export class ProrcessorVariables{
         if(!Array.isArray(choices)){
             throw new Error('choices argument must be of type Array');
         }
-        let emailNumber = myConstants.IS_LOGGED_IN ? myConstants.GET_EMAIL_NUMBER : 1554652;
+        let emailNumber = myConstants.IS_LOGGED_IN ? sessionStorage.getItem("emailNumber") : 1554652;
         let choice = this.pickVariable(choices,emailNumber);
         let chance = ProcessorAPI.normalizeAthmospericPressure(choice);
         return chance;

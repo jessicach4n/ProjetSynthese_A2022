@@ -18,7 +18,6 @@ class StatsUser extends Component {
       let formData = new FormData();
       formData.append("action", myConstants.GET_COUNT);
       formData.append("session_id", window.sessionStorage.getItem("session_id"));
-      formData.append("username", myConstants.USERNAME);
       fetch(myConstants.HOST + '/profile.php', {
         method: 'POST',
         body: formData

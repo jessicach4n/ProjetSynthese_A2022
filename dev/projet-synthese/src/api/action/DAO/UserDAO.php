@@ -31,8 +31,8 @@
                 $statement->execute();
     
                 $answer = $statement->fetchAll();
-                
-                return $answer[0]["chiffre_email"];
+    
+                return $answer[0]['chiffre_email'];
         }
 
         public static function addAnimation($creator, $creationDate, $city, $country, $video) {
@@ -96,9 +96,10 @@
             $statement->setFetchMode(PDO::FETCH_ASSOC);
             $statement->execute();
 
-            $answers = $statement->fetchAll();
+            $answer = $statement->fetchAll();
+            error_log($answer);
 
-            return $answers[0]['count'];
+            return $answer[0]['count'];
         }
 
         public static function getAnimationInfo($id) {

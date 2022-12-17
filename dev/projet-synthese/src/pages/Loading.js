@@ -23,8 +23,8 @@ class Loading extends Component {
             .then(res => res.json())
             .then(res => {
                 console.log('this is res : ' + res.emailNumber)
+                sessionStorage.setItem("emailNumber", res.emailNumber)
             })
-
 
             fetch(ProcessorAPI.stringCallAPI(45.501690,-73.567253), {   
                 method : "POST",       
@@ -36,9 +36,9 @@ class Loading extends Component {
                 let country = ProcessorAPI.extractCountry(response);
                 let organisedData = ProcessorAPI.organiseData(response)
                 let cycleNumberOfMembers = ProrcessorVariables.createCycleNumberOfMembers(organisedData)
-                window.sessionStorage.setItem("cycleNumberOfMembers", cycleNumberOfMembers);
-                window.sessionStorage.setItem("city", city);
-                window.sessionStorage.setItem("country", country);
+                sessionStorage.setItem("cycleNumberOfMembers", cycleNumberOfMembers);
+                sessionStorage.setItem("city", city);
+                sessionStorage.setItem("country", country);
                 window.location = "/animation"
                })
         }, 1000);

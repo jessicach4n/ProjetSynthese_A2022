@@ -1,32 +1,43 @@
 import { MyAwesomeQueue } from './MyAwesomeQueue';
 import { MyAwesomeStack } from './MyAwesomeStack';
 import { GenerativeAlgorithm } from './GenerativeAlgorithm';
+import { ProrcessorVariables } from './ProrcessorVariables';
+
 export class ProcessorBezier  extends GenerativeAlgorithm{
   constructor() {
     super()
     this.members = [];
-    this.queue = new MyAwesomeQueue(4)
-    this.stack = new MyAwesomeStack()
+    this.queue = new MyAwesomeQueue(4);
+    this.stack = new MyAwesomeStack();
     this.cycleNumberOfMembers = [];
-    this.paddingX = 0
-    this.paddingY = 0
-
+    this.paddingX = 0;
+    this.paddingY = 0;
+    this.colorChoices = [];
     this.canvasWidth = this.width - this.paddingX;
     this.canvasHeight = this.height - this.paddingY; 
     }
 
+    setColorChoices(choices){
+      if (!Array.isArray(choices)){
+        throw new Error('choices argument must be of type Array') 
+      }
+      for(let choice of choices){
+        this.colorChoices.push(choice)
+      }
+    }
+
     setPaddingX(value){
-      this.paddingX = value
+      this.paddingX = value;
       this.canvasWidth = this.width - this.paddingX;
     }
 
     setPaddingY(value){
-      this.paddingY = value
+      this.paddingY = value;
       this.canvasHeight = this.height - this.paddingY; 
     }
     setCycleNumberOfMembers(tab){
       if(Array.isArray(tab)){
-        tab.reverse()
+        tab.reverse();
         for(let i = 0 ; i < tab.length ; i++){
           this.cycleNumberOfMembers.push(tab[i]);
           this.stack.add(tab[i]);
@@ -36,25 +47,27 @@ export class ProcessorBezier  extends GenerativeAlgorithm{
        throw new Error('setCycleNumberOfMembers argument must be of type Array');
     }
 
-    addMembers(memberNumber){
+
+    addMembers(memberNumber, currentX = 0, currentY = 0){
       for(let i = 0 ; i < memberNumber ; i++){
-        let ball = {x : 0, y: 0, p2x : 150, p2y : 150} 
+        let color = ProrcessorVariables.choose(this.colorChoices);       
+        let ball = {x: currentX, y: currentY, p2x: 150, p2y: 150, color: color};
         this.members.push(ball);
       }
-      this.setMiddlePoint()
+      this.setMiddlePoint();
     }
 
-    updateBallNumer(){
+    updateBallNumer(currentX = 0, currentY = 0){
       let membersToAdd = this.stack.peek();
-      this.stack.remove()
+      this.stack.remove();
 
       if(this.stack.isEmpty()){
-        this.cycleNumberOfMembers.reverse()
+        this.cycleNumberOfMembers.reverse();
         for(let i = 1 ; i< this.cycleNumberOfMembers.length ; i++)
-        this.stack.add(this.cycleNumberOfMembers[i])
+        this.stack.add(this.cycleNumberOfMembers[i]);
       }
-      this.members = []
-      this.addMembers(membersToAdd)
+      this.members = [];
+      this.addMembers(membersToAdd, currentX, currentY);
     }
 
     getMembers(){
@@ -76,15 +89,15 @@ export class ProcessorBezier  extends GenerativeAlgorithm{
 
     deleteOrderMargin(tab){
       for (let element in tab){
-        this.queue.dequeue(element)
+        this.queue.dequeue(element);
       }
     }
 
     goToNextPoint(){
-      let direction = this.queue.getFront()
-      let point = this.setNexMargintPoint(direction)
-      this.queue.circulatePoints()
-      return point
+      let direction = this.queue.getFront();
+      let point = this.setNexMargintPoint(direction);
+      this.queue.circulatePoints();
+      return point;
     }
 
     setNexMargintPoint(side){
@@ -105,6 +118,6 @@ export class ProcessorBezier  extends GenerativeAlgorithm{
       if (side == 4){
         point = {x: this.paddingX  , y: Math.floor(Math.random() *  this.canvasHeight)};
       }
-      return point
+      return point;
     }
   }

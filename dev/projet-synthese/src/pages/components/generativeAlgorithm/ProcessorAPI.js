@@ -2,13 +2,13 @@ import * as myConstants from '../../constants'
 export class ProcessorAPI{
     static normalize(valueToNormalize, min, max ){
         //? REF: https://www.statology.org/normalize-data-between-0-and-1/
-        return (valueToNormalize-min)/(max-min)
+        return (valueToNormalize-min)/(max-min);
     }
 
     static normalizeAthmospericPressure(valueToNormalize){
         let min = 870 //*lowest athmospheric pressure on earth
         let max = 1085 //*highest athmospheric pressure on earth
-        return this.normalize(valueToNormalize,min,max)
+        return this.normalize(valueToNormalize,min,max);
     }
 
     static async animationAPICall(laitutde, longitude, nbOfDatasets=9){
@@ -23,11 +23,11 @@ export class ProcessorAPI{
     }
 
     static extractCity(data){
-        return data.city.name
+        return data.city.name;
     }
 
     static extractCountry(data){
-        return data.city.country
+        return data.city.country;
     }
 
     static organiseData(data){

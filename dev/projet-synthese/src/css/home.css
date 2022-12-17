@@ -11,9 +11,10 @@ div.headings-content {
 
 h1.nom-site {
     color: var(--main-light-color);
-    font-size: 3.4rem;
+    font-size: 1.5rem;
     align-self: middle;
     height: auto;
+    letter-spacing: 0.8vw;
 }
 
 .go-to-animation {
@@ -62,4 +63,3 @@ h1.nom-site {
     from {transform: translate(-50%, -50%) rotate(0deg);}
     to {transform: translate(-50%, -50%) rotate(360deg);}
 }
-

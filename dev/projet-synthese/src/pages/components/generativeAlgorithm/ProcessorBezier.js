@@ -21,6 +21,7 @@ export class ProcessorBezier  extends GenerativeAlgorithm{
       if (!Array.isArray(choices)){
         throw new Error('choices argument must be of type Array') 
       }
+      this.colorChoices = []
       for(let choice of choices){
         this.colorChoices.push(choice)
       }

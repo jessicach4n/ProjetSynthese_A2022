@@ -56,12 +56,15 @@ class Loading extends Component {
                 // console.log("this is "+ JSON.stringify(response));
                 let city = ProcessorAPI.extractCity(response);
                 let country = ProcessorAPI.extractCountry(response);
-                let organisedData = ProcessorAPI.organiseData(response)
-                let cycleNumberOfMembers = ProrcessorVariables.createCycleNumberOfMembers(organisedData)
+                let organisedData = ProcessorAPI.organiseData(response);
+                let choices = ProrcessorVariables.createChoices(organisedData);
+                let cycleNumberOfMembers = ProrcessorVariables.createCycleNumberOfMembers(choices);
+                let breathingNumberOfMembers = ProrcessorVariables.initialization(choices);
+                sessionStorage.setItem("breathingNumberOfMembers", breathingNumberOfMembers)
                 sessionStorage.setItem("cycleNumberOfMembers", cycleNumberOfMembers);
                 sessionStorage.setItem("city", city);
                 sessionStorage.setItem("country", country);
-                window.location = "/animation"
+                window.location = "/animation";
                })
         }, 1000);
     }

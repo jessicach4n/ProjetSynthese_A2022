@@ -118,16 +118,5 @@ nav.header-menu ul li:hover {
     }
 }
 
-@media screen and (max-width: 680px) {
-    *, html {
-        font-size: 1.6vw;
-    }
-
-    #logo {
-        width: 4rem;
-        height: auto;
-    }
-}
-
 
 

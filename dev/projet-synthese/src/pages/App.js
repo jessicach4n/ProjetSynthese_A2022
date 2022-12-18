@@ -1,5 +1,5 @@
 import ReactDOM from "react-dom/client";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Home from "./Home";
 import Login from "./Login";
 import Profile from "./Profile";
@@ -11,7 +11,7 @@ import Navigation from './components/Navigation';
 import Loading from "./Loading";
 import NotFound from "./NotFound";
 import '../css/index.css'
-
+import * as myConstants from './constants'
 
 function App() {
   return (
@@ -27,11 +27,11 @@ function App() {
             </Route>
             <Route path="loading" element={<Loading />}/>
             <Route path="a-propos" element={<About />} />
-            <Route path="partages" element={<Shares />} />
-            <Route path="profil" element={<Profile />} />
+            <Route path="partages" element={myConstants.IS_LOGGED_IN ? (<Shares />) : (<Navigate replace to={"/"}/>)} />
+            <Route path="profil" element={myConstants.IS_LOGGED_IN ? (<Profile />) : (<Navigate replace to={"/"}/>)} />
             <Route path="deconnexion" element={<Home />} />
-            <Route path="connexion" element={<Login />} />
-            <Route path="register" element={<Register/>} />
+            <Route path="connexion" element={!myConstants.IS_LOGGED_IN ? (<Login />) : (<Navigate replace to={"/"}/>)} />
+            <Route path="inscription" element={!myConstants.IS_LOGGED_IN ? (<Register />) : (<Navigate replace to={"/"}/>)} />
             <Route path='*' element={<NotFound />}/>
           </Route>
         </Routes>

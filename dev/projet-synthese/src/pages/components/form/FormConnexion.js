@@ -88,7 +88,7 @@ class FormConnexion extends Form {
             <div className="msg-erreur">Mot de passe est invalide</div>
             <input type="password" name="passwd" placeholder="Mot de passe" id="log-password"/>
             <button type="submit" id="btn-signin">Se connecter</button>
-            <Link to="/register">
+            <Link to="/inscription">
               <li id="log-register">
                   <a>Pas membre? <br/> Créer un compte aujourd'hui</a>
               </li>

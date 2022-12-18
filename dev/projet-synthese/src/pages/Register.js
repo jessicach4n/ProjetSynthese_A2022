@@ -1,13 +1,7 @@
 import '../css/index.css'
 import FormRegister from './components/form/FormRegister'
-import * as myConstants from './constants.js'
 
 function Register() {
-  if (myConstants.IS_LOGGED_IN)
-  {
-      window.location = "/"
-      return
-  }
   return (
     <div className="register">
         <section>

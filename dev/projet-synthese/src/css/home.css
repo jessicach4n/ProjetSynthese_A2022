@@ -37,7 +37,7 @@ h1.nom-site {
     transition-duration: 0.5s;
     transition-property: background-color, color;
     opacity: 0;
-    animation: fadein 2s 2s forwards;
+    animation: fadein 2s 1s forwards;
 }
 
 #go-to-animation:hover {

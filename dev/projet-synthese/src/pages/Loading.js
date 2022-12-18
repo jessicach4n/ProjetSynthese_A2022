@@ -12,6 +12,28 @@ class Loading extends Component {
     }
 
     componentDidMount() {
+        let latitude;
+        let longitude;
+        //* REF: https://www.w3schools.com/html/tryit.asp?filename=tryhtml5_geolocation
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(success, error);
+        }
+            
+            
+        function success(position){
+            latitude = position.coords.latitude;
+            longitude = position.coords.longitude;
+            console.log("Lat succes: " + latitude);
+            console.log("Lon : succes " + longitude);
+        }
+
+        function error(){
+            console.log('error happened');
+            //* Donwtown Montreal Location 
+            latitude = 45.501690
+            longitude = -73.567253
+        }
+
         let formData = new FormData();
         formData.append("session_id", window.sessionStorage.getItem("session_id"));
         formData.append("action", myConstants.GET_EMAIL_NUMBER);
@@ -26,12 +48,12 @@ class Loading extends Component {
                 sessionStorage.setItem("emailNumber", res.emailNumber)
             })
 
-            fetch(ProcessorAPI.stringCallAPI(45.501690,-73.567253), {   
+            fetch(ProcessorAPI.stringCallAPI(latitude,longitude), {   
                 method : "POST",       
                    })
                .then(response => response.json())
                .then(response => {
-                console.log("this is "+ JSON.stringify(response));
+                // console.log("this is "+ JSON.stringify(response));
                 let city = ProcessorAPI.extractCity(response);
                 let country = ProcessorAPI.extractCountry(response);
                 let organisedData = ProcessorAPI.organiseData(response)

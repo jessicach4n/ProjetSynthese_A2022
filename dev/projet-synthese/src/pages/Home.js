@@ -1,11 +1,10 @@
+import { Outlet, Link } from "react-router-dom";
 import '../css/index.css'
 import '../css/home.css'
 import '../css/shape.css'
 import '../css/about.css'
 
-function goToAnimation() {
-    window.location = "/animation"
-}
+
 
 function Home() {
   return (
@@ -14,7 +13,9 @@ function Home() {
         <div id="polygon"></div>
         <div className="headings-content">
             <h1 className="nom-site">Générateur d'art météorologique</h1>
-            <button onClick={goToAnimation} id='go-to-animation'>Voir animations</button>
+            <Link to="/animation">
+              <button id='go-to-animation'>Voir animations</button>
+            </Link>
         </div>
     </div>
   );

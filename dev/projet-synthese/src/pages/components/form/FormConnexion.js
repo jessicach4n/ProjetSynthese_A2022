@@ -3,6 +3,7 @@ import '../../../css/index.css'
 import '../../../css/forms.css'
 import Form from './Form'
 import * as myConstants from '../../constants.js'
+import { Link } from "react-router-dom";
 
 class FormConnexion extends Form {
     constructor(props) {
@@ -87,9 +88,11 @@ class FormConnexion extends Form {
             <div className="msg-erreur">Mot de passe est invalide</div>
             <input type="password" name="passwd" placeholder="Mot de passe" id="log-password"/>
             <button type="submit" id="btn-signin">Se connecter</button>
-            <li id="log-register">
-                <a href="register">Pas membre? <br/> Créer un compte aujourd'hui</a>
-            </li>
+            <Link to="/register">
+              <li id="log-register">
+                  <a>Pas membre? <br/> Créer un compte aujourd'hui</a>
+              </li>
+            </Link>
         </form>
       );
     }

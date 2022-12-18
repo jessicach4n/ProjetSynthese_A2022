@@ -1,6 +1,7 @@
 import '../css/index.css'
 import '../css/home.css'
 import '../css/shape.css'
+import '../css/about.css'
 
 function Home() {
   return (
@@ -9,11 +10,7 @@ function Home() {
         <div id="polygon"></div>
         <div className="headings-content">
             <h1 className="nom-site">Générateur d'art météorologique</h1>
-            <h1>L'expérience commence</h1>
-        </div>
-        <div className="go-to-animation">
-            <span id="circle"></span>
-            <a id="go-to-animation" href="animation">ici</a>
+            <button id='go-to-animation'>Voir animations</button>
         </div>
     </div>
   );

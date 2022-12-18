@@ -17,8 +17,8 @@ function App() {
   return (
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Navigation style={{zIndex:100}}/>}>
-            <Route index element={<Home />} />
+          <Route path="/" element={<Navigation />}>
+            <Route index element={<Home/>} />
             <Route path="animation" element={<Animation/>} >
               <Route path="LineRotationAlgorithm" element={<div/>}/>
               <Route path="TriangleBezierCollisionAlgorithm" element={<div/>}/>

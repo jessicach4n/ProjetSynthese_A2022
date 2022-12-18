@@ -1,65 +1,71 @@
 div.home-content {
-    margin: 2vw 5vw;
+    position: fixed;
+    top: 0;
+    left: 0; 
+    width: 100vw;
+    height: 100vh;
     display: flex;
-    transform: translate(-15%, 10%);
 }
 
 div.headings-content {
-    text-align: right;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    height: 40vh;
+    width: 100vw;
     z-index: 10;
+    text-align: center;
 }
 
 h1.nom-site {
+    font-family: var(--display-font);
     color: var(--main-light-color);
-    font-size: 1.5rem;
-    align-self: middle;
+    font-size: 3.2rem;
     height: auto;
-    letter-spacing: 0.8vw;
-}
-
-.go-to-animation {
-    position: relative;
-    padding: 0.6vw;
-    width: 8vw;
-    height: 8vw;
-    align-self: flex-end;
+    margin-top: 5vw;
+    animation: space-out 3s cubic-bezier(0.645, 0.045, 0.355, 1) forwards;
 }
 
 #go-to-animation {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -40%);
-    font-size: 6rem;
-    filter: blur(3px);
-    transition: 0.8s filter;
-    font-family: var(--display-font);
-    letter-spacing: 0.5vw;
+    margin-top: 6vw;
+    font-size: 1.2rem;
+    color: var(--main-accent-color);
+    background-color: transparent;
+    border: 4px solid var(--main-accent-color);
+    letter-spacing: 0.4vw;
+    transition-duration: 0.5s;
+    transition-property: background-color, color;
+    opacity: 0;
+    animation: fadein 2s 2s forwards;
 }
 
 #go-to-animation:hover {
-    filter: blur(0);
+    color: white;
+    background-color: var(--main-accent-color);
+    transition-duration: 0.5s;
+    transition-property: background-color, color;
 }
 
-#circle {
-    --circle-size : 210px;  
-    filter: blur(2px);
-    z-index: 1;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: var(--circle-size);
-    height: var(--circle-size);
-    border: 4px dotted var(--main-accent-color);
-    border-radius: 100%;
-    
-    /* REF : https://stackoverflow.com/questions/6410730/css-endless-rotation-animation */
-    animation: rotate 40s linear infinite;
+@keyframes space-out {
+    from {
+        opacity: 0;
+        letter-spacing: 0.6vw;
+    }
+    to {
+        opacity: 1;
+        letter-spacing: 0.8vw;
+    }
 }
 
-/* REF : https://stackoverflow.com/questions/14859322/css3-spin-animation */
-
-@keyframes rotate {
-    from {transform: translate(-50%, -50%) rotate(0deg);}
-    to {transform: translate(-50%, -50%) rotate(360deg);}
+@keyframes fadein {
+    from {
+        opacity: 0;
+        filter: blur(3px);
+    }
+    to {
+        opacity: 1;
+        filter: blur(0);
+    }
 }
+

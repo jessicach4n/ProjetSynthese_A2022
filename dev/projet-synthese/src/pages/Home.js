@@ -3,6 +3,10 @@ import '../css/home.css'
 import '../css/shape.css'
 import '../css/about.css'
 
+function goToAnimation() {
+    window.location = "/animation"
+}
+
 function Home() {
   return (
     <div className="home-content">
@@ -10,7 +14,7 @@ function Home() {
         <div id="polygon"></div>
         <div className="headings-content">
             <h1 className="nom-site">Générateur d'art météorologique</h1>
-            <button id='go-to-animation'>Voir animations</button>
+            <button onClick={goToAnimation} id='go-to-animation'>Voir animations</button>
         </div>
     </div>
   );

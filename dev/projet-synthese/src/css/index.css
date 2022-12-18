@@ -19,8 +19,6 @@ body {
     background-color: var(--main-dark-color);
     line-height: 0.8;
     margin: 4vw 8vw;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
 }
 
 h1 {

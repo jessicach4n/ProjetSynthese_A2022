@@ -5,8 +5,7 @@ export class ProcessorSin{
       this.offset = offset;
       this.phase = phase;
       this.frameRate= 30
-
-      console.log(this.amplitude + this.frequency +this.offset + this.phase )
+      // console.log(this.amplitude + this.frequency +this.offset + this.phase )
     }
 
     generatePoint(frameCount){

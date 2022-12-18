@@ -52,13 +52,23 @@ export class ProrcessorVariables{
         return chance;
     }
 
-    static createCycleNumberOfMembers(datasets){
-       
-        let choices = []
+    static createChoices(datasets){
+        if(!Array.isArray(datasets)){
+            throw new Error('datasets argument must be of type Array');
+        }
+
+        let choices = [];
         for(let dataset of datasets){
             choices.push(dataset.main.pressure);
         }
-        
+        return choices;
+    }
+
+    static createCycleNumberOfMembers(choices){
+        if(!Array.isArray(choices)){
+            throw new Error('choices argument must be of type Array');
+        }
+
         let chance = this.initialization(choices);
         let finalList = this.createInfluencedList(chance,4,6);
         return finalList;

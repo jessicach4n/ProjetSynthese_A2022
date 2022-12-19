@@ -12,4 +12,20 @@ export class ProcessorCos{
        + this.offset;
       return value  
     } 
+    
+    setAmplitude(amplitude){
+      this.amplitude = amplitude;
+    }
+
+    setFrequency(frequency){
+      this.frequency = frequency;
+    }
+
+    setOffset(offset){
+      this.offset = offset;
+    }
+
+    setPhase(phase){
+      this.phase = phase
+    }
   }

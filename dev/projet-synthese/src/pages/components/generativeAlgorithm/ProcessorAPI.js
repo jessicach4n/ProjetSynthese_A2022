@@ -13,8 +13,8 @@ export class ProcessorAPI{
     }
 
     static normalizeAthmospericPressure(valueToNormalize){
-        let min = 870 //*lowest athmospheric pressure on earth
-        let max = 1085 //*highest athmospheric pressure on earth
+        let min = 870 //*lowest athmospheric pressure on earth in hPa
+        let max = 1085 //*highest athmospheric pressure on earth in hPa
         return this.normalize(valueToNormalize,min,max);
     }
 

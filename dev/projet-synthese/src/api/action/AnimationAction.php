@@ -11,11 +11,7 @@
 		protected function executeAction() {
 			$shareSuccess = false;
 			$error_message = "";
-
-			// $emailNumber = UserDAO::getEmailNumber($_SESSION["username"]);
 			
-			$APIresponse = "";
-			// CommonAction::callAPI();
 			if(!empty($_POST['creator']) && !empty($_POST['creationDate']) 
 			&& !empty($_POST['city']) && !empty($_POST['country']) && !empty($_FILES['video'])) {
 				if (CommonAction::$VISIBILITY_MEMBER) {
@@ -35,6 +31,6 @@
 				$emailNumber = UserDAO::getEmailNumber($_SESSION['username']);
 			}
 
-			return compact("shareSuccess", "error_message", "emailNumber", "APIresponse");
+			return compact("shareSuccess", "error_message", "emailNumber");
 			}
 		}

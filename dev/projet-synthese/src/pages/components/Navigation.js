@@ -1,8 +1,8 @@
-import { Outlet, Link } from "react-router-dom";
 import '../../css/index.css';
-import * as myConstants from '../constants.js'
+import { Outlet, Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowRightFromBracket, faArrowRightToBracket } from '@fortawesome/free-solid-svg-icons'
+import * as myConstants from '../constants.js'
 
 function logout(res) {
     if (!res.isLoggedIn) {

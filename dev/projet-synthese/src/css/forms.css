@@ -61,9 +61,6 @@ input {
     color: var(--main-light-color);
 }
 
-/*focus : targeted by the keyboard, or 
-activated by the mouse, usually used for 
-input and textarea*/
 input:focus {
     outline: none;
     border-color: var(--main-accent-color);

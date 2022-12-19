@@ -1,8 +1,8 @@
-import React, { Component } from "react";
 import '../../css/card.css'
-import * as myConstants from '../constants'
+import React, { Component } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser, faMap, faCalendarTimes} from '@fortawesome/free-regular-svg-icons'
+import * as myConstants from '../constants'
 
 class Card extends Component {
     constructor(props) {

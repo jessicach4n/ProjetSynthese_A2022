@@ -60,10 +60,10 @@ export default class TriangleBezierCollisionAlgorithm extends GenerativeAlgorith
                 mainColor = rootstyle.getPropertyValue('--main-accent-color');
                 processorBezier.setColorChoices(['white', mainColor])
                 for(let member of processorBezier.getMembers()){
-                p5.fill(member.color);
-                p5.ellipse(member.x, member.y , 25, 25);
-                member.x = Math.pow((1-t),2) * p1.x + 2 * (1-t) * t * member.p2x + Math.pow(t,2) * p3.x;
-                member.y = Math.pow((1-t),2) * p1.y + 2 * (1-t) * t * member.p2y + Math.pow(t,2) * p3.y;
+                    p5.fill(member.color);
+                    p5.ellipse(member.x, member.y , 25, 25);
+                    member.x = Math.pow((1-t),2) * p1.x + 2 * (1-t) * t * member.p2x + Math.pow(t,2) * p3.x;
+                    member.y = Math.pow((1-t),2) * p1.y + 2 * (1-t) * t * member.p2y + Math.pow(t,2) * p3.y;
             }
                 if (t < 1 && begin){
                     t+=0.01;  

@@ -18,6 +18,7 @@ Autre étudiant  : Sebastian Perez
     font-family: var(--display-font);
     color: var(--main-accent-color);
     font-size: 25px;
+    letter-spacing: 0.2vw;
 }
 
 button {
@@ -61,6 +62,7 @@ button {
 #menu div.buttonContainer button{
   font-size: 20px;
   width: 100%;
+  letter-spacing: 0.2vw;
 }
 
 #partage {
@@ -79,6 +81,7 @@ button {
   opacity: 0.6;
   margin-right: 2vw;
   background-color: transparent;
+  letter-spacing: 0.1vw;
   }
 
   #messageContainer {

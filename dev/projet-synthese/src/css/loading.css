@@ -41,7 +41,8 @@ Autre étudiant  : Sebastian Perez
     margin-top: 3vw;
     width: fit-content;
     font-family: var(--display-font);
-    font-size: 2rem;
+    font-size: 1.5rem;
+    letter-spacing: 0.2vw;
 }
 
 @keyframes loading {

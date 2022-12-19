@@ -12,14 +12,14 @@ import Message from './components/Message';
 function Animation() {
   let animationPage = null
 
-  if (window.location.pathname.includes("TriangleBezierCollisionAlgorithm")) {
-    animationPage = <TriangleBezierCollisionAlgorithm />
+  if (window.location.pathname.includes("PolygonAlgorithm")) {
+    animationPage = <PolygonAlgorithm />
   }
   else if (window.location.pathname.includes("BreathingCircleAlgorithm")) {
     animationPage = <BreathingCircleAlgorithm />
   }
   else {
-    animationPage = <PolygonAlgorithm />
+    animationPage = <TriangleBezierCollisionAlgorithm />
   }
   return (
     <div className="animation">

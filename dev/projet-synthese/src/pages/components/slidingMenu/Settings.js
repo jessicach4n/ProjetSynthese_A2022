@@ -48,7 +48,6 @@ class Settings extends Component {
 
     handlePartage() {
         if (window.sessionStorage.getItem('session_id') != null) {
-            console.log('click');
             document.dispatchEvent(new Event('startRecording'));
             this.disableButton()
         }

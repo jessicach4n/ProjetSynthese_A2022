@@ -7,7 +7,7 @@ import * as myConstants from '../constants.js'
 function logout(res) {
     if (!res.isLoggedIn) {
         window.sessionStorage.removeItem("session_id");
-        window.location = '/';
+        window.location = '/deconnexion';
     }
 }
 
@@ -21,10 +21,10 @@ function handleLogout(event) {
         method: 'POST',
         body: formData
     })
-        .then(res => res.json())
-        .then(res => {
-            logout(res);
-        })
+    .then(res => res.json())
+    .then(res => {
+        logout(res);
+    })
 }
 
 const Navigation = () => {

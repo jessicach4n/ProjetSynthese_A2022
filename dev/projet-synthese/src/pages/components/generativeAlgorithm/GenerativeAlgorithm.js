@@ -1,3 +1,10 @@
+/* 
+Nom du fichier  : GenerativeAlgorithm.js
+Description     : Super classe de toutes les animations 
+                  elle standardise une interface de programmation.
+Auteur          : Sebastian Perez
+Autre étudiant  : Jessica Chan
+*/
 import { Component } from "react";
 import { VideoRecorder } from '../videoRecorder/VideoRecorder';
 //? REF : https://codesandbox.io/s/k09k8knxz5

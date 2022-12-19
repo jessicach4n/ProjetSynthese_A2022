@@ -1,3 +1,9 @@
+/* 
+Nom du fichier  : BreathingCircleAlgorithm.js
+Description     : Animation qui utilise le BreathingCircleAlgorithm.
+Auteur          : Sebastian Perez
+Autre étudiant  : Jessica Chan
+*/
 import Sketch from "react-p5";
 import { GenerativeAlgorithm } from './GenerativeAlgorithm';
 import { ProcessorSin } from "./ProcessorSin";
@@ -70,7 +76,6 @@ export default class BreathingCircleAlgorithm extends GenerativeAlgorithm {
             super.draw();
             }
         return (<Sketch setup={setup} draw={draw}/>);
-        //ENCAPSULATION OF P5
         // REF : https://github.com/processing/p5.js/wiki/Global-and-instance-mode
     }
     

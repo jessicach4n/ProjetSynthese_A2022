@@ -1,3 +1,9 @@
+/* 
+Nom du fichier  : TriangleBezierCollisionAlgorithm.js
+Description     : Animation qui utilise le TriangleBezierCollisionAlgorithm.
+Auteur          : Sebastian Perez
+Autre étudiant  : Jessica Chan
+*/
 import { GenerativeAlgorithm } from './GenerativeAlgorithm';
 import { ProcessorBezier } from './ProcessorBezier';
 import Sketch from "react-p5";
@@ -25,7 +31,7 @@ export default class TriangleBezierCollisionAlgorithm extends GenerativeAlgorith
     }
 
     render() {
-        //* REF: https://www.w3schools.com/css/css3_variables_javascript.asp
+        // REF: https://www.w3schools.com/css/css3_variables_javascript.asp
         let rootColor = document.querySelector(':root');
         let rootstyle = getComputedStyle(rootColor);
         let mainColor = rootstyle.getPropertyValue('--main-accent-color');
@@ -80,8 +86,8 @@ export default class TriangleBezierCollisionAlgorithm extends GenerativeAlgorith
             }
             return (<Sketch setup={setup} draw={draw}/>);
         }
-        //? REF : https://github.com/processing/p5.js/wiki/Global-and-instance-mode
+        // REF : https://github.com/processing/p5.js/wiki/Global-and-instance-mode
     
 }
 
-//* REF : https://dev.to/ramonak/javascript-how-to-access-the-return-value-of-a-promise-object-1bck
+// REF : https://dev.to/ramonak/javascript-how-to-access-the-return-value-of-a-promise-object-1bck

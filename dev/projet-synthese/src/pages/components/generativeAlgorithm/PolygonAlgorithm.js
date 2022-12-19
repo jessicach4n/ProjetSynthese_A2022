@@ -1,3 +1,9 @@
+/* 
+Nom du fichier  : PolygonAlgorithm.js
+Description     : Animation qui utilise le PolygonAlgorithm.
+Auteur          : Sebastian Perez
+Autre étudiant  : Jessica Chan
+*/
 import { GenerativeAlgorithm } from './GenerativeAlgorithm';
 import Sketch from "react-p5";
 import { ProcessorPolygon } from './ProcessorPolygon';

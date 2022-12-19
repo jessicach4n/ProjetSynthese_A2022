@@ -1,5 +1,10 @@
-
-//? REF : https://www.programiz.com/javascript/examples/stack
+/* 
+Nom du fichier  : MyAwesomeStack.js
+Description     : Classe qui met en place une Pile.
+Auteur          : Sebastian Perez
+Autre étudiant  : Jessica Chan
+*/
+// REF : https://www.programiz.com/javascript/examples/stack
 export class MyAwesomeStack{
     constructor() {
         this.items = [];

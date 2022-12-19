@@ -1,3 +1,11 @@
+/* 
+Nom du fichier  : ProcessorSin.js
+Description     : Processeur qui encapsule les fonctionalités
+                  reliés au Sin mathématique afin de faire
+                  tourner un point au tour d'un autre.
+Auteur          : Sebastian Perez
+Autre étudiant  : Jessica Chan
+*/
 export class ProcessorSin{
     constructor(amplitude = 1, frequency = 1, offset = 0, phase = 0 ) {
       this.amplitude = amplitude;
@@ -5,7 +13,6 @@ export class ProcessorSin{
       this.offset = offset;
       this.phase = phase;
       this.frameRate= 30
-      // console.log(this.amplitude + this.frequency +this.offset + this.phase )
     }
 
     generatePoint(frameCount){

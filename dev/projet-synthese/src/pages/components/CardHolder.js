@@ -8,9 +8,14 @@ class CardHolder extends Component {
         super(props);
         this.state = {cards : []}
         this.page = this.props.page == "shares" ? "/shares.php" : "/profile.php";
+        this.getCards = this.getCards.bind(this);
     }
 
     componentDidMount() {
+        this.getCards()
+    }   
+
+    getCards() {
         let formData = new FormData();
         formData.append("action", myConstants.GET_IDS);
         formData.append("session_id", window.sessionStorage.getItem("session_id"));
@@ -46,7 +51,7 @@ class CardHolder extends Component {
                 })
             })
         })
-    }   
+    }
 
     render() {
         return (

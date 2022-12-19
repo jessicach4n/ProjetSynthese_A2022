@@ -20,13 +20,12 @@ export class VideoRecorder extends WebMWriter {
         try {
             this.addFrame(this.canvas);
             this.frameCounter++;
-            console.log(this)
             if (this.frameCounter >= this.vidLength) {
                 this.save()
             }
 
         } catch (error) {
-            console.log("Abort download")
+            console.log(error)
         }
     }
 

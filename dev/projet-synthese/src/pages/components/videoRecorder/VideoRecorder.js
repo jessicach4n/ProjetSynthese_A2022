@@ -15,6 +15,8 @@ export class VideoRecorder extends WebMWriter {
         this.vidLength = 100;
         this.canvas = canvas;
         this.frameCounter = 0;
+
+        
     }
 
     reset() {

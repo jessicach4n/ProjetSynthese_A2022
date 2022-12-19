@@ -1,4 +1,11 @@
 <?php
+    // Nom du fichier  : CommonAction.php
+    // Description     : Classe par laquelle toutes nos classes action passent. 
+    //                   Elle implemente le patron de conception Template Method.
+    //                   Nous avons utilisé cette classe dans nos cours avec Frederic Thériault 
+    // Auteur          : Jessica Chan
+    // Autre étudiant  : Sebastian Perez
+
     session_id($_POST['session_id']);
     session_start();
 

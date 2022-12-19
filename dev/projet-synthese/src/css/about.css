@@ -1,3 +1,10 @@
+/* 
+Nom du fichier  : about.css
+Description     : Fichier CSS contenant les styles de la page 'À Propos'
+Auteur          : Jessica Chan
+Autre étudiant  : Sebastian Perez 
+*/
+
 p {
     columns: 2;
     column-gap: 5vw;

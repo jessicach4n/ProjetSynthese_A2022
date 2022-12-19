@@ -1,3 +1,10 @@
+/* 
+Nom du fichier  : Form.js
+Description     : Navigation entre les algorithmes d'animation
+Auteur          : Jessica Chan
+Autre étudiant  : Sebastian Perez 
+*/
+
 import '../../../css/index.css';
 import '../../../css/algorithm.css';
 

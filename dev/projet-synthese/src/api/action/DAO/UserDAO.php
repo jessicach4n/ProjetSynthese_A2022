@@ -1,4 +1,9 @@
 <?php
+    // Nom du fichier  : UserDAO.php
+    // Description     : DAO comportant tous les actions possibles concernant l'utilisateur.
+    // Auteur          : Jessica Chan
+    // Autre étudiant  : Sebastian Perez
+
     require_once("Connection.php");
 
     class UserDAO {

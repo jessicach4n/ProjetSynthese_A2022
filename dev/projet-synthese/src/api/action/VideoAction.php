@@ -1,4 +1,9 @@
 <?php
+    // Nom du fichier  : VideoAction.php
+    // Description     : Classe appelant le UserDAO pour récupérer la vidéo de la BD.
+    // Auteur          : Jessica Chan
+    // Autre étudiant  : Sebastian Perez
+
 	require_once("action/CommonAction.php");
 	require_once("action/DAO/UserDAO.php");
 

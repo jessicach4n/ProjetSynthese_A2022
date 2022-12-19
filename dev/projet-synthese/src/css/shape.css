@@ -1,3 +1,10 @@
+/* 
+Nom du fichier  : shape.css
+Description     : Fichier CSS contenant les styles et animations CSS de la page principale
+Auteur          : Jessica Chan
+Autre étudiant  : Sebastian Perez 
+*/
+
 #square {
     position: absolute;
     border : 1px solid var(--main-accent-color);

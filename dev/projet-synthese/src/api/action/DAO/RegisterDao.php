@@ -1,4 +1,8 @@
 <?php
+    // Nom du fichier  : RegisterDao.php
+    // Description     : DAO servant à la création de nouveaux usagers lors d'une inscription.
+    // Auteurs         : Sebastian Perez, Jessica Chan
+    
     require_once("Connection.php");
 
     class RegisterDao {

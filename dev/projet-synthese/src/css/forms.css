@@ -1,3 +1,10 @@
+/* 
+Nom du fichier  : forms.css
+Description     : Fichier CSS contenant les styles pour tous les formulaires du site
+Auteur          : Jessica Chan
+Autre étudiant  : Sebastian Perez 
+*/
+
 .msg-erreur {
     display: none;
     color: var(--main-error-color);

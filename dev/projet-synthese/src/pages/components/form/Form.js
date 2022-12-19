@@ -1,3 +1,10 @@
+/* 
+Nom du fichier  : Form.js
+Description     : Composant React et super-classe pour les formulaires
+Auteur          : Jessica Chan
+Autre étudiant  : Sebastian Perez 
+*/
+
 import '../../../css/index.css'
 import '../../../css/forms.css'
 import React, { Component } from "react";

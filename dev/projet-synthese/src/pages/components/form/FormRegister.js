@@ -1,3 +1,10 @@
+/* 
+Nom du fichier  : Form.js
+Description     : Composant React et sous-classe de Form, contient le formulaire d'inscription.
+Auteur          : Jessica Chan
+Autre étudiant  : Sebastian Perez 
+*/
+
 import '../../../css/index.css'
 import '../../../css/forms.css'
 import React from "react";

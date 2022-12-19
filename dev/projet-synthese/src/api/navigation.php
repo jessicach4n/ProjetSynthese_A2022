@@ -1,13 +1,18 @@
 <?php
-require_once("header.php");
-require_once("action/NavigationAction.php");
-	
-$action = new NavigationAction();
-$data = $action->execute();
+    // Nom du fichier  : navigation.php
+    // Description     : Fichier dont le frontend peut appeler pour exécuter les actions liées.
+    // Auteur          : Jessica Chan
+    // Autre étudiant  : Sebastian Perez
 
-$response = json_encode($data);
+    require_once("header.php");
+    require_once("action/NavigationAction.php");
+        
+    $action = new NavigationAction();
+    $data = $action->execute();
 
-header('HTTP/1.1 200 OK');
-echo($response);
+    $response = json_encode($data);
+
+    header('HTTP/1.1 200 OK');
+    echo($response);
 
 ?>

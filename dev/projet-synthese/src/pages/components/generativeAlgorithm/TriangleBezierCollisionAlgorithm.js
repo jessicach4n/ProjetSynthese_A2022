@@ -16,7 +16,7 @@ export default class TriangleBezierCollisionAlgorithm extends GenerativeAlgorith
     }
 
     assignUserVariables(){
-        if(myConstants.IS_LOGGED_IN){
+        if(!myConstants.IS_LOGGED_IN){
             this.cycleNumberOfMembers  = [1,2,3,4];
         }
         else {

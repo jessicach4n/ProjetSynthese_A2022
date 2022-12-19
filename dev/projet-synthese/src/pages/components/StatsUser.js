@@ -3,7 +3,7 @@ import '../../css/index.css'
 import '../../css/profile.css'
 import * as myConstants from '../constants'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUser } from '@fortawesome/free-regular-svg-icons'
+import { faUser, faMap } from '@fortawesome/free-regular-svg-icons'
 
 class StatsUser extends Component {
     constructor(props) {
@@ -32,9 +32,13 @@ class StatsUser extends Component {
     render() {
       return (
         <div className="stats">
-          <div className="data" id="icon-profile">
-            <div><FontAwesomeIcon icon={faUser} size="5x"/></div>
+          <div className="data" id="username-container">
+            <div className="user-icon"><FontAwesomeIcon icon={faUser} size="5x"/></div>
             <div className="tag" id="stats-username">{myConstants.USERNAME}</div>
+          </div>
+          <div className="data">
+            <div><FontAwesomeIcon icon={faMap} size="5x"/></div>
+            <div className="tag">{myConstants.USER_LOCATION['city']}, {myConstants.USER_LOCATION['country']}</div>
           </div>
           <div className="data" id="shared-anim">
             <div className="nb">{this.state.count}</div>

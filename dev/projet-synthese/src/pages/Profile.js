@@ -8,9 +8,7 @@ function Profile() {
         <div className="profile">
             <h1>Votre profil</h1>
             <StatsUser/>
-            <div className="onglets">
-                <li><a href=""></a>Mes animations</li>
-            </div>
+            <h2>Mes animations</h2>
             <section className="my-animations">
                 <CardHolder page={"profile"}/>
             </section>

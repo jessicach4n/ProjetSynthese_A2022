@@ -32,7 +32,7 @@
 					}
 					catch (PDOException $e){
 						if ($e->getCode() == '23505') {
-							$errorMessage = "Votre nom d'utilisateur ou votre email existe déjà, veuillez réessayer";
+							$errorMessage = "Votre nom d'utilisateur ou votre email existe déjà, veuillez réessayer.";
 						}
 						else {
 							error_log($e);
@@ -40,7 +40,7 @@
 					}
 				}
 				else {
-					$errorMessage = "Username must be between 5 and 30 chars and not contain special characters";
+					$errorMessage = "Le nom d'utilisateur doit contenir entre 5 and 30 caractères sans caractères spéciaux.";
 				}
 			}
 

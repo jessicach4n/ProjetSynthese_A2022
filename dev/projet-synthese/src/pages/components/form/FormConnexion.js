@@ -64,9 +64,9 @@ class FormConnexion extends Form {
     render() {
       return (
         <form onSubmit={this.handleSubmit} id="form-con" method="post">
-            <div className="msg-erreur"><FontAwesomeIcon icon={faTriangleExclamation} size="sm"/>  Nom d'usager est invalide</div>
+            <div className="msg-erreur"><FontAwesomeIcon icon={faTriangleExclamation} size="sm"/>  Nom d'usager est invalide.</div>
             <input type="text" name="username" placeholder="Nom d'usager" id="log-username" />
-            <div className="msg-erreur"><FontAwesomeIcon icon={faTriangleExclamation} size="sm"/>  Mot de passe est invalide</div>
+            <div className="msg-erreur"><FontAwesomeIcon icon={faTriangleExclamation} size="sm"/>  Mot de passe est invalide.</div>
             <input type="password" name="passwd" placeholder="Mot de passe" id="log-password"/>
             <button type="submit" id="btn-signin">Se connecter</button>
             <Link to="/inscription">

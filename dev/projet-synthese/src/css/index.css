@@ -26,6 +26,7 @@ h1 {
     font-family: var(--display-font);
     font-size: 8rem;
     color: var(--main-accent-color);
+    letter-spacing: 0.2vw;
 }
 
 nav {
@@ -79,11 +80,6 @@ nav.header-menu ul li:hover::after{
 nav.header-menu ul li:hover {
     color: var(--main-light-color);
     transition: color ease-in-out .2s;
-}
-
-.active-page {
-    font-weight: 700;
-    color: var(--main-light-color);
 }
 
 #logo {

@@ -1,20 +1,11 @@
-div.onglets {
+h2 {
     margin: 5vw;
     padding: 1vw;
     display: flex;
     justify-content: space-around;
-}
-
-div.onglets li {
-    color: var(--main-light-color);
     font-family: var(--display-font);
-    font-size: 24px;
-    transition: 0.2s color;
-}
-
-div.onglets li:hover {
-    color: var(--main-accent-color);
-    transition: 0.2s color;
+    font-size: 2vw;
+    letter-spacing: 0.8vw;
 }
 
 div.stats {
@@ -41,17 +32,28 @@ div.stats div.data div.nb{
     justify-content: center;
 }
 
+#username-container {
+    display: flex;
+}
+
+.user-icon {
+    margin-left: 6vw;
+}
+
+#stats-username {
+    color: var(--main-light-color);
+    margin-left: 2vw;
+    font-size: 3vw;
+    margin-top: 1vw;
+    padding-bottom: 1vw;
+    border-bottom: 2px solid var(--main-accent-color);
+}
+
 div.tag {
     font-family: var(--display-font);   
     font-size: inherit;
     color: var(--main-accent-color);
     margin-top: 2vw;
-}
-
-#stats-username {
-    color: var(--main-light-color);
-    margin-top: 1.5vw;
-    font-size: 1.5vw;
 }
 
 

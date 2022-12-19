@@ -18,8 +18,8 @@ function handleOnClick(event) {
 const AnimationTabs = () => {
     return(
         <div className="animation-tabs">
-            <button className="dot" onClick={handleOnClick} name="PolygonAlgorithm"></button>
             <button className="dot" onClick={handleOnClick} name="TriangleBezierCollisionAlgorithm"></button>
+            <button className="dot" onClick={handleOnClick} name="PolygonAlgorithm"></button>
             <button className="dot" onClick={handleOnClick} name="BreathingCircleAlgorithm"></button>
         </div>
     );

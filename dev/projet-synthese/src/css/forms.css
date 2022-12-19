@@ -60,7 +60,7 @@ input {
     width: 40vw;
     height: 50px;
     margin-top: 20px;
-    background-color: var(--main-dark-color);
+    background-color: transparent;
     border: 1px solid white;
     border-radius: 20px;
     font-size: 12px;

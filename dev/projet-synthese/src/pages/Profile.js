@@ -1,3 +1,10 @@
+/* 
+Nom du fichier  : Profile.js
+Description     : Composant React de la page 'Profil'.
+Auteur          : Jessica Chan
+Autre étudiant  : Sebastian Perez 
+*/
+
 import '../css/index.css';
 import '../css/profile.css';
 import CardHolder from './components/CardHolder';

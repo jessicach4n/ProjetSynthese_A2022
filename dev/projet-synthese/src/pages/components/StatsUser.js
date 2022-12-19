@@ -1,3 +1,11 @@
+/* 
+Nom du fichier  : StatsUser.js
+Description     : Classe représentant l'objet contenant les informations liées 
+                  à l'utilisateur courant sur la page 'Profil'.
+Auteur          : Jessica Chan
+Autre étudiant  : Sebastian Perez 
+*/
+
 import '../../css/index.css'
 import '../../css/profile.css'
 import React, { Component } from "react";

@@ -1,3 +1,12 @@
+/* 
+Nom du fichier  : CardHolder.js
+Description     : Classe représentant un objet contenant les cartes à montrer dans 
+                  les pages 'Animation' et 'Profil'.
+Auteur          : Jessica Chan
+Autre étudiant  : Sebastian Perez 
+*/
+
+
 import '../../css/card.css'
 import React, { Component } from "react";
 import Card from "./Card";

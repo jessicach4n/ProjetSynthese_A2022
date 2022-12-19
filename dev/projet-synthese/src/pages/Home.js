@@ -1,3 +1,10 @@
+/* 
+Nom du fichier  : Home.js
+Description     : Composant React de la page 'Home'.
+Auteur          : Jessica Chan
+Autre étudiant  : Sebastian Perez 
+*/
+
 import '../css/index.css'
 import '../css/home.css'
 import '../css/shape.css'

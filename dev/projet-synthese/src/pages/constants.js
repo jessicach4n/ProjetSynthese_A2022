@@ -1,3 +1,9 @@
+/* 
+Nom du fichier  : constants.js
+Description     : Fichier comportant des constantes utiles au projet.
+Auteurs         : Jessica Chan, Sebastian Perez 
+*/
+
 export const HOST = 'http://localhost:8888';
 
 export const GET_IDS = "GET_IDS";

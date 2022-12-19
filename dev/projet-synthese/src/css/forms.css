@@ -1,6 +1,6 @@
 .msg-erreur {
     display: none;
-    color: red;
+    color: var(--main-error-color);
     font-size: 12px;
     padding: 1vw;
     margin-top: 1vw;

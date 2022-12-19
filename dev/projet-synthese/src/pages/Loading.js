@@ -9,31 +9,33 @@ class Loading extends Component {
     constructor(props) {
       super(props);
 
+      this.callAPi = this.callAPi.bind(this);
+      this.success = this.success.bind(this);
+      this.error = this.error.bind(this);
+      this.longitude = 0;
+      this.latitude = 0;
+    }
+
+    success(position){
+        this.latitude = position.coords.latitude;
+        this.longitude = position.coords.longitude;
+        this.callAPi()
+    }
+
+    error(){
+        this.latitude = 45.501690
+        this.longitude = -73.567253
+        this.callAPi()
     }
 
     componentDidMount() {
-        let latitude;
-        let longitude;
         //* REF: https://www.w3schools.com/html/tryit.asp?filename=tryhtml5_geolocation
         if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition(success, error);
+            navigator.geolocation.getCurrentPosition(this.success, this.error);
         }
-            
-            
-        function success(position){
-            latitude = position.coords.latitude;
-            longitude = position.coords.longitude;
-            console.log("Lat succes: " + latitude);
-            console.log("Lon : succes " + longitude);
-        }
+    }
 
-        function error(){
-            console.log('error happened');
-            //* Donwtown Montreal Location 
-            latitude = 45.501690
-            longitude = -73.567253
-        }
-
+    callAPi() {
         let formData = new FormData();
         formData.append("session_id", window.sessionStorage.getItem("session_id"));
         formData.append("action", myConstants.GET_EMAIL_NUMBER);
@@ -44,16 +46,14 @@ class Loading extends Component {
             })
             .then(res => res.json())
             .then(res => {
-                console.log('this is res : ' + res.emailNumber)
                 sessionStorage.setItem("emailNumber", res.emailNumber)
             })
 
-            fetch(ProcessorAPI.stringCallAPI(latitude,longitude), {   
+            fetch(ProcessorAPI.stringCallAPI(this.latitude, this.longitude), {   
                 method : "POST",       
                    })
                .then(response => response.json())
                .then(response => {
-                // console.log("this is "+ JSON.stringify(response));
                 let city = ProcessorAPI.extractCity(response);
                 let country = ProcessorAPI.extractCountry(response);
                 let organisedData = ProcessorAPI.organiseData(response);
@@ -70,9 +70,6 @@ class Loading extends Component {
     }
 
     render() {
-        // if (!myConstants.IS_LOGGED_IN) {
-        //     window.location = "/";
-        // }
         return (
             <div className='loading'>
                 <div className='graphics-container'>

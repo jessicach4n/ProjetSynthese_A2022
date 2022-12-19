@@ -4,8 +4,8 @@
     // Auteur          : Jessica Chan
     // Autre étudiant  : Sebastian Perez
 
-    require_once("header.php");
     require_once("action/AnimationAction.php");
+    require_once("header.php");
         
     $action = new AnimationAction();
     $data = $action->execute();

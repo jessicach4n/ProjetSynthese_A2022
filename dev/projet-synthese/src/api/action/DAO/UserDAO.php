@@ -132,6 +132,6 @@
 
             $answer = $statement->fetchAll();
         
-            return $answer[0][video];
+            return $answer[0]['video'];
         }
     }

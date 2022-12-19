@@ -44,8 +44,8 @@ class Loading extends Component {
             })
             .then(res => res.json())
             .then(res => {
-                console.log('this is res : ' + res.emailNumber)
-                sessionStorage.setItem("emailNumber", res.emailNumber)
+                console.log('this is res : ' + res.emailNumber);
+                sessionStorage.setItem("emailNumber", res.emailNumber);
             })
 
             fetch(ProcessorAPI.stringCallAPI(latitude,longitude), {   
@@ -53,7 +53,6 @@ class Loading extends Component {
                    })
                .then(response => response.json())
                .then(response => {
-                // console.log("this is "+ JSON.stringify(response));
                 let city = ProcessorAPI.extractCity(response);
                 let country = ProcessorAPI.extractCountry(response);
                 let organisedData = ProcessorAPI.organiseData(response);
@@ -70,9 +69,6 @@ class Loading extends Component {
     }
 
     render() {
-        // if (!myConstants.IS_LOGGED_IN) {
-        //     window.location = "/";
-        // }
         return (
             <div className='loading'>
                 <div className='graphics-container'>

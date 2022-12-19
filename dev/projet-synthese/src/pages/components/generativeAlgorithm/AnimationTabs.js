@@ -8,14 +8,12 @@ function handleOnClick(event) {
     }
 }
 
-const AnimationTabs = (props) => {
-
+const AnimationTabs = () => {
     return(
         <div className="animation-tabs">
-            <button className="dot" onClick={handleOnClick} name="LineRotationAlgorithm"></button>
+            <button className="dot" onClick={handleOnClick} name="PolygonAlgorithm"></button>
             <button className="dot" onClick={handleOnClick} name="TriangleBezierCollisionAlgorithm"></button>
             <button className="dot" onClick={handleOnClick} name="BreathingCircleAlgorithm"></button>
-            <button className="dot" onClick={handleOnClick} name="TestAlgorithm"></button>
         </div>
     );
         

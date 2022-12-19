@@ -1,11 +1,11 @@
-import React, { Component } from "react";
 import '../../../css/index.css'
 import '../../../css/forms.css'
+import React from "react";
 import Form from './Form'
-import * as myConstants from '../../constants.js'
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTriangleExclamation } from '@fortawesome/free-solid-svg-icons'
+import * as myConstants from '../../constants.js'
 
 class FormConnexion extends Form {
     constructor(props) {

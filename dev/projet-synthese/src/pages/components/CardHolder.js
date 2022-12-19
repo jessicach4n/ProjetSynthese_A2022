@@ -1,5 +1,5 @@
-import React, { Component } from "react";
 import '../../css/card.css'
+import React, { Component } from "react";
 import Card from "./Card";
 import * as myConstants from '../constants.js'
 

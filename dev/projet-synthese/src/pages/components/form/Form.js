@@ -1,6 +1,6 @@
-import React, { Component } from "react";
 import '../../../css/index.css'
 import '../../../css/forms.css'
+import React, { Component } from "react";
 
 export default class Form extends Component {
     constructor(props) {

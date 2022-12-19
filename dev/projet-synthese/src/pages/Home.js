@@ -1,8 +1,8 @@
-import { Link } from "react-router-dom";
 import '../css/index.css'
 import '../css/home.css'
 import '../css/shape.css'
 import '../css/about.css'
+import { Link } from "react-router-dom";
 
 function Home() {
   return (

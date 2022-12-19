@@ -1,4 +1,4 @@
-import ReactDOM from "react-dom/client";
+import '../css/index.css'
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Home from "./Home";
 import Login from "./Login";
@@ -10,7 +10,6 @@ import Animation from "./Animation"
 import Navigation from './components/Navigation';
 import Loading from "./Loading";
 import NotFound from "./NotFound";
-import '../css/index.css'
 import * as myConstants from './constants'
 
 function App() {

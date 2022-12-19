@@ -1,6 +1,6 @@
-import React, { Component } from "react";
 import '../css/index.css'
 import '../css/loading.css'
+import React, { Component } from "react";
 import { ProcessorAPI } from "./components/generativeAlgorithm/ProcessorAPI";
 import { ProrcessorVariables } from "./components/generativeAlgorithm/ProrcessorVariables";
 import * as myConstants from './constants'

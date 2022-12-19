@@ -1,9 +1,9 @@
-import React, { Component } from "react";
 import '../../css/index.css'
 import '../../css/profile.css'
-import * as myConstants from '../constants'
+import React, { Component } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUser, faMap } from '@fortawesome/free-regular-svg-icons'
+import * as myConstants from '../constants'
 
 class StatsUser extends Component {
     constructor(props) {

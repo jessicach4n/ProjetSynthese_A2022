@@ -14,7 +14,7 @@ class Settings extends Component {
         document.getElementById(buttonId).className = "shake";
         setTimeout(() => {
             document.getElementById(buttonId).classList.remove("shake");
-          }, 500);
+        }, 500);
     }
 
     handlePartage() {
@@ -31,7 +31,7 @@ class Settings extends Component {
         // REF : https://css-tricks.com/snippets/javascript/random-hex-color/
         let randomColor = 0;
         while (randomColor.length != 6) {
-            randomColor = Math.floor(Math.random()*16777215).toString(16);
+            randomColor = Math.floor(Math.random() * 16777215).toString(16);
         }
         let root = document.querySelector(":root");
         root.style.setProperty('--main-accent-color', '#' + randomColor)
@@ -43,25 +43,24 @@ class Settings extends Component {
         message.style.display = 'block';
         setTimeout(() => {
             message.style.display = 'none';
-          }, 1800);
+        }, 1800);
     }
 
     render() {
         let visibility = "hide";
-    
+
         if (this.props.menuVisibility) {
             visibility = "show";
         }
-    
+
         return (<div id="menu" className={visibility}>
-                <button id="fermer" onMouseDown={this.props.handleMouseDown}>Fermer</button>
-                <div id="messageContainer"></div>
-                <div className="buttonContainer">
-                    <button onMouseDown={this.toggleColor} ><FontAwesomeIcon icon={faCandyCane} className="icon"/> Surprise</button>
-                    <button onMouseDown={this.handlePartage} id="partage"><FontAwesomeIcon icon={faShare} className="icon"/> PARTAGER</button>
-                </div>
-                </div>);
-        
+            <button id="fermer" onMouseDown={this.props.handleMouseDown}>Fermer</button>
+            <div id="messageContainer"></div>
+            <div className="buttonContainer">
+                <button onMouseDown={this.toggleColor} ><FontAwesomeIcon icon={faCandyCane} className="icon" /> Surprise</button>
+                <button onMouseDown={this.handlePartage} id="partage"><FontAwesomeIcon icon={faShare} className="icon" /> PARTAGER</button>
+            </div>
+        </div>);
     }
 }
 

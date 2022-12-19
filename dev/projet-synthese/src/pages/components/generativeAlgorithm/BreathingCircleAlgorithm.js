@@ -13,7 +13,7 @@ export default class BreathingCircleAlgorithm extends GenerativeAlgorithm {
     }
 
     assignUserVariables(){
-        if(myConstants.IS_LOGGED_IN){
+        if(!myConstants.IS_LOGGED_IN){
             this.numberOfMemebers = 5;
             this.frequency = 0.5;
         }
@@ -40,7 +40,7 @@ export default class BreathingCircleAlgorithm extends GenerativeAlgorithm {
             const setup = (p5) => {
                 var cnv = p5.createCanvas(this.width, this.height);
                 this.canvas = cnv.canvas;
-                p5.frameRate(this.frameRate)
+                p5.frameRate(this.frameRate);
                 super.setup();
             }
             

@@ -19,10 +19,9 @@ function App() {
           <Route path="/" element={<Navigation />}>
             <Route index element={<Home/>} />
             <Route path="animation" element={<Animation/>} >
-              <Route path="LineRotationAlgorithm" element={<div/>}/>
+              <Route path="PolygonAlgorithm" element={<div/>}/>
               <Route path="TriangleBezierCollisionAlgorithm" element={<div/>}/>
               <Route path="BreathingCircleAlgorithm"  element={<div/>}/>
-              <Route path="TestAlgorithm" />
             </Route>
             <Route path="loading" element={<Loading />}/>
             <Route path="a-propos" element={<About />} />

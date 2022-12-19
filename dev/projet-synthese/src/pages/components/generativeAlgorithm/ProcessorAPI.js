@@ -1,7 +1,14 @@
+/* 
+Nom du fichier  : ProcessorAPI.js
+Description     : Processeur qui encapsule les fonctionalités
+                  reliés à l'utilisation de l'API.
+Auteur          : Sebastian Perez
+Autre étudiant  : Jessica Chan
+*/
 import * as myConstants from '../../constants'
 export class ProcessorAPI{
     static normalize(valueToNormalize, min, max ){
-        //? REF: https://www.statology.org/normalize-data-between-0-and-1/
+        // REF : https://www.statology.org/normalize-data-between-0-and-1/
         return (valueToNormalize-min)/(max-min);
     }
 

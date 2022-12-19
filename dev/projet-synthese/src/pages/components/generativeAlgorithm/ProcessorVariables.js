@@ -1,3 +1,10 @@
+/* 
+Nom du fichier  : ProcessorVariables.js
+Description     : Processeur qui encapsule les fonctionalités
+                  reliés aux manipulations des variables.
+Auteur          : Sebastian Perez
+Autre étudiant  : Jessica Chan
+*/
 import { ProcessorAPI } from './ProcessorAPI';
 import * as myConstants from '../../constants'
 export class ProcessorVariables{
@@ -12,7 +19,7 @@ export class ProcessorVariables{
     }
 
     static createInfluencedList(chance,nb_elements,max_value){
-        //? REF:https://www.w3schools.com/js/js_random.asp
+        // REF : https://www.w3schools.com/js/js_random.asp
         let list = [];
         while (list.length<nb_elements){
             let diceRoll = Math.random();

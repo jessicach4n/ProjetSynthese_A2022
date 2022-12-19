@@ -1,9 +1,17 @@
+/* 
+Nom du fichier  : ProcessorBezier.js
+Description     : Processeur qui encapsule les fonctionalités
+                  reliés au TriangleBezierCollisionAlgorithm
+                  et aux courbes de Bézier.
+Auteur          : Sebastian Perez
+Autre étudiant  : Jessica Chan
+*/
 import { MyAwesomeQueue } from './MyAwesomeQueue';
 import { MyAwesomeStack } from './MyAwesomeStack';
 import { GenerativeAlgorithm } from './GenerativeAlgorithm';
 import { ProcessorVariables } from './ProcessorVariables';
 
-export class ProcessorBezier  extends GenerativeAlgorithm{
+export class ProcessorBezier extends GenerativeAlgorithm{
   constructor() {
     super()
     this.members = [];

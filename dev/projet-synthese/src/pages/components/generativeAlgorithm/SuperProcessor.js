@@ -1,5 +1,10 @@
-import {ProcessorSin} from './ProcessorSin';
-import {ProcessorCos} from './ProcessorCos';
+/* 
+Nom du fichier  : SuperProcessor.js
+Description     : Processeur pour lequel ses parametres 
+                  sont générés par l'entremise d'autres processeurs.
+Auteur          : Sebastian Perez
+Autre étudiant  : Jessica Chan
+*/
 export class SuperProcessor{
     constructor(processorAmp, Processorfreq, ProcessorOffset , ProcessorPhase) {
       this.amplitude = processorAmp;

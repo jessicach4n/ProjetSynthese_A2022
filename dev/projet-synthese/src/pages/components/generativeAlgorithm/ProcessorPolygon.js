@@ -1,8 +1,15 @@
+/* 
+Nom du fichier  : ProcessorPolygon.js
+Description     : Processeur qui encapsule les fonctionalités
+                  reliés au Polygon Algorithm
+Auteur          : Sebastian Perez
+Autre étudiant  : Jessica Chan
+*/
 import { ProcessorSin } from './ProcessorSin';
 import { ProcessorCos } from './ProcessorCos';
 import { GenerativeAlgorithm } from './GenerativeAlgorithm';
 
-export class ProcessorPolygon  extends GenerativeAlgorithm{
+export class ProcessorPolygon extends GenerativeAlgorithm{
     constructor() {
       super()
       this.members = [];

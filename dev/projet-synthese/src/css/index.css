@@ -66,6 +66,7 @@ nav.header-menu ul li {
     margin-left: 2vw;
     align-self: center;
     border: none;
+    cursor: pointer;
 }
 
 /* REF : https://www.sliderrevolution.com/resources/css-border-animation/ */

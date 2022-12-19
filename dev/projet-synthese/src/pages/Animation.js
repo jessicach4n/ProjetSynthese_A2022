@@ -1,3 +1,10 @@
+/* 
+Nom du fichier  : Animation.js
+Description     : Composant React de la page 'Animation'.
+Auteur          : Jessica Chan
+Autre étudiant  : Sebastian Perez 
+*/
+
 import '../css/index.css'
 import '../css/settings.css'
 import SettingsContainer from './components/slidingMenu/SettingsContainer';

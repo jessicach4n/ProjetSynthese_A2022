@@ -1,3 +1,10 @@
+/* 
+Nom du fichier  : Loading.js
+Description     : Composant React de la page 'Loading'. Il sert à la récupération des données 
+                  externes dont l'appel à l'API et les coordonnées de l'utilisateur par le navigateur.
+Auteur          : Jessica Chan, Sebastian Perez 
+*/
+
 import '../css/index.css'
 import '../css/loading.css'
 import React, { Component } from "react";
@@ -23,6 +30,7 @@ class Loading extends Component {
     }
 
     error(){
+        // Montreal coordinates
         this.latitude = 45.501690
         this.longitude = -73.567253
         this.callAPi()

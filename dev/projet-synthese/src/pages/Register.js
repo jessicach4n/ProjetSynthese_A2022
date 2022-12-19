@@ -1,3 +1,10 @@
+/* 
+Nom du fichier  : Register.js
+Description     : Composant React de la page 'Inscription'.
+Auteur          : Jessica Chan
+Autre étudiant  : Sebastian Perez 
+*/
+
 import '../css/index.css'
 import FormRegister from './components/form/FormRegister'
 

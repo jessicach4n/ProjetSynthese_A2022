@@ -1,3 +1,10 @@
+/* 
+Nom du fichier  : Navigation.js
+Description     : Classe représentant l'objet de navigation du site web et sa logique.
+Auteur          : Jessica Chan
+Autre étudiant  : Sebastian Perez 
+*/
+
 import '../../css/index.css';
 import { Outlet, Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'

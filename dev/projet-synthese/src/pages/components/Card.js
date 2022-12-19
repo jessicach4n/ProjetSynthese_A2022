@@ -1,3 +1,11 @@
+/* 
+Nom du fichier  : Card.js
+Description     : Classe représentant un objet carte contenant une vidéo 
+                  et les informations liées.
+Auteur          : Jessica Chan
+Autre étudiant  : Sebastian Perez 
+*/
+
 import '../../css/card.css'
 import React, { Component } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'

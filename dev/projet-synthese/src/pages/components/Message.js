@@ -1,12 +1,16 @@
+/* 
+Nom du fichier  : Message.js
+Description     : Classe représentant un objet message à afficher lors de l'enregistrement de l'animation.
+Auteur          : Jessica Chan
+Autre étudiant  : Sebastian Perez 
+*/
+
 import '../../css/message.css'
 import React, { Component } from "react";
 
 class Message extends Component {
     constructor(props) {
       super(props);
-      this.username = props.username;
-      this.city = props.city;
-      this.timestamp = props.timestamp;
     }
 
     componentDidMount() {

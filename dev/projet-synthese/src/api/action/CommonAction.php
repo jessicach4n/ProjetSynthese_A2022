@@ -6,7 +6,11 @@
     // Auteur          : Jessica Chan
     // Autre étudiant  : Sebastian Perez
 
-    session_id($_POST['session_id']);
+    $currentSessionId = null;
+    if (!empty($_POST['session_id'])) {
+        $currentSessionId = $_POST['session_id'];
+    }
+    session_id($currentSessionId);
     session_start();
 
     abstract class CommonAction {

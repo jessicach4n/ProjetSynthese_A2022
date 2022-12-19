@@ -7,7 +7,27 @@ class Settings extends Component {
         super(props);
         this.showMessage = this.showMessage.bind(this);
         this.handlePartage = this.handlePartage.bind(this);
-        this.shake = this.shake.bind(this)
+        this.shake = this.shake.bind(this);
+        this.enableButton = this.enableButton.bind(this);
+        this.disableButton = this.disableButton.bind(this);
+    }
+
+    componentDidMount() {
+        document.addEventListener('recordingDone', () => {
+            this.enableButton()
+        });
+    }
+
+    enableButton() {
+        document.getElementById('partage').disabled = false;
+        document.getElementById('partage').style.opacity = 1;
+        document.getElementById('partage').style.cursor = 'pointer';
+    }
+
+    disableButton() {
+        document.getElementById('partage').disabled = true;
+        document.getElementById('partage').style.opacity = 0.5;
+        document.getElementById('partage').style.cursor = 'default';
     }
 
     shake(buttonId) {
@@ -17,9 +37,20 @@ class Settings extends Component {
         }, 500);
     }
 
+    showMessage() {
+        let message = document.getElementById("messageContainer");
+        message.innerText = "Cette action requiert un compte";
+        message.style.display = 'block';
+        setTimeout(() => {
+            message.style.display = 'none';
+        }, 1800);
+    }
+
     handlePartage() {
         if (window.sessionStorage.getItem('session_id') != null) {
+            console.log('click');
             document.dispatchEvent(new Event('startRecording'));
+            this.disableButton()
         }
         else {
             this.shake('partage');
@@ -35,15 +66,6 @@ class Settings extends Component {
         }
         let root = document.querySelector(":root");
         root.style.setProperty('--main-accent-color', '#' + randomColor)
-    }
-
-    showMessage() {
-        let message = document.getElementById("messageContainer");
-        message.innerText = "Cette action requiert un compte";
-        message.style.display = 'block';
-        setTimeout(() => {
-            message.style.display = 'none';
-        }, 1800);
     }
 
     render() {

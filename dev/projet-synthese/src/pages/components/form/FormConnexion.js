@@ -1,5 +1,5 @@
 /* 
-Nom du fichier  : Form.js
+Nom du fichier  : FormConnexion.js
 Description     : Composant React et sous-classe de Form, contient le formulaire de connexion.
 Auteur          : Jessica Chan
 Autre étudiant  : Sebastian Perez 

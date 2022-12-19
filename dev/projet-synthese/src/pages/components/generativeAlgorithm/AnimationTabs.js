@@ -1,5 +1,5 @@
 /* 
-Nom du fichier  : Form.js
+Nom du fichier  : AnimationTabs.js
 Description     : Navigation entre les algorithmes d'animation
 Auteur          : Jessica Chan
 Autre étudiant  : Sebastian Perez 

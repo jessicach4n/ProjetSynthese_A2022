@@ -5,6 +5,7 @@ Description     : Super classe de toutes les animations
 Auteur          : Sebastian Perez
 Autre étudiant  : Jessica Chan
 */
+
 import { Component } from "react";
 import { VideoRecorder } from '../videoRecorder/VideoRecorder';
 //? REF : https://codesandbox.io/s/k09k8knxz5
@@ -33,13 +34,9 @@ export class GenerativeAlgorithm extends Component{
         });
     }
 
-    
-
     setup(){
         this.videoRecorder = new VideoRecorder(this.quality, this.frameRate, this.canvas);
     }
-    
-
 
     draw(){
         if (this.state.isRecording) {

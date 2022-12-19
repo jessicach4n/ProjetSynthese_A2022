@@ -2,7 +2,7 @@ import '../css/index.css'
 import '../css/loading.css'
 import React, { Component } from "react";
 import { ProcessorAPI } from "./components/generativeAlgorithm/ProcessorAPI";
-import { ProrcessorVariables } from "./components/generativeAlgorithm/ProrcessorVariables";
+import { ProcessorVariables } from "./components/generativeAlgorithm/ProcessorVariables";
 import * as myConstants from './constants'
 
 class Loading extends Component {
@@ -57,9 +57,9 @@ class Loading extends Component {
                 let city = ProcessorAPI.extractCity(response);
                 let country = ProcessorAPI.extractCountry(response);
                 let organisedData = ProcessorAPI.organiseData(response);
-                let choices = ProrcessorVariables.createChoices(organisedData);
-                let cycleNumberOfMembers = ProrcessorVariables.createCycleNumberOfMembers(choices);
-                let breathingNumberOfMembers = ProrcessorVariables.initialization(choices);
+                let choices = ProcessorVariables.createChoices(organisedData);
+                let cycleNumberOfMembers = ProcessorVariables.createCycleNumberOfMembers(choices);
+                let breathingNumberOfMembers = ProcessorVariables.initialization(choices);
                 sessionStorage.setItem("breathingNumberOfMembers", breathingNumberOfMembers)
                 sessionStorage.setItem("cycleNumberOfMembers", cycleNumberOfMembers);
                 sessionStorage.setItem("city", city);

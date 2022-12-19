@@ -1,6 +1,6 @@
 import { ProcessorAPI } from './ProcessorAPI';
 import * as myConstants from '../../constants'
-export class ProrcessorVariables{
+export class ProcessorVariables{
    
     static pickVariable(options, emailNumber){
         if(!Array.isArray(options)){

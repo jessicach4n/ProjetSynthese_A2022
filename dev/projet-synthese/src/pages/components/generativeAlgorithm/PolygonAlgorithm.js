@@ -1,7 +1,5 @@
 import { GenerativeAlgorithm } from './GenerativeAlgorithm';
 import Sketch from "react-p5";
-import {ProcessorSin} from './ProcessorSin';
-import {ProcessorCos} from './ProcessorCos';
 import { ProcessorPolygon } from './ProcessorPolygon';
 import * as myConstants from '../../constants';
 
@@ -13,7 +11,7 @@ export default class PolygonAlgorithm extends GenerativeAlgorithm {
     }
 
     assignUserVariables(){
-        if(myConstants.IS_LOGGED_IN){
+        if(!myConstants.IS_LOGGED_IN){
             this.chance = 0.5;
         }
         else {

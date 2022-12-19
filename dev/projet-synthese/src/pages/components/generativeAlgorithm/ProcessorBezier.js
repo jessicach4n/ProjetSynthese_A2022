@@ -1,7 +1,7 @@
 import { MyAwesomeQueue } from './MyAwesomeQueue';
 import { MyAwesomeStack } from './MyAwesomeStack';
 import { GenerativeAlgorithm } from './GenerativeAlgorithm';
-import { ProrcessorVariables } from './ProrcessorVariables';
+import { ProcessorVariables } from './ProcessorVariables';
 
 export class ProcessorBezier  extends GenerativeAlgorithm{
   constructor() {
@@ -51,7 +51,7 @@ export class ProcessorBezier  extends GenerativeAlgorithm{
 
     addMembers(memberNumber, currentX = 0, currentY = 0){
       for(let i = 0 ; i < memberNumber ; i++){
-        let color = ProrcessorVariables.choose(this.colorChoices);       
+        let color = ProcessorVariables.choose(this.colorChoices);       
         let ball = {x: currentX, y: currentY, p2x: 150, p2y: 150, color: color};
         this.members.push(ball);
       }

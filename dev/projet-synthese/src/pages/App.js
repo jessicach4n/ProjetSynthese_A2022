@@ -23,7 +23,7 @@ function App() {
               <Route path="TriangleBezierCollisionAlgorithm" element={<div/>}/>
               <Route path="BreathingCircleAlgorithm"  element={<div/>}/>
             </Route>
-            <Route path="loading" element={<Loading />}/>
+            <Route path="loading" element={myConstants.IS_LOGGED_IN ? (<Loading />) : (<Navigate replace to={"/"}/>)}/>
             <Route path="a-propos" element={<About />} />
             <Route path="partages" element={myConstants.IS_LOGGED_IN ? (<Shares />) : (<Navigate replace to={"/"}/>)} />
             <Route path="profil" element={myConstants.IS_LOGGED_IN ? (<Profile />) : (<Navigate replace to={"/"}/>)} />

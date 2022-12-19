@@ -9,9 +9,6 @@ import '../../css/message.css'
 import React, { Component } from "react";
 
 class Message extends Component {
-    constructor(props) {
-      super(props);
-    }
 
     componentDidMount() {
       document.addEventListener('startRecording', () => {

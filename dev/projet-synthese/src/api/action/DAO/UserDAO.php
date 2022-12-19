@@ -5,20 +5,17 @@
         public static function authenticate($username, $passwd) {
             $connection = Connection::getConnection();
 
-            $statement = $connection->prepare("SELECT COUNT(*) FROM usagers WHERE nom_utilisateur = ? and mot_de_passe = ?");
+            $statement = $connection->prepare("SELECT mot_de_passe FROM usagers WHERE nom_utilisateur = ?");
             $statement->bindParam(1, $username);
-            $statement->bindParam(2, $passwd);
             
             $statement->setFetchMode(PDO::FETCH_ASSOC);
             $statement->execute();
 
             $answer = $statement->fetchAll();
+            error_log($answer[0]['mot_de_passe']);
+
             
-            if ($answer[0]['count']) {
-                $_SESSION["username"] = $username;
-                return 1;
-            }
-            return 0;
+            return password_verify($passwd, $answer[0]['mot_de_passe']);
         }
 
         public static function getEmailNumber($username) {

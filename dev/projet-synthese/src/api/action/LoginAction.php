@@ -9,19 +9,20 @@
 		}
 
 		protected function executeAction() {
-			$connectionError = False;
+			$connectionError = True;
 	
 			if(!empty($_POST["username"]) && !empty($_POST["passwd"])){
 				$username = $_POST["username"];
 				$password = $_POST["passwd"];
 				
-				if(UserDAO::authenticate($username, $password) == 1){
+				if(UserDAO::authenticate($username, $password)){
 					$_SESSION["visibility"] = CommonAction::$VISIBILITY_MEMBER;
 					$_SESSION["username"] = $username;
+					$connectionError = False;
 				}
 			}
 			
-			return compact();
+			return compact('connectionError');
 		}
 
 	}

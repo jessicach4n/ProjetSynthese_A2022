@@ -23,12 +23,20 @@
 					$password = $_POST["passwd"];
 					$unixTime = strtotime($_POST['DoB']);
 					$DoB = date('n-j-Y', $unixTime);
-					$emailNumber = EmailNumberGenerator:: generateEmailNumber($email, $unixTime);;
-					if(RegisterDAO::setNewUSer($lastName, $firstName, $username, $password, $DoB, $email, $emailNumber)){
-						$registerSuccess = true;
+					$emailNumber = EmailNumberGenerator::generateEmailNumber($email, $unixTime);
+					
+					try {
+						if (RegisterDAO::setNewUSer($lastName, $firstName, $username, $password, $DoB, $email, $emailNumber)) {
+							$registerSuccess = true;
+						}
 					}
-					else {
-						$errorMessage = "Cannont create user";
+					catch (PDOException $e){
+						if ($e->getCode() == '23505') {
+							$errorMessage = "Votre nom d'utilisateur ou votre email existe déjà, veuillez réessayer";
+						}
+						else {
+							error_log($e);
+						}
 					}
 				}
 				else {

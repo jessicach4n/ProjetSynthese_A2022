@@ -1,11 +1,10 @@
-import React, { Component } from "react";
+import React from "react";
 import '../../../css/index.css'
 import '../../../css/forms.css'
 import Form from './Form'
 import * as myConstants from '../../constants.js'
 
 // REF : https://reactjs.org/docs/forms.html
-
 class FormRegister extends Form {
     constructor(props) {
       super(props);
@@ -49,7 +48,6 @@ class FormRegister extends Form {
       .then(res => {
         this.success = res.registerSuccess;
         this.errorMessage = res.errorMessage;
-        console.log(this.errorMessage)
         this.handleRegister();
       })
     }

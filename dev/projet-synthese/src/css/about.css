@@ -5,14 +5,29 @@ Auteur          : Jessica Chan
 Autre étudiant  : Sebastian Perez 
 */
 
-p {
+div.about {
+    margin-bottom: 8vw;
+}
+
+article {
     columns: 2;
     column-gap: 5vw;
     line-height: 20px;
 }
 
-span {
+p {
+    margin-top: 0;
+}
+
+.auteurs {
+    margin-top: 2vw;
     color: var(--main-accent-color);
     font-family: var(--display-font);
     float: right;
+}
+
+span {
+    color: var(--main-accent-color);
+    font-family: var(--display-font);
+    font-size: 1.2vw;
 }

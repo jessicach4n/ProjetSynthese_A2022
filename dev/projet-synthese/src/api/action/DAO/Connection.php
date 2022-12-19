@@ -1,4 +1,9 @@
 <?php
+    // Nom du fichier  : Connection.php
+    // Description     : Classe statique permettant d'effectuer une connection avec la base de données.
+    // Auteur          : Sebastian Perez
+    // Autre étudiant  : Jessica Chan
+
     require_once("action/constants.php");
         
     class Connection {

@@ -1,6 +1,12 @@
 <?php
+    // Nom du fichier  : emailNumberGenerator.php
+    // Description     : Classe générant un chiffre email
+    // Auteurs         : Sebastian Perez
+    // Autre étudiant  : Jessica Chan
+
     #REF : https://www.tutorialkart.com/php/php-get-ascii-value-of-a-character/#:~:text=PHP%20%E2%80%93%20Get%20ASCII%20Value%20of,value%20between%200%20and%20255.
     #REF : https://www.tutorialkart.com/php/php-loop-through-characters-in-string/
+    
     class EmailNumberGenerator {
         private static $connection = null;
         

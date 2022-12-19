@@ -1,4 +1,9 @@
 <?php
+    // Nom du fichier  : RegisterAction.php
+    // Description     : Classe exécutant l'appel au RegisterDAO pour l'enregistrement d'un usager à l'inscription.
+    // Auteur          : Jessica Chan
+    // Autre étudiant  : Sebastian Perez
+
 	require_once("action/CommonAction.php");
 	require_once("action/DAO/RegisterDAO.php");
 	require_once("action/emailNumberGenerator.php");
@@ -15,7 +20,7 @@
 
 			if(!empty($_POST["DoB"])){
 				#REF : https://stackoverflow.com/questions/13392842/using-php-regex-to-validate-username
-				if (preg_match('/^\w{5,30}$/', $_POST["username"] , $tabUsername )){
+				if (preg_match('/^\w{5,30}$/', $_POST["username"] , $tabUsername)){
 					$username = $_POST["username"];
 					$lastName = $_POST["lastName"];
 					$firstName = $_POST["firstName"];

@@ -1,4 +1,10 @@
 <?php
+    // Nom du fichier  : ProfileAction.php
+    // Description     : Classe appelant le UserDAO pour récupérer les ids des animations appartenant à l'usager courant, 
+	//					 les informations de ces animations et le nombre total d'animations partagées de la BD.
+    // Auteur          : Jessica Chan
+    // Autre étudiant  : Sebastian Perez
+
 	require_once("action/CommonAction.php");
 	require_once("action/DAO/UserDAO.php");
 

@@ -1,3 +1,10 @@
+/* 
+Nom du fichier  : card.css
+Description     : Fichier CSS contenant les styles liés aux cartes des pages 'Partages' et 'Profil'
+Auteur          : Jessica Chan
+Autre étudiant  : Sebastian Perez 
+*/
+
 .cards {
     display: flex;
     flex-direction: row;

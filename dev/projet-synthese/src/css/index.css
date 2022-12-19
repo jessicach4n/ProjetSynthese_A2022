@@ -1,3 +1,10 @@
+/* 
+Nom du fichier  : index.css
+Description     : Fichier CSS contenant les styles communs à l'ensemble du site
+Auteur          : Jessica Chan
+Autre étudiant  : Sebastian Perez 
+*/
+
 :root {
     --main-dark-color : #000000;
     --main-light-color : white;

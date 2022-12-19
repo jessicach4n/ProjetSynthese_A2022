@@ -1,4 +1,9 @@
 <?php
+	// Nom du fichier  : AnimationAction.php
+	// Description     : Classe exécutant des appels au UserDAO pour ajouter une animation à la BD et obtenir le numéro d'email.
+	// Auteur          : Jessica Chan
+	// Autre étudiant  : Sebastian Perez
+
 	require_once("action/CommonAction.php");
 	require_once("action/DAO/UserDAO.php");
 

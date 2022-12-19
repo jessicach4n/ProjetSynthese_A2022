@@ -1,4 +1,9 @@
 <?php
+    // Nom du fichier  : LoginAction.php
+    // Description     : Classe faisant appel au UserDAO pour exécuter l'authentification de l'usager à la connexion.
+    // Auteur          : Jessica Chan
+    // Autre étudiant  : Sebastian Perez
+
 	require_once("action/CommonAction.php");
 	require_once("action/DAO/UserDAO.php");
 

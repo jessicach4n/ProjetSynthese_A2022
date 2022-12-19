@@ -24,7 +24,6 @@ class StatsUser extends Component {
       }) 
       .then(res => res.json())
       .then(res => {
-        console.log(res.count);
         this.setState({count: res.count})
       })
     }

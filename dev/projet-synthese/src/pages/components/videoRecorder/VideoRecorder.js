@@ -25,7 +25,7 @@ export class VideoRecorder extends WebMWriter {
             }
 
         } catch (error) {
-            console.log("Abort download")
+            console.log(error)
         }
     }
 

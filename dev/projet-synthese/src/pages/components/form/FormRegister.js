@@ -1,5 +1,5 @@
 /* 
-Nom du fichier  : Form.js
+Nom du fichier  : FormRegister.js
 Description     : Composant React et sous-classe de Form, contient le formulaire d'inscription.
 Auteur          : Jessica Chan
 Autre étudiant  : Sebastian Perez 

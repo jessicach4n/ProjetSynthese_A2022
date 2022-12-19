@@ -1,3 +1,11 @@
+/* 
+Nom du fichier  : Settings.js
+Description     : Composant React contenant le menu glissant de la page 'Animation' incluant deux boutons 
+                  dont l'un est le bouton de partage.
+Auteur          : Jessica Chan
+Autre étudiant  : Sebastian Perez 
+*/
+
 import React, { Component } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faShare, faCandyCane } from '@fortawesome/free-solid-svg-icons'

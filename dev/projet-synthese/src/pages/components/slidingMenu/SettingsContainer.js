@@ -1,3 +1,10 @@
+/* 
+Nom du fichier  : SettingsContainer.js
+Description     : Composant React contenant le Composant React du menu glissant et le bouton options de la page 'Animation'
+Auteur          : Jessica Chan
+Autre étudiant  : Sebastian Perez 
+*/
+
 // REF : https://reactjs.org/docs/add-react-to-a-website.html
 // REF : https://www.kirupa.com/react/smooth_sliding_menu_react_motion.htm
 // REF : https://rajdeep-das.medium.com/how-to-add-react-to-an-existing-website-or-web-project-11b598f989d3

@@ -1,3 +1,11 @@
+/* 
+Nom du fichier  : VideoRecorder.js
+Description     : Classe servant de conteneur pour la librairie WebMWritter permettant l'enregistrement des animations d'un canvas.
+                  Cette classe s'occupe aussi d'envoyer au backend l'enregistrement de la vidéo sous forme de Blob po
+Auteur          : Jessica Chan
+Autre étudiant  : Sebastian Perez 
+*/
+
 import WebMWriter from "webm-writer";
 import * as myConstants from '../../constants.js'
 

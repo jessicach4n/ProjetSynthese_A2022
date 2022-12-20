@@ -6,6 +6,8 @@
     // Auteur          : Jessica Chan
     // Autre étudiant  : Sebastian Perez
 
+    error_reporting(E_ERROR | E_PARSE); // Pour compatibilité avec le mode développeur
+
     $currentSessionId = null;
     if (!empty($_POST['session_id'])) {
         $currentSessionId = $_POST['session_id'];

@@ -99,7 +99,6 @@
             $statement->execute();
 
             $answer = $statement->fetchAll();
-            error_log($answer);
 
             return $answer[0]['count'];
         }

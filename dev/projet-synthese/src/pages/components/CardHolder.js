@@ -38,7 +38,6 @@ class CardHolder extends Component {
             this.ids = res.response;
             let cards = [];
             this.ids.forEach((id) => {   
-                // cards.push(<Card key={id} username={id} video={id}/>)
                 let formData = new FormData();
                 formData.append("action", myConstants.GET_ANIMATION_INFO);
                 formData.append("id", id);

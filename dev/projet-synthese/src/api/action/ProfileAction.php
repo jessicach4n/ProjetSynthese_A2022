@@ -15,6 +15,8 @@
 		}
 
 		protected function executeAction() {
+			$response = null;
+			$count = null;
 
 			if($_POST["action"] == "GET_IDS") {
 				$response = UserDAO::getUserAnimationIds($_SESSION["username"]);

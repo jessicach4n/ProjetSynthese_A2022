@@ -4,8 +4,8 @@ Description     : Fichier comportant des constantes utiles au projet.
 Auteurs         : Jessica Chan, Sebastian Perez 
 */
 
-export const HOST = 'http://localhost:8888';
-
+// export const HOST = 'http://localhost:8888'; À utiliser pour tester le site web localement
+export const HOST = '';
 export const GET_IDS = "GET_IDS";
 export const GET_ANIMATION = "GET_ANIMATION";
 export const GET_ANIMATION_INFO = "GET_ANIMATION_INFO";

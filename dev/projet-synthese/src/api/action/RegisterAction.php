@@ -5,7 +5,7 @@
     // Autre étudiant  : Sebastian Perez
 
 	require_once("action/CommonAction.php");
-	require_once("action/DAO/RegisterDAO.php");
+	require_once("action/DAO/RegisterDao.php");
 	require_once("action/emailNumberGenerator.php");
 
 	class RegisterAction extends CommonAction {

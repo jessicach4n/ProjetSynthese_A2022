@@ -1,3 +1,12 @@
+/* 
+Nom du fichier  : App.js
+Description     : Composant React contentant les routes du site web. 
+                  L'App est l'application entière du site web. 
+                  L'App est un composant obligatoire à la création d'une application React.
+Auteur          : Jessica Chan
+Autre étudiant  : Sebastian Perez 
+*/
+
 import '../css/index.css'
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Home from "./Home";
@@ -11,14 +20,6 @@ import Navigation from './components/Navigation';
 import Loading from "./Loading";
 import NotFound from "./NotFound";
 import * as myConstants from './constants'
-/* 
-Nom du fichier  : App.js
-Description     : Composant React contentant les routes du site web. 
-                  L'App est l'application entière du site web. 
-                  L'App est un composant obligatoire à la création d'une application React.
-Auteur          : Jessica Chan
-Autre étudiant  : Sebastian Perez 
-*/
 
 function App() {
   return (

@@ -25,7 +25,7 @@ npm i webm-writer
 
 
 ## Utilisation 
-### Pour un démarrage dans l'environnement développeur
+### Pour un démarrage dans l'environnement développeur à partir de VSCode
 - Démarrer le backend avec WAMP ou MAMP pointant sur le dossier **dev/projet-synthese/src/api**
 - Se connecter à la base de données 
 - Dans le terminal, se déplacer dans le dossier **dev/projet-synthese** 

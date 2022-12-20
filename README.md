@@ -34,10 +34,10 @@ npm i webm-writer
 npm start
 ```
 ### Pour accéder au site web en ligne 
-- À partir d'une adresse IP valide comme l'adresse IP du cégep, entrer dans l'URL l'IP :
-```
-3.17.148.76
-```
+- À partir d'une adresse IP valide comme l'adresse IP du cégep, entrer dans l'URL :
+
+[3.17.148.76](http://3.17.148.76/)
+
 
 ## References
 ### PHP

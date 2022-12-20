@@ -25,6 +25,7 @@ npm i webm-writer
 
 
 ## Utilisation 
+### Pour un démarrage dans l'environnement développeur
 - Démarrer le backend avec WAMP ou MAMP pointant sur le dossier **dev/projet-synthese/src/api**
 - Se connecter à la base de données 
 - Dans le terminal, se déplacer dans le dossier **dev/projet-synthese** 
@@ -32,7 +33,11 @@ npm i webm-writer
 ```
 npm start
 ```
-
+### Pour accéder au site web en ligne 
+- À partir d'une adresse IP valide comme l'adresse IP du cégep, entrer dans l'URL l'IP :
+```
+3.17.148.76
+```
 
 ## References
 ### PHP

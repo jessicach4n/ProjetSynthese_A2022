@@ -1,13 +1,27 @@
 # Projet synthèse A2022-IN : Générateur d'art météorologique
 __Membres de l'équipe__ : Jessica Chan et Sebastian Perez
-## Sommare 
-Le Générateur d'art météorologique crée des animations en fonction de la météo de l'usager.
+## Sommaire 
+Le Générateur d'art météorologique crée des animations en fonction de la météo.
 
-## Installations
-- node.js
-- npm 
-- npm p5 module 
-- npm modules heres  
+## Installations des dépendances du projet
+### FontAwesome
+```
+npm i --save @fortawesome/fontawesome-svg-core
+npm i --save @fortawesome/free-solid-svg-icons
+npm i --save @fortawesome/free-regular-svg-icons
+```
+### react-p5
+```
+npm i --save react-p5
+```
+### react-router-dom
+```
+npm i react-router-dom
+```
+### webm-writer
+```
+npm i webm-writer
+```
 
 
 ## Utilisation 
@@ -32,7 +46,7 @@ npm start
 ### Javascript
 - REF : https://www.kirupa.com/react/smooth_sliding_menu_react_motion.htm 
 - REF : https://reactjs.org/docs/react-component.html#componentdidmount
-- REF : https://www.geeksforgeeks.org/whats-the-difference-between-super-and-superprops-in-react/#:~:text=Super()%3A%20It%20is%20used,from%20one%20component%20to%20another.
+- REF : https://www.geeksforgeeks.org/whats-the-difference-between-super-and-superprops-in-react/#:~:text=Super()%3A%20It%20is%20used,from%20one%20component%20to%20another
 - REF : https://www.pluralsight.com/guides/react.js-br-tag-and-ajax-request
 - REF : https://reactjs.org/docs/forms.html
 - REF : https://github.com/processing/p5.js/wiki/Global-and-instance-mode

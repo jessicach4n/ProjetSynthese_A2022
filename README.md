@@ -38,6 +38,10 @@ npm start
 
 [3.17.148.76](http://3.17.148.76/)
 
+**UPDATE 20 décembre 2022 : Accéder au site web par l'adresse suivante en raison du pare-feu de l'école :**
+
+http://ec2-3-17-148-76.us-east-2.compute.amazonaws.com/
+
 
 ## References
 ### PHP
